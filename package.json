@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "aplayer": "^1.10.1",
+    "shortcodes": "^1.0.0"
+  }
+}
