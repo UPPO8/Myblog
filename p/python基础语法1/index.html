@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="引言 Python作者：Guido von Rossum(吉多·范·罗苏姆)\n诞生时期：1991年，第一个Python解释器诞生.它是用C语言实现的，并能够调用C语言的库文件.\n">
+<title>Python基础语法1</title>
+
+<link rel='canonical' href='https://UPPO8.github.io/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%951/'>
+
+<link rel="stylesheet" href="/Mybolg/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Python基础语法1">
+<meta property='og:description' content="引言 Python作者：Guido von Rossum(吉多·范·罗苏姆)\n诞生时期：1991年，第一个Python解释器诞生.它是用C语言实现的，并能够调用C语言的库文件.\n">
+<meta property='og:url' content='https://UPPO8.github.io/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%951/'>
+<meta property='og:site_name' content='UPPO Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-09-30T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-09-30T00:00:00&#43;00:00'/><meta property='og:image' content='https://UPPO8.github.io/Mybolg/images/PythonCourse/write-plan.jpg' />
+<meta name="twitter:title" content="Python基础语法1">
+<meta name="twitter:description" content="引言 Python作者：Guido von Rossum(吉多·范·罗苏姆)\n诞生时期：1991年，第一个Python解释器诞生.它是用C语言实现的，并能够调用C语言的库文件.\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://UPPO8.github.io/Mybolg/images/PythonCourse/write-plan.jpg' />
+    <link rel="shortcut icon" href="/1828643.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/Mybolg/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/Mybolg/img/100_hu17204809037550521928.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😊</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/Mybolg">UPPO Blog</a></h1>
+            <h2 class="site-description">欢迎来到UPPO的博客</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/402008155'
+                        target="_blank"
+                        title="BiliBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg class="icon" style="width: 1em;height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1385"><path d="M125.258667 395.2c-14.016 105.909333-6.4 234.293333-0.277334 337.504l0.021334 0.234667c3.413333 57.450667 28.405333 101.322667 72.277333 126.912 33.429333 19.498667 70.538667 25.109333 105.642667 28.266666 42.261333 3.808 120.736 7.861333 214.4 7.882667 93.685333-0.021333 172.16-4.085333 214.410666-7.893333 35.114667-3.146667 72.213333-8.757333 105.653334-28.266667 43.872-25.578667 68.864-69.461333 72.288-126.901333V732.8c6.133333-103.232 13.76-231.669333-0.277334-337.6-13.866667-104.864-91.274667-135.264-131.008-136.810667a3286.506667 3286.506667 0 0 0-106.026666-5.258666c9.813333-10.997333 25.898667-30.058667 37.525333-49.109334q17.888-29.301333-11.093333-53.717333-14.613333-12.448-28.405334-11.584-15.306667 0.96-29.578666 18.293333c-20.437333 24.832-49.973333 72.16-63.306667 94.005334a4644.352 4644.352 0 0 0-51.072-0.277334l-69.28 0.277334c-13.333333-21.845333-42.858667-69.173333-63.306667-94.005334q-14.282667-17.333333-29.578666-18.293333-13.781333-0.853333-28.394667 11.584-28.992 24.416-11.114667 53.717333c11.637333 19.050667 27.712 38.112 37.525334 49.109334-35.370667 1.173333-70.72 2.933333-106.026667 5.258666-39.722667 1.536-117.12 31.946667-130.997333 136.810667z" fill="#FFFFFF" p-id="1386"></path><path d="M124.981333 732.704c-6.122667-103.210667-13.738667-231.594667 0.277334-337.504 13.866667-104.864 91.274667-135.264 130.997333-136.810667 35.306667-2.325333 70.656-4.085333 106.026667-5.258666-9.813333-10.997333-25.888-30.058667-37.525334-49.109334q-17.888-29.301333 11.114667-53.717333 14.613333-12.437333 28.394667-11.584 15.296 0.96 29.578666 18.293333c20.448 24.832 49.973333 72.16 63.306667 94.005334l69.28-0.277334c17.28 0 34.293333 0.106667 51.072 0.277334 13.333333-21.845333 42.869333-69.173333 63.306667-94.005334q14.272-17.333333 29.578666-18.293333 13.781333-0.853333 28.405334 11.584 28.981333 24.416 11.093333 53.717333c-11.626667 19.050667-27.701333 38.112-37.514667 49.109334 36.928 1.258667 72.341333 3.008 106.026667 5.258666 39.722667 1.536 117.12 31.946667 130.997333 136.810667 14.026667 105.930667 6.4 234.368 0.288 337.6l-0.010666 0.138667c-3.413333 57.44-28.416 101.322667-72.288 126.912-33.44 19.498667-70.538667 25.109333-105.642667 28.266666-42.261333 3.797333-120.736 7.861333-214.410667 7.882667-93.674667-0.021333-172.16-4.074667-214.410666-7.893333-35.104-3.146667-72.213333-8.757333-105.642667-28.266667-43.872-25.578667-68.864-69.450667-72.277333-126.901333l-0.021334-0.234667z m650.4-401.141333l-1.386666-0.064c-74.474667-4.981333-157.76-7.509333-247.562667-7.509334h-18.208c-89.792 0-173.077333 2.528-247.552 7.52l-1.386667 0.064c-0.106667 0-12.181333 1.077333-24.928 8.746667-19.594667 11.754667-31.605333 33.429333-35.701333 64.384-13.12 99.104-5.706667 223.765333 0.245333 323.946667 3.829333 64.373333 43.498667 80.469333 110.741334 86.517333 14.037333 1.28 89.962667 7.562667 207.690666 7.584 117.738667-0.021333 193.664-6.314667 207.701334-7.584 67.242667-6.048 106.922667-22.144 110.741333-86.528 5.952-100.170667 13.354667-224.832 0.245333-323.936-4.096-30.965333-16.106667-52.629333-35.712-64.394667-12.746667-7.658667-24.821333-8.746667-24.928-8.746666zM249.941333 548.906667c7.488 15.146667 25.973333 21.418667 41.269334 13.973333 0.608-0.298667 61.568-29.706667 134.869333-51.946667 16.298667-4.906667 25.482667-21.994667 20.48-38.122666-4.992-16.138667-22.261333-25.194667-38.56-20.234667-77.92 23.637333-141.28 54.208-143.936 55.498667a30.368 30.368 0 0 0-14.112 40.832z m493.525334 13.973333c15.285333 7.402667 33.76 1.152 41.248-13.973333a30.368 30.368 0 0 0-14.101334-40.842667c-2.666667-1.290667-66.026667-31.861333-143.946666-55.488-16.288-4.949333-33.536 4.117333-38.506667 20.234667-4.992 16.106667 4.16 33.173333 20.448 38.122666 73.045333 22.154667 134.24 51.637333 134.858667 51.946667zM575.008 679.509333c51.658667 0 65.76-67.530667 66.325333-70.410666a14.645333 14.645333 0 0 0-11.637333-17.205334 14.773333 14.773333 0 0 0-17.397333 11.52c-0.106667 0.469333-10.133333 46.805333-37.290667 46.805334-29.098667 0-44.544-40.64-44.693333-41.002667a14.805333 14.805333 0 0 0-13.834667-9.674667h-0.074667c-6.186667 0-11.701333 3.797333-13.866666 9.525334-4.032 10.666667-20.330667 41.141333-41.653334 41.141333-20.394667 0-35.210667-35.498667-38.794666-47.936a14.826667 14.826667 0 0 0-18.208-9.952 14.634667 14.634667 0 0 0-10.282667 17.898667c2.016 7.093333 21.024 69.290667 67.306667 69.290666 25.834667 0 44.213333-18.133333 55.530666-34.496 11.562667 16.394667 30.656 34.496 58.570667 34.496z" fill="#00AEEC" p-id="1387"></path></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/ilovegta/ilovegta.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/Mybolg/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Mybolg/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Mybolg/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Mybolg/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Mybolg/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#引言">引言</a></li>
+    <li><a href="#python的优缺点">Python的优缺点</a></li>
+    <li><a href="#缩进与注释">缩进与注释</a></li>
+    <li><a href="#变量与关键字">变量与关键字</a></li>
+    <li><a href="#python运算符">Python运算符</a>
+      <ol>
+        <li><a href="#算数运算符">算数运算符</a></li>
+        <li><a href="#比较运算符">比较运算符</a></li>
+        <li><a href="#逻辑运算符">逻辑运算符</a></li>
+        <li><a href="#赋值运算符">赋值运算符</a></li>
+        <li><a href="#位运算符">位运算符</a></li>
+        <li><a href="#运算符的优先级">运算符的优先级</a></li>
+      </ol>
+    </li>
+    <li><a href="#输入与输出">输入与输出</a>
+      <ol>
+        <li><a href="#基本输入输出">基本输入输出：</a></li>
+        <li><a href="#格式化输出">格式化输出：</a></li>
+        <li><a href="#format方法">format()方法：</a></li>
+        <li><a href="#f-string">f-string：</a></li>
+      </ol>
+    </li>
+    <li><a href="#六大基本数据类型">六大基本数据类型</a></li>
+    <li><a href="#每日一曲">每日一曲</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%951/">
+                
+                    <img src="/Mybolg/images/PythonCourse/write-plan.jpg" loading="lazy" alt="Featured image of post Python基础语法1" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/Mybolg/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="background-color: #2a9d8f; color: #fff;">
+                学习记录
+            </a>
+        
+            <a href="/Mybolg/categories/python/" style="background-color: #2a9d8f; color: #fff;">
+                Python
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%951/">Python基础语法1</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 30, 2024</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="引言">引言
+</h2><p>Python作者：Guido von Rossum(吉多·范·罗苏姆)<br>
+诞生时期：1991年，第一个Python解释器诞生.它是用C语言实现的，并能够调用C语言的库文件.</p>
+<p><img src="/Mybolg/images/PythonCourse/Guido-van-Rossum.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>编程语言的种类有很多，但目前常用的有C、C++、Java、JavaScript、C#、PHP、Ruby以及Python，并且在2021年Python已经超过C称为第一受欢迎的编程语言.</p>
+<h2 id="python的优缺点">Python的优缺点
+</h2><p>以下代码使用C语言和Python输出a+b的例子:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C" data-lang="C"><span class="line"><span class="cl"><span class="o">-----</span><span class="n">C语言中</span><span class="o">-----</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">-----</span><span class="n">Python</span><span class="o">-----</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="nf">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这里的代码我们可以发现,Python中每行代码通常代表一条语句的结束,且不需要任何的符号作为每行的结束符.</p>
+<h2 id="缩进与注释">缩进与注释
+</h2><p>在Python中，通过缩进来组织代码块，例如函数体、循环体、类等.缩进必须一直，通常使用空格来实现（推荐使用4个空格），也可以使用一个制表符.并且同一级别的代码块具有相同的缩进量，下一级别的代码块应比上级别的代码
+块增加一个缩进层级.例如:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 使用for和range函数生产9*9乘法表</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2"> * </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">j</span><span class="o">*</span><span class="n">i</span><span class="si">}</span><span class="s2">&#34;</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这个例子中,单行注释以(#)开头,井号(#)所在位置的右边都会被当作注释.多行注释则是三引号&rsquo;&lsquo;&lsquo;或&quot;&quot;&quot;,引号中间的内容注释掉.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1"># 求1到100的和
+</span></span></span><span class="line"><span class="cl"><span class="s1">sum = 0
+</span></span></span><span class="line"><span class="cl"><span class="s1">for i in range(1,101,1):
+</span></span></span><span class="line"><span class="cl"><span class="s1">    sum += i
+</span></span></span><span class="line"><span class="cl"><span class="s1">    print(sum)
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="变量与关键字">变量与关键字
+</h2><p>变量的三个基本属性:<br>
+id号:反映的是变量值的内存地址.<br>
+类型:每一个变量都有自己的类型.<br>
+值:存储的数据.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 查看变量id好id()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看变量类型type()</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用 is 或 is not 比较两个变量的id号是否相同</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;nihao&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">c</span> <span class="o">=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">),</span> <span class="nb">type</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">is</span> <span class="n">b</span> <span class="p">,</span><span class="n">a</span> <span class="ow">is</span> <span class="n">c</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>输出结果:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="mi">140719832613704</span> <span class="mi">3081789329776</span> <span class="mi">140719832613704</span>
+</span></span><span class="line"><span class="cl"><span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">int</span><span class="s1">&#39;&gt; &lt;class &#39;</span><span class="nb">str</span><span class="s1">&#39;&gt; &lt;class &#39;</span><span class="nb">int</span><span class="s1">&#39;&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="kc">False</span> <span class="kc">True</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>输出结果中可以发现,a和c的id号与类型是一致的,使用is判断返回结果为True.</p>
+<p>变量命名的注意事项:<br>
+1.只能包含字母、数字、下划线，但不能以数字开头。<br>
+2.不能包含空格，但是可以使用下划线来分割名称。<br>
+3.不能使用Python的关键字作为标识符的名称。</p>
+<h2 id="python运算符">Python运算符
+</h2><p>在Python中，常用的运算符分为以下几类：</p>
+<h3 id="算数运算符">算数运算符
+</h3><p>算术运算符包括以下几种：<br>
++：加法运算符，返回两个对象的和<br>
+-：减法运算符，返回两个对象的差<br>
+*：乘法运算符，返回两个对象的积<br>
+/：除法运算符，返回两个对象的商<br>
+//：整除运算符，返回两个对象的商的整数部分<br>
+%：取余运算符，返回两个对象的商的余数部分<br>
+**：平方运算符：返回两个对象的平方运算的结果</p>
+<h3 id="比较运算符">比较运算符
+</h3><p>比较运算符包括以下几种：<br>
+==：等于，比较两个对象是否相等，返回布尔值<br>
+！=：不等于，比较两个对象是否不相等，返回布尔值<br>
+＞：大于，比较两个对象的大小关系，返回布尔值<br>
+&lt;：小于，比较两个对象的大小关系，返回布尔值<br>
+＜=：大于等于，比较两个对象的大小关系，返回布尔值<br>
+&lt;=：小于等于，比较两个对象的大小关系，返回布尔值</p>
+<h3 id="逻辑运算符">逻辑运算符
+</h3><p>逻辑运算符
+逻辑运算符包括以下几种：
+and：布尔与，and两边都为True时，才会返回True，只要有一个为False，就会返回False<br>
+or：布尔或，or两边都为False时，才会返回False，只要有一个为True，就会返回True<br>
+not：布尔非，将True改为False，将False改为True</p>
+<h3 id="赋值运算符">赋值运算符
+</h3><p>赋值运算符包括以下几种：
+=：赋值运算符，把=右边的对象赋值给=左边的对象<br>
++=：加法赋值运算符<br>
+-=：减法赋值运算符<br>
+*=：乘法赋值运算符<br>
+/=：除法赋值运算符<br>
+//=：整除赋值运算符<br>
+%=：取余赋值运算符<br>
+**=：平方赋值运算符</p>
+<h3 id="位运算符">位运算符
+</h3><p>位运算符包括以下几种：<br>
+&amp;：按位与，对两个数据的补码进行位与位之间的与运算，全1为1，有0则0<br>
+|：按位或，对两个数据的补码进行位与位之间的或运算，全0为0，有1则1<br>
+^：按位异或，对两个数据的补码进行位与位之间的异或运算，相同为0，同为1</p>
+<h3 id="运算符的优先级">运算符的优先级
+</h3><p>运算符的优先级（从上向下排列，上面的优先级最高）：<br>
+圆括号()：圆括号内的表达式拥有最高优先级<br>
+**：乘方运算<br>
+*、/、%、//：算术运算符，先乘除<br>
++、-：算数运算符，后加减<br>
+&laquo;、&raquo;：位运算符的左移与右移<br>
+&amp;：位运算符的按位与<br>
+^：位运算符的按位异或<br>
+|：位运算符的按位或<br>
+＞、＜、&gt;=、&lt;=、==、!=：比较运算符<br>
+and、or：逻辑运算符<br>
+=、+=等赋值运算符优先级最低</p>
+<h2 id="输入与输出">输入与输出
+</h2><p>在Python中，使用内置的print()函数进行输出，并且有几种不同的输出方式如下所示：</p>
+<h3 id="基本输入输出">基本输入输出：
+</h3><p>使用input()输入,使用print()输出,直接打印数据或变量:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="格式化输出">格式化输出：
+</h3><p>使用百分号(%)格式符:</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">格式符</th>
+          <th style="text-align: left">解释</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">%c</td>
+          <td style="text-align: left">字符</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">%s</td>
+          <td style="text-align: left">字符串</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">%d</td>
+          <td style="text-align: left">有符号十进制整数</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">%f</td>
+          <td style="text-align: left">浮点数</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">%e</td>
+          <td style="text-align: left">科学计数法</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">%o</td>
+          <td style="text-align: left">八进制整数</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>现在不推荐使用，但是旧版本的代码中很常见.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="format方法">format()方法：
+</h3><p>使用花括号{}作为占位符来指定要格式化的数据类型和格式，然后通过将数据插入到占位符中来生成最后的输出结果。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1">#用format方法</span>
+</span></span><span class="line"><span class="cl"><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;zhangsan&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">age</span> <span class="o">=</span> <span class="mi">18</span>
+</span></span><span class="line"><span class="cl"><span class="n">weight</span> <span class="o">=</span> <span class="mf">55.55632</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;My name is </span><span class="si">{}</span><span class="s2"> and </span><span class="si">{}</span><span class="s2"> years old and </span><span class="si">{}</span><span class="s2"> weight&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">age</span><span class="p">,</span><span class="n">weight</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 控制浮点数精度 :.nf,n为位数\n&#34;,</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="s2">&#34;My name is </span><span class="si">{}</span><span class="s2"> and </span><span class="si">{}</span><span class="s2"> years old and </span><span class="si">{:.4f}</span><span class="s2"> weight&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="n">age</span><span class="p">,</span><span class="n">weight</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="f-string">f-string：
+</h3><p>在字符串前加一个f或F，然后在输出的内容中加上花括号{}，花括号{}里面是要输出的表达式，是一种新的字符串格式方法，在Python3.6版本之后引入的输出方法。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl">  <span class="c1">#用format方法</span>
+</span></span><span class="line"><span class="cl">  <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;zhangsan&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">age</span> <span class="o">=</span> <span class="mi">18</span>
+</span></span><span class="line"><span class="cl">  <span class="n">weight</span> <span class="o">=</span> <span class="mf">55.55632</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;My name is </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old and </span><span class="si">{</span><span class="n">weight</span><span class="si">}</span><span class="s2"> weight&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># 控制浮点数精度 :.nf,n为位数\n&#34;,</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;My name is </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old and </span><span class="si">{</span><span class="n">weight</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> weight&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="六大基本数据类型">六大基本数据类型
+</h2><div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">数据类型</th>
+          <th style="text-align: left">解释</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">mymum = 11</td>
+          <td style="text-align: left">数值</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">myfloat = 3.141</td>
+          <td style="text-align: left">浮点数</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">mystr = &lsquo;hello&rsquo;</td>
+          <td style="text-align: left">字符串</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">mylist = [1,2,3,4]</td>
+          <td style="text-align: left">列表</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">mytuple = (1,2,3,4)</td>
+          <td style="text-align: left">元组:</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">myset = {1,2,3,4}</td>
+          <td style="text-align: left">集合</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">mydict = {&ldquo;key1&rdquo;:&ldquo;value1&rdquo;}</td>
+          <td style="text-align: left">字典</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>强制数据类型转换函数</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">函数</th>
+          <th style="text-align: left">解释</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">int(x)</td>
+          <td style="text-align: left">转换为整数</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">float(x)</td>
+          <td style="text-align: left">转换为浮点数</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">str(x)</td>
+          <td style="text-align: left">转换为字符串</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">tuple(s)</td>
+          <td style="text-align: left">序列转换为元组</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">list(s)</td>
+          <td style="text-align: left">序列转换为列表</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">hex(s)</td>
+          <td style="text-align: left">序列转换为16进制</td>
+      </tr>
+  </tbody>
+</table></div>
+<h2 id="每日一曲">每日一曲
+</h2><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330px height=86px src="
+https://i.y.qq.com/n2/m/outchain/player/index.html?songid=509886941&songtype=0"></iframe>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/python%E7%9A%84%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python的线性代数</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%954/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python基础语法4</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python基础语法2</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%953/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python基础语法3</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 UPPO
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/Mybolg/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    
+    const cssPath = "https://UPPO8.github.io/Mybolg/waifu/waifu.css"
+    const tipsJsonPath = "https://UPPO8.github.io/Mybolg/waifu/waifu-tips.json"
+    
+    const live2d_path = "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
+
+    
+    function loadExternalResource(url, type) {
+        return new Promise((resolve, reject) => {
+            let tag;
+            if (type === "css") {
+                tag = document.createElement("link");
+                tag.rel = "stylesheet";
+                tag.href = url;
+            }
+            else if (type === "js") {
+                tag = document.createElement("script");
+                tag.src = url;
+            }
+            if (tag) {
+                tag.onload = () => resolve(url);
+                tag.onerror = () => reject(url);
+                document.head.appendChild(tag);
+            }
+        });
+    }
+
+    
+    if (screen.width >= 768) {
+        Promise.all([
+        loadExternalResource(cssPath, "css"),
+            loadExternalResource(live2d_path + "live2d.min.js", "js"),
+            loadExternalResource(live2d_path + "waifu-tips.js", "js")
+        ]).then(() => {
+            initWidget({
+                waifuPath: tipsJsonPath,
+                cdnPath: "https://fastly.jsdelivr.net/gh/fghrsh/live2d_api/",
+                tools: ["hitokoto", "asteroids", "switch-model", "switch-texture", "photo", "info", "quit"]
+            });
+            
+            initWaifuMouseEvent();
+        });
+    }
+    function initWaifuMouseEvent() {
+        const waifu = document.getElementById("waifu");
+        let isDown = false;
+        let waifuLeft;
+        let mouseLeft;
+        let waifuTop;
+        let mouseTop;
+        
+        waifu.onmousedown = function (e) {
+            isDown = true;
+            
+            waifuLeft = waifu.offsetLeft;
+            mouseLeft = e.clientX;
+            
+            waifuTop = waifu.offsetTop;
+            mouseTop = e.clientY;
+        }
+        
+        window.onmousemove = function (e) {
+            if (!isDown) {
+                return;
+            }
+            
+            let currentLeft = waifuLeft + (e.clientX - mouseLeft);
+            if (currentLeft < 0) {
+                currentLeft = 0;
+            } else if (currentLeft > window.innerWidth - 300) {
+                currentLeft = window.innerWidth - 300;
+            }
+            waifu.style.left = currentLeft  + "px";
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        }
+        
+        window.onmouseup = function (e) {
+            isDown = false;
+        }
+    }
+</script>
+
+    </body>
+</html>
