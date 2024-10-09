@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="numpy库的使用">
-<title>Python的线性代数</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="numpy库的使用,Pandas库的使用">
+<title>Python的第三方库1</title>
 
-<link rel='canonical' href='https://UPPO8.github.io/Mybolg/p/python%E7%9A%84%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/'>
+<link rel='canonical' href='https://UPPO8.github.io/Mybolg/p/python%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%931/'>
 
-<link rel="stylesheet" href="/Mybolg/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Python的线性代数">
-<meta property='og:description' content="numpy库的使用">
-<meta property='og:url' content='https://UPPO8.github.io/Mybolg/p/python%E7%9A%84%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/'>
+<link rel="stylesheet" href="/Mybolg/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Python的第三方库1">
+<meta property='og:description' content="numpy库的使用,Pandas库的使用">
+<meta property='og:url' content='https://UPPO8.github.io/Mybolg/p/python%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%931/'>
 <meta property='og:site_name' content='UPPO Blog'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-10-07T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-10-07T00:00:00&#43;00:00'/><meta property='og:image' content='https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png' />
-<meta name="twitter:title" content="Python的线性代数">
-<meta name="twitter:description" content="numpy库的使用"><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Python的第三方库1">
+<meta name="twitter:description" content="numpy库的使用,Pandas库的使用"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png' />
-    <link rel="shortcut icon" href="/1828643.png" />
+    <link rel="shortcut icon" href="/Mybolg/1828643.png" />
 
     </head>
     <body class="
@@ -262,7 +262,15 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#数据类型-列表">数据类型-列表</a></li>
+    <li><a href="#numpy库httpsnumpyorgcn"><a href="https://numpy.org.cn/">Numpy库</a></a>
+      <ol>
+        <li><a href="#数组的创建">数组的创建</a></li>
+        <li><a href="#矩阵运算">矩阵运算</a></li>
+        <li><a href="#矩阵形状改变">矩阵形状改变</a></li>
+      </ol>
+    </li>
+    <li><a href="#pandas数据分析库httpspypandascndocs"><a href="https://pypandas.cn/docs/">Pandas数据分析库</a></a></li>
+    <li><a href="#matplotlib绘图库httpsmatplotlibnet"><a href="https://matplotlib.net">Matplotlib绘图库</a></a></li>
   </ol>
 </nav>
         </div>
@@ -277,9 +285,9 @@
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/Mybolg/p/python%E7%9A%84%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
+            <a href="/Mybolg/p/python%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%931/">
                 
-                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" alt="Featured image of post Python的线性代数" />
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" alt="Featured image of post Python的第三方库1" />
                 
             </a>
         </div>
@@ -302,12 +310,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/Mybolg/p/python%E7%9A%84%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">Python的线性代数</a>
+            <a href="/Mybolg/p/python%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%931/">Python的第三方库1</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            numpy库的使用
+            numpy库的使用,Pandas库的使用
         </h3>
         
     </div>
@@ -344,8 +352,183 @@
     <section class="article-content">
     
     
-    <h2 id="数据类型-列表">数据类型-列表
-</h2>
+    <h2 id="numpy库httpsnumpyorgcn"><a class="link" href="https://numpy.org.cn/"  target="_blank" rel="noopener"
+    >Numpy库</a>
+</h2><p><a class="link" href="https://numpy.org.cn/"  target="_blank" rel="noopener"
+    >Numpy</a>是Python中的一个扩展程序库，用于大量的维度数组与矩阵运算，同时针对数组运算提供了大量函数库。</p>
+<h3 id="数组的创建">数组的创建
+</h3><p>方式一：通过array{}函数将Python的列表或元组转换为数组，数组中的类型是由列表或原组原有的数据类型。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#打印类型</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>方式二：Numpy提供了几个常用函数数组。</p>
+<pre><code>    1.zeros()创建一个指定大小全零数组
+    2.ones()创建一个指定大小的全一数组
+    3.empty()创建一个数组，其内容随机生成
+</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>方式三：通过arrange（）函数得到数组</p>
+<p>arrange函数原型arrange(start，end，step)函数的参数中end不包含该值。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="矩阵运算">矩阵运算
+</h3><p>矩阵相乘表示方法：</p>
+<pre><code>    a = np.array([1,2,3])
+    b = np.array([4,5,6])
+    c = a@b
+</code></pre>
+<h3 id="矩阵形状改变">矩阵形状改变
+</h3><p>Numpy可以使用raveL()和reshape()函数改变矩阵形状，T函数将矩阵转置。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#打印形状</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#展平</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#修改形状</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#转置</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="pandas数据分析库httpspypandascndocs"><a class="link" href="https://pypandas.cn/docs/"  target="_blank" rel="noopener"
+    >Pandas数据分析库</a>
+</h2><p>Series对象是Pandas中的一堆数据结构，能存储不同类型的数据。可以传入数字、列表、字典等类型，将该打印该对象同时会打印索引。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="s2">&#34;aa&#34;</span><span class="p">,{</span><span class="s2">&#34;aa&#34;</span><span class="p">:</span><span class="mi">555</span><span class="p">}])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">打印结果
+</span></span></span><span class="line"><span class="cl"><span class="s1">0              1
+</span></span></span><span class="line"><span class="cl"><span class="s1">1             -5
+</span></span></span><span class="line"><span class="cl"><span class="s1">2         [1, 2]
+</span></span></span><span class="line"><span class="cl"><span class="s1">3             aa
+</span></span></span><span class="line"><span class="cl"><span class="s1">4    {&#39;aa&#39;: 555}
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="matplotlib绘图库httpsmatplotlibnet"><a class="link" href="https://matplotlib.net"  target="_blank" rel="noopener"
+    >Matplotlib绘图库</a>
+</h2><p>绘制一个正弦函数示例图：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#计算正弦曲线上x，y坐标</span>
+</span></span><span class="line"><span class="cl"><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#创建一个子图</span>
+</span></span><span class="line"><span class="cl"><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#使用plot绘制图像</span>
+</span></span><span class="line"><span class="cl"><span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#定义坐标轴和标签</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x轴&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y轴&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sine&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#显示图像</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>得到正弦函数:
+<img src="/Mybolg/images/PythonCourse/myplot.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="图像"
+	
+	
+></p>
+
 </section>
 
 
@@ -366,6 +549,25 @@
     <h2 class="section-title">相关文章</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/python-%E5%87%BD%E6%95%B0/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python-函数</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="has-image">
