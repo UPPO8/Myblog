@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="多线程的基本概念 线程的概念 线程是操作系统能够进行运算调度的最小单位，它被包含在进程之中，是进程内的实际执行单元。进程是资源分配的最小单位，而线程是调度的最小单位。与进程的创建不同，线程在创建时除了会申请线程本身所必须的资源之外，其他的资源比如内存空间、文件描述符等资源会使用进程中已经存在的资源，并且一个进程中的多个线程会共享本进程中的内存空间、文件描述符等大部分资源。需要注意的是，线程不具备进程级别的隔离性，一旦所属进程崩溃，虽然不会影响到其他进程，但该进程内的所有线程都将终止。\n">
+<title>Python-多线程</title>
+
+<link rel='canonical' href='https://UPPO8.github.io/Mybolg/p/python-%E5%A4%9A%E7%BA%BF%E7%A8%8B/'>
+
+<link rel="stylesheet" href="/Mybolg/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Python-多线程">
+<meta property='og:description' content="多线程的基本概念 线程的概念 线程是操作系统能够进行运算调度的最小单位，它被包含在进程之中，是进程内的实际执行单元。进程是资源分配的最小单位，而线程是调度的最小单位。与进程的创建不同，线程在创建时除了会申请线程本身所必须的资源之外，其他的资源比如内存空间、文件描述符等资源会使用进程中已经存在的资源，并且一个进程中的多个线程会共享本进程中的内存空间、文件描述符等大部分资源。需要注意的是，线程不具备进程级别的隔离性，一旦所属进程崩溃，虽然不会影响到其他进程，但该进程内的所有线程都将终止。\n">
+<meta property='og:url' content='https://UPPO8.github.io/Mybolg/p/python-%E5%A4%9A%E7%BA%BF%E7%A8%8B/'>
+<meta property='og:site_name' content='UPPO Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-10-17T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-10-17T00:00:00&#43;00:00'/><meta property='og:image' content='https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png' />
+<meta name="twitter:title" content="Python-多线程">
+<meta name="twitter:description" content="多线程的基本概念 线程的概念 线程是操作系统能够进行运算调度的最小单位，它被包含在进程之中，是进程内的实际执行单元。进程是资源分配的最小单位，而线程是调度的最小单位。与进程的创建不同，线程在创建时除了会申请线程本身所必须的资源之外，其他的资源比如内存空间、文件描述符等资源会使用进程中已经存在的资源，并且一个进程中的多个线程会共享本进程中的内存空间、文件描述符等大部分资源。需要注意的是，线程不具备进程级别的隔离性，一旦所属进程崩溃，虽然不会影响到其他进程，但该进程内的所有线程都将终止。\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png' />
+    <link rel="shortcut icon" href="/Mybolg/1828643.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/Mybolg/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/Mybolg/img/100_hu17204809037550521928.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😊</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/Mybolg">UPPO Blog</a></h1>
+            <h2 class="site-description">欢迎来到UPPO的博客</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/402008155'
+                        target="_blank"
+                        title="BiliBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg class="icon" style="width: 1em;height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1385"><path d="M125.258667 395.2c-14.016 105.909333-6.4 234.293333-0.277334 337.504l0.021334 0.234667c3.413333 57.450667 28.405333 101.322667 72.277333 126.912 33.429333 19.498667 70.538667 25.109333 105.642667 28.266666 42.261333 3.808 120.736 7.861333 214.4 7.882667 93.685333-0.021333 172.16-4.085333 214.410666-7.893333 35.114667-3.146667 72.213333-8.757333 105.653334-28.266667 43.872-25.578667 68.864-69.461333 72.288-126.901333V732.8c6.133333-103.232 13.76-231.669333-0.277334-337.6-13.866667-104.864-91.274667-135.264-131.008-136.810667a3286.506667 3286.506667 0 0 0-106.026666-5.258666c9.813333-10.997333 25.898667-30.058667 37.525333-49.109334q17.888-29.301333-11.093333-53.717333-14.613333-12.448-28.405334-11.584-15.306667 0.96-29.578666 18.293333c-20.437333 24.832-49.973333 72.16-63.306667 94.005334a4644.352 4644.352 0 0 0-51.072-0.277334l-69.28 0.277334c-13.333333-21.845333-42.858667-69.173333-63.306667-94.005334q-14.282667-17.333333-29.578666-18.293333-13.781333-0.853333-28.394667 11.584-28.992 24.416-11.114667 53.717333c11.637333 19.050667 27.712 38.112 37.525334 49.109334-35.370667 1.173333-70.72 2.933333-106.026667 5.258666-39.722667 1.536-117.12 31.946667-130.997333 136.810667z" fill="#FFFFFF" p-id="1386"></path><path d="M124.981333 732.704c-6.122667-103.210667-13.738667-231.594667 0.277334-337.504 13.866667-104.864 91.274667-135.264 130.997333-136.810667 35.306667-2.325333 70.656-4.085333 106.026667-5.258666-9.813333-10.997333-25.888-30.058667-37.525334-49.109334q-17.888-29.301333 11.114667-53.717333 14.613333-12.437333 28.394667-11.584 15.296 0.96 29.578666 18.293333c20.448 24.832 49.973333 72.16 63.306667 94.005334l69.28-0.277334c17.28 0 34.293333 0.106667 51.072 0.277334 13.333333-21.845333 42.869333-69.173333 63.306667-94.005334q14.272-17.333333 29.578666-18.293333 13.781333-0.853333 28.405334 11.584 28.981333 24.416 11.093333 53.717333c-11.626667 19.050667-27.701333 38.112-37.514667 49.109334 36.928 1.258667 72.341333 3.008 106.026667 5.258666 39.722667 1.536 117.12 31.946667 130.997333 136.810667 14.026667 105.930667 6.4 234.368 0.288 337.6l-0.010666 0.138667c-3.413333 57.44-28.416 101.322667-72.288 126.912-33.44 19.498667-70.538667 25.109333-105.642667 28.266666-42.261333 3.797333-120.736 7.861333-214.410667 7.882667-93.674667-0.021333-172.16-4.074667-214.410666-7.893333-35.104-3.146667-72.213333-8.757333-105.642667-28.266667-43.872-25.578667-68.864-69.450667-72.277333-126.901333l-0.021334-0.234667z m650.4-401.141333l-1.386666-0.064c-74.474667-4.981333-157.76-7.509333-247.562667-7.509334h-18.208c-89.792 0-173.077333 2.528-247.552 7.52l-1.386667 0.064c-0.106667 0-12.181333 1.077333-24.928 8.746667-19.594667 11.754667-31.605333 33.429333-35.701333 64.384-13.12 99.104-5.706667 223.765333 0.245333 323.946667 3.829333 64.373333 43.498667 80.469333 110.741334 86.517333 14.037333 1.28 89.962667 7.562667 207.690666 7.584 117.738667-0.021333 193.664-6.314667 207.701334-7.584 67.242667-6.048 106.922667-22.144 110.741333-86.528 5.952-100.170667 13.354667-224.832 0.245333-323.936-4.096-30.965333-16.106667-52.629333-35.712-64.394667-12.746667-7.658667-24.821333-8.746667-24.928-8.746666zM249.941333 548.906667c7.488 15.146667 25.973333 21.418667 41.269334 13.973333 0.608-0.298667 61.568-29.706667 134.869333-51.946667 16.298667-4.906667 25.482667-21.994667 20.48-38.122666-4.992-16.138667-22.261333-25.194667-38.56-20.234667-77.92 23.637333-141.28 54.208-143.936 55.498667a30.368 30.368 0 0 0-14.112 40.832z m493.525334 13.973333c15.285333 7.402667 33.76 1.152 41.248-13.973333a30.368 30.368 0 0 0-14.101334-40.842667c-2.666667-1.290667-66.026667-31.861333-143.946666-55.488-16.288-4.949333-33.536 4.117333-38.506667 20.234667-4.992 16.106667 4.16 33.173333 20.448 38.122666 73.045333 22.154667 134.24 51.637333 134.858667 51.946667zM575.008 679.509333c51.658667 0 65.76-67.530667 66.325333-70.410666a14.645333 14.645333 0 0 0-11.637333-17.205334 14.773333 14.773333 0 0 0-17.397333 11.52c-0.106667 0.469333-10.133333 46.805333-37.290667 46.805334-29.098667 0-44.544-40.64-44.693333-41.002667a14.805333 14.805333 0 0 0-13.834667-9.674667h-0.074667c-6.186667 0-11.701333 3.797333-13.866666 9.525334-4.032 10.666667-20.330667 41.141333-41.653334 41.141333-20.394667 0-35.210667-35.498667-38.794666-47.936a14.826667 14.826667 0 0 0-18.208-9.952 14.634667 14.634667 0 0 0-10.282667 17.898667c2.016 7.093333 21.024 69.290667 67.306667 69.290666 25.834667 0 44.213333-18.133333 55.530666-34.496 11.562667 16.394667 30.656 34.496 58.570667 34.496z" fill="#00AEEC" p-id="1387"></path></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/ilovegta/ilovegta.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/Mybolg/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Mybolg/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Mybolg/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Mybolg/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Mybolg/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#多线程的基本概念">多线程的基本概念</a>
+      <ol>
+        <li><a href="#线程的概念">线程的概念</a></li>
+        <li><a href="#多线程与多进程的区别">多线程与多进程的区别</a>
+          <ol>
+            <li><a href="#调度">调度</a></li>
+            <li><a href="#gil全局解释器锁">GIL(全局解释器锁)</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#python中的多线程">Python中的多线程</a>
+      <ol>
+        <li><a href="#timer">Timer</a>
+          <ol>
+            <li><a href="#参数说明">参数说明</a></li>
+            <li><a href="#实例方法">实例方法</a></li>
+            <li><a href="#定时器简单应用">定时器简单应用</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#线程间通信">线程间通信</a>
+      <ol>
+        <li><a href="#消息队列">消息队列</a>
+          <ol>
+            <li><a href="#queue">Queue</a></li>
+            <li><a href="#lifoqueue">LifoQueue</a></li>
+            <li><a href="#priorityqueue">PriorityQueue</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#线程同步">线程同步</a>
+      <ol>
+        <li><a href="#锁">锁</a></li>
+        <li><a href="#屏障">屏障</a></li>
+      </ol>
+    </li>
+    <li><a href="#线程池">线程池</a>
+      <ol>
+        <li><a href="#线程池的概念">线程池的概念</a></li>
+        <li><a href="#为什么使用线程池">为什么使用线程池</a></li>
+        <li><a href="#python中的线程池实现">Python中的线程池实现</a>
+          <ol>
+            <li><a href="#线程池的创建">线程池的创建</a></li>
+            <li><a href="#线程池的方法">线程池的方法</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/Mybolg/p/python-%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" alt="Featured image of post Python-多线程" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/Mybolg/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="background-color: #2a9d8f; color: #fff;">
+                学习记录
+            </a>
+        
+            <a href="/Mybolg/categories/python/" style="background-color: #2a9d8f; color: #fff;">
+                Python
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/Mybolg/p/python-%E5%A4%9A%E7%BA%BF%E7%A8%8B/">Python-多线程</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Oct 17, 2024</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="多线程的基本概念">多线程的基本概念
+</h2><h3 id="线程的概念">线程的概念
+</h3><p>线程是操作系统能够进行运算调度的最小单位，它被包含在进程之中，是进程内的实际执行单元。进程是资源分配的最小单位，而线程是调度的最小单位。与进程的创建不同，线程在创建时除了会申请线程本身所必须的资源之外，其他的资源比如内存空间、文件描述符等资源会使用进程中已经存在的资源，并且一个进程中的多个线程会共享本进程中的内存空间、文件描述符等大部分资源。需要注意的是，线程不具备进程级别的隔离性，一旦所属进程崩溃，虽然不会影响到其他进程，但该进程内的所有线程都将终止。</p>
+<h3 id="多线程与多进程的区别">多线程与多进程的区别
+</h3><p>在Python中，多线程和多进程都是实现多并发执行的技术，但它们在多个方面存在显著的区别:</p>
+<h4 id="调度">调度
+</h4><ol>
+<li>多线程(Threading):线程是操作系统能够进行运算调度的最小单位，被包含在进程之中，是进程中的实际运作单位。由于线程共享进程的内存空间，操作系统可以在同一进程空间中快速切换不同线程，实现并发执行。</li>
+<li>多进程(Multiprocessing):进程是操作系统分配资源的独立单位。每个进程都有自己的内存空间，因此进程间的通信比线程要复杂，但在pvtbon中，多进程可以利用多核处理器的多个核心，实现真正的并行计算。</li>
+</ol>
+<h4 id="gil全局解释器锁">GIL(全局解释器锁)
+</h4><ol>
+<li>多线程:CPython解释器(Python的主要实现)有一个全局解释器锁(GIL)，它确保同一时刻只有一个线程执行Python字节码。因此，即使在多核CPU上，使用多线程的Python程序也无法实现真正的并行计算，GIL限制了线程在执行CPU密集型任务时的效率。</li>
+<li>多进程:每个Python进程都有自己的Python解释器和内存空间，因此GIL不会限制多进程。多进程可以绕过GIL，充分利用多核处理器进行并行计算。</li>
+</ol>
+<p>GIL锁的优点:</p>
+<ol>
+<li>简化内存管理:由于GIL确保同一时刻只有一个线程在执行，因此CPython的内存管理可以设计得更加简单。
+它不需要考虑多个线程同时修改对象的情况，从而避免了复杂的多线程内存回收问题。</li>
+<li>易于实现:GIL简化了CPython解释器的实现，因为它不需要考虑多线程并发执行时的数据竞争和同步问题。3.单线程性能:在没有多线程竞争的情况下，单个线程的性能可以保持得很好，因为G儿L避免了不必要的上下文切换。</li>
+</ol>
+<h2 id="python中的多线程">Python中的多线程
+</h2><p>在Pvthon中，多线程是通过<code>threading</code>模块实现的，该模块允许程序员创建、启动、同步多个线程，并提供了一系列的API来支持线程间同步和通信。
+在Python中，使用threading模块中的Thread类来创建线程，Thread类创建对象时的参数为:</p>
+<pre><code>    threading.Thread(group=None, target=None, name=None, args=(), kwargs=None, *,daemon=None)
+</code></pre>
+<p>以下是各个参数的说明:</p>
+<ol>
+<li>group: 应该始终为 None，保留供未来扩展使用。·target: 是一个可调用的对象(函数)，该线程启动时，这个对象将被调用。如果不提供，则不会运行任何东西。</li>
+<li>name: 线程名称。默认情况下，将分配一个唯一的名称。</li>
+<li>args: 传递给 target 函数的位置参数，默认是一个元组。</li>
+<li>kwargs: 传递给 target 函数的关键字参数，默认是一个字典,</li>
+<li>daemon:指定线程是否为守护线程。如果设置为True，则该线程会在主线程结束时自动退出。如果是None，则继承自创建它的线程。</li>
+</ol>
+<p>以下是一些 Thread 类提供的主要方法和属性:</p>
+<ol>
+<li>start():启动线程活动。使用start去启动线程，会调用run()方法，它会创建一个新的线程来执行run()方法中的代码。</li>
+<li>run():表示线程活动的方法。可以在子类中重写此方法，重写之后执行重写的代码。通常不需要直接调用rur方法，应该调用start方法去启动线程，如果直接调用run方法(没有通过start方法去启动线程)那么run方法中的代码将在当前线程中同步执行，而不是在新的线程中执行。</li>
+<li>join(timeout=None):等待线程终止。timeout 参数是可选的，表示等待的最长时间(以秒为单位)。如果没有指定 timeout，则该方法将无限期等待。</li>
+<li>is alive():返回线程是否还活着。</li>
+<li>getName():返回线程名。</li>
+<li>setName(name):设置线程名。</li>
+<li>isDaemon():返回线程的守护状态。</li>
+<li>setDaemon(daemonic): 设置线程的守护状态，必须在start开始前设置</li>
+<li>name: 线程名称</li>
+<li>ident: 线程标识符</li>
+<li>daemon：线程的守护状态</li>
+</ol>
+<p>不传参的列子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">total_ordering</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">func1</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;func1 is running&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;func1 is done&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">func2</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;func2 is running&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;func2 is done&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#创建一个线程运行func2</span>
+</span></span><span class="line"><span class="cl">    <span class="n">process</span> <span class="o">=</span> <span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">func1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">process</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#主程序运行func1</span>
+</span></span><span class="line"><span class="cl">    <span class="n">func1</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#等待线程结束</span>
+</span></span><span class="line"><span class="cl">    <span class="n">process</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">total</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;程序运行了</span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2">秒&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="timer">Timer
+</h3><p>Timer，也被称为定时器，它允许你在一定时间后执行一个函数或者可调用的对象。Timer 类是 Thread 类的一个子类，因此它具有线程的所有特性，并且可以用来在后台执行定时务。
+以下是 Timer 类的基本用法和特性:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl">    <span class="k">class</span> <span class="nc">threading</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="n">interval</span><span class="p">,</span> <span class="n">function</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="参数说明">参数说明
+</h4><ol>
+<li>interva:一个浮点数或整数，表示在执行 function之前需要等待的时间(以秒为单位)。function:一个可调用的对象，当定时器到期时将被执行。</li>
+<li>args:传递给 function的位置参数元组,</li>
+<li>kwargs: 传递给 function 的关键字参数字典。</li>
+</ol>
+<h4 id="实例方法">实例方法
+</h4><ol>
+<li>start():启动定时器。 Timer将在指定的时间间隔后开始执行目标函数。</li>
+<li>cancel():取消定时器。定时器未启动时，此方法无效。</li>
+</ol>
+<h4 id="定时器简单应用">定时器简单应用
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">threading</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_time</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">current_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#将时间戳格式化</span>
+</span></span><span class="line"><span class="cl">    <span class="n">formatted_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">current_time</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">formatted_time</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#出啊关键一个定时器，5秒后打印时间戳</span>
+</span></span><span class="line"><span class="cl">    <span class="n">timer</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Timer</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">get_time</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">timer</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;等待打印时间戳中&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">timer</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="线程间通信">线程间通信
+</h2><h3 id="消息队列">消息队列
+</h3><p>在Python中，queue 模块提供了一个适用于多线程环境的队列实现，这里介绍三种消息队列，分别是Queue,LifoQueue和PriorityQueue.</p>
+<h4 id="queue">Queue
+</h4><p>最常用的消息队列，遵循先进先出的原则，使用queue.queue 创建。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">queue</span><span class="o">.</span><span class="n">Queue</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>maxsize:队列的最大尺寸。如果设置为小于或等于0的数，则队列的尺寸是无限的。以下是 queue.</p>
+<p>queue类的方法:</p>
+<ol>
+<li>
+<p>Queue.qsize():返回队列中当前有几条消息</p>
+</li>
+<li>
+<p>Queue.empty():如果队列为空，返回True，否则返回 Fa1se。</p>
+</li>
+<li>
+<p>Queue.fu11():如果队列已满(达到最大尺寸)，返回 True，否则返回 False。</p>
+</li>
+<li>
+<p>Queue.put(item,block=True, timeout=None):将item 放入队列。如果 block是True 目 timeout是 None(默认)，则在必要时阻塞至有空闲的插槽。如果 timeout 是正数，将最多阻塞 timeout 秒，如果在这段时间内没有可用的插槽，将引发 queue.Fu11 异常。</p>
+</li>
+<li>
+<p>Queue.put_nowait(item):相当于 Queue.put(item，block=Fa1se)。如果队列已满，立即引发queue.Fu11 异常。</p>
+</li>
+<li>
+<p>Queue.get(b1ock=True，timeout=None):从队列中移除并返回一个元素。如果 b1ock 是 True 且timeout 是 None(默认)，则在必要时阻塞至队列中有项目可用。如果 timeout 是正数，将最多阻塞timeout 秒，如果在这段时间内没有项目可用，将引发 queue.Empty 异常。</p>
+</li>
+<li>
+<p>Queue.get_nowait():相当于 Queue.get(b1ock=Fa1se)。如果队列为空，立即引发 queue.Empty 异常。</p>
+</li>
+<li>
+<p>Queue.task_done():指示之前入队的一个任务已经完成。由队列的消费者线程使用。每个Queue.get()调用之后，需要调用 queue.task_done()告诉队列该任务处理完成。</p>
+</li>
+<li>
+<p>Queue.join():阻塞调用线程，直到队列中的所有项目都被处理完(即队列中每个项目都有一个对应的Queue.task_done()调用)</p>
+</li>
+</ol>
+<p>应用举例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">queue</span> <span class="kn">import</span> <span class="n">Queueimport</span> <span class="n">time</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">process1</span><span class="p">(</span><span class="n">thread_queue</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;准备接收数据&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 接收数据</span>
+</span></span><span class="line"><span class="cl">    <span class="n">received_data</span> <span class="o">=</span> <span class="n">thread_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;接收到的数据为:&#39;</span><span class="err">，</span><span class="n">received_data</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span><span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">thread</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">Queue</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">t1</span><span class="o">=</span> <span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">process1</span><span class="p">,</span><span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">thread_queue</span><span class="p">,))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">t1</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">thread_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span><span class="c1">#发送数据</span>
+</span></span><span class="line"><span class="cl">    <span class="n">t1</span><span class="o">.</span><span class="n">join</span><span class="p">()</span><span class="c1">#等待线程结束</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="lifoqueue">LifoQueue
+</h4><p>用于实现后进先出(Last In, First Out)的队列。与标准的 queue.Queue(先进先出，FIFO)不同，Lifoqueue允许最后被放入队列的元素最先被取出，使用queue.Lifoqueue 创建。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">queue</span><span class="o">.</span><span class="n">LifoQueue</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">0</span><span class="err">）</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>maxsize:队列的最大尺寸。如果设置为小于或等于0的数，则队列的尺寸是无限的,。</p>
+<p>常用方法:</p>
+<ol>
+<li>LifoQueue.put(item,block=True,timeout=None):将item 放入队列。如果 block 是True 目timeout 是 None(默认)，则在必要时阻塞至有空闲的插槽。如果 timeout 是正数，将最多阻塞timeout 秒，如果在这段时间内没有可用的插槽，将引发完全异常。</li>
+<li>LifoQueue.put_nowait(item):相当于 LifoQueue.put(item,block=False)。如果队列已满，立即引发完全异常。</li>
+<li>LifoQueue.get(b1ock=True，timeout=None):从队列中移除并返回一个元素。如果 block是 True 日timeout 是 None(默认)，则在必要时阻塞至队列中有项目可用。如果 timeout 是正数，将最多阻塞timeout 秒，如果在这段时间内没有项目可用，将引发完全异常，</li>
+<li>Lifoqueue.get_nowait():相当于 LifoQueue.get(block=False)。如果队列为空，立即引发完全异常</li>
+<li>Lifoqueue.qsize():返回队列中的项目数量</li>
+<li>Lifoqueue.empty():如果队列为空，返回True</li>
+<li>Lifoqueue.full():如果队列满了，返回True</li>
+</ol>
+<p>消息存入与取出顺序：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">queue</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建一个 LifoQueue</span>
+</span></span><span class="line"><span class="cl"><span class="n">Lifo_queue</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">LifoQueue</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#向LifoQueue 中放入元素</span>
+</span></span><span class="line"><span class="cl"><span class="n">Lifo_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">&#39;First&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Lifo_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">&#39;Second&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">Lifo_queue</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">&#39;Third&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#从LifoQueue 中取出元素</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">lifo_queue</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">lifo_queue</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">lifo_queue</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="priorityqueue">PriorityQueue
+</h4><p>PriorityQueue用于实现优先级队列，在 priorityqueue 中，元素被赋予一个优先级值，并且元素会按照优先级顺序被取出。在Python中，使用queue.priorityqueue来创建。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">queue</span><span class="o">.</span><span class="n">PriorityQueue</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>maxsize:队列的最大尺寸。如果设置为小于或等于0的数，则队列的尺寸是无限的。</p>
+<p>常用方法:</p>
+<ol>
+<li>Priorityqueue.put((priority,item)，block=True,timeout=None):将item 放入队列，并为其指定一个优先级 priority。如果 b1ock 是 True 目 timeout 是 None(默认)，则在必要时阻塞至有空闲的插槽。如果 timeout 是正数，将最多阻塞 timeout 秒，如果在这段时间内没有可用的插槽，将引发完全异常。</li>
+<li>Priorityqueue.put_nowait(item, priority):相当于 priorityoueue.put((item, priority),
+b1ock=Fa1se)。如果队列已满，立即引发完全异常</li>
+<li>Priorityqueue.get(block=True，timeout=None):从队列中移除并返回一个元素。如果 b1ock 是 True月 timeout 是 None(默认)，则在必要时阻塞至队列中有项目可用。如果 timeout 是正数，将最多阻塞timeout 秒，如果在这段时间内没有项目可用，将引发完全异常。</li>
+<li>Priorityoueue.get_nowait():相当于 PriorityQueue.get(block=False)。如果队列为空，立即引发完全异常。</li>
+<li>Priorityqueue.qsize():返回队列中的项目数量，</li>
+</ol>
+<p>消息存入与取出顺序：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">queue</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#创建一个 PriorityQueue</span>
+</span></span><span class="line"><span class="cl"><span class="n">priority_queue</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">PriorityQueue</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#向 PriorityQueue 中放入元素</span>
+</span></span><span class="line"><span class="cl"><span class="n">priority_queue</span><span class="o">.</span><span class="n">put</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;Task1&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">priority_queue</span><span class="o">.</span><span class="n">put</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="s1">&#39;Task2&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="n">priority_queve</span><span class="o">.</span><span class="n">put</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;Task3&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#从PriorityQueue 中取出元素</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">priority_queue</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">priority_queue</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">priority_queue</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="线程同步">线程同步
+</h2><p>在Python中，线程同步指的是一系列用于控制多个线程访问共享资源的方法和规则，以避免数据不一致或竞争条件(Race condition)的问题。由于线程是操作系统调度的基本单元，它们可能会同时操作同一份数据，这可能会导致数据错误或难以预测的结果。以下是几种常见的线程同步机制:</p>
+<ol>
+<li>锁(Locks):锁是最基本的同步机制。在Python中，可以通过 threading 模块的 Lock 类来实现。锁可以确保同一时间只有一个线程能够访问共享资源。线程在访问资源前必须获取锁，访问结束后释放锁。</li>
+<li>信号量(Semaphores):信号量是一个更高级的同步机制，它维护了一个计数器，线程可以增加或减少这个计数器。如果计数器为零，则线程会阻塞，直到其他线程增加计数器。</li>
+<li>事件(Events):事件是一种线程之间的通信机制。&ndash;个线程可以设置事件，而其他线程可以等待该事件的发生。这可以用来通知一个或多个线程某个条件已经满足。</li>
+<li>条件变量(Condition Variables):条件变量通常与互斥锁一起使用，它允许线程在某个条件不满足时挂起(等待)，直到另一个线程通知条件已经满足。</li>
+<li>屏障(Barriers):屏障是一种同步机制，允许多个线程在某个点上同步，直到所有线程都到达屏障点后，才能继续执行。</li>
+</ol>
+<h3 id="锁">锁
+</h3><p>Python中的线程锁也有两个，一个是普通的锁Lock，另一个是可重入锁RLock。使用与进程类似。</p>
+<h3 id="屏障">屏障
+</h3><p>在Python的 threading模块中，Barrier(屏障)是一种同步机制，用于让一组线程在某个点上同步。当所有线程都到达屏障点时，它们将继续执行;如果任何线程没有到达屏障点，则所有线程都会被阻塞，直到所有线程都到达。
+创建Barrier对象
+要使用 Barrier，首先需要导入threading模块，并创建一个Barrier对象:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">threading</span>
+</span></span><span class="line"><span class="cl"><span class="n">barrier</span><span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Barrier</span><span class="p">(</span><span class="n">parties</span><span class="p">,</span><span class="n">action</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>parties:屏障点上需要等待的线程数量</li>
+<li>action(可选):当所有线程到达屏障点时，可以执行的一个函数。</li>
+<li>timeout(可选):默认的超时时间，如果wait没有指定时间将使用这个时间。</li>
+</ol>
+<p>Barrier的方法与属性:</p>
+<ol>
+<li>wait(timeout):阻塞线程，直到屏障被释放。如果所有线程都到达屏障点，屏障将被释放，所有线程继续执行;如果任何线程没有到达，所有线程将被阻塞。如果提供了timeout，这里的timeout会优先于创建Barrier对象时提供的timeout参数。改函数会返回一个整数，取值在0~(n-1)之间。</li>
+<li>reset():重置Barrier为默认的初始状态。如果Barrier中仍有线程等待释放，将会引发异常。</li>
+<li>abort():使Barrier处于破损状态，这将导致任何现有和未来对wait()方法的调用失败并引发异常。</li>
+<li>parties:冲出Barrier所需要的线程数量。</li>
+<li>n_waiting:当前时刻正在Barrier中阻塞的线程数量。</li>
+<li>broken:一个布尔值，表示Barrier是否为破损态。</li>
+</ol>
+<h2 id="线程池">线程池
+</h2><h3 id="线程池的概念">线程池的概念
+</h3><p>线程池维护一个工作线程的集合，用于执行任务。当任务到达时，线程池可以选择一个空闲的线程来处理任务，而不是为每个任务都创建一个新的线程。</p>
+<h3 id="为什么使用线程池">为什么使用线程池
+</h3><ol>
+<li>降低资源消耗:线程的创建和销毁开销较大，通过重用线程，可以降低这些开销。</li>
+<li>提高响应速度:不需要等待线程的创建就能立即执行任务。</li>
+<li>提高线程的可管理性:线程池可以统一管理线程的创建、销毁、数量等内容。</li>
+</ol>
+<h3 id="python中的线程池实现">Python中的线程池实现
+</h3><p>concurrent.futures,ThreadPoolExecutor: Python标准库中的 concurrent.futures 模块提供了一个高层次的异步执行接口，ThreadPoo1Executor是其提供的线程池实现。</p>
+<h4 id="线程池的创建">线程池的创建
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">concurrent</span><span class="p">,</span><span class="n">futures</span><span class="o">.</span><span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">thread_name_prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">initializer</span><span class="o">=</span><span class="kc">None</span><span class="err">，</span><span class="n">initargs</span><span class="o">=</span><span class="p">())</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>参数解释：</p>
+<ol>
+<li>max_workers:线程池中线程的最大数量。如果设置为None 或未指定，为min(32,os.cpu_count()+4)，这个默认值会保留至少5个工作线程用于 I/O密集型任务。 对于那些释放了 GIL 的 CPU 密集型任务，它最多会使用 32 个 CPU 核心。这样能够避免在多核机器上不知不觉地使用大量资源。</li>
+<li>thread_name_prefix:线程名称的前缀，有助于调试时识别线程。</li>
+<li>initia1izer:一个可选的可调用对象，每个工作线程在启动时都会调用它。这可以用来执行线程的初始化操作，例如设置线程局部存储。</li>
+<li>initargs:一个元组，其中包含传递给initializer的可调用对象的参数。</li>
+</ol>
+<p>initia1izer和 initargs 参数通常用于为每个线程设置特定的环境或上下文。</p>
+<h4 id="线程池的方法">线程池的方法
+</h4><ol>
+<li>submit(fn,<em>args,</em> <em>kwargs)</em>:提交一个可调用的函数 fn和必要的参数args 和 kwargs 到线程池中执行。这个方法返回一个 Future 对象。</li>
+<li>map(func, *iterables,timeout=None, chunksize=1):它允许你将一个函数 func 应用于多个可迭代对象iterab1es 中的元素，并且并行地在多个线程上执行这些函数调用。 timeout是可选参数，用于设置阻塞等待每个任务完成的最大秒数。如果 timeout 被触发，将引发 concurrent.futures.TimeoutErrorchunksize 是可选参数，用于指定每次切割几个参数给func，不过只对进程池有效果，对线程池无效。返回的结果是一个迭代器。</li>
+<li>shutdown(wait=True): 关闭线程池，停止接收新任务。如果wait 参数为True，则等待所有已提交的任务完成。当使用with语句创建线程池时，with语句会在结束后自动调用shutdown。</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/python-%E5%A4%9A%E8%BF%9B%E7%A8%8B/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python-多进程</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/python%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python文件操作</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/python%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python的正则表达式</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/python%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python模块与异常处理机制</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/python%E7%9A%84%E7%B1%BB/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python的类</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 UPPO
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/Mybolg/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    
+    const cssPath = "https://UPPO8.github.io/Mybolg/waifu/waifu.css"
+    const tipsJsonPath = "https://UPPO8.github.io/Mybolg/waifu/waifu-tips.json"
+    
+    const live2d_path = "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
+
+    
+    function loadExternalResource(url, type) {
+        return new Promise((resolve, reject) => {
+            let tag;
+            if (type === "css") {
+                tag = document.createElement("link");
+                tag.rel = "stylesheet";
+                tag.href = url;
+            }
+            else if (type === "js") {
+                tag = document.createElement("script");
+                tag.src = url;
+            }
+            if (tag) {
+                tag.onload = () => resolve(url);
+                tag.onerror = () => reject(url);
+                document.head.appendChild(tag);
+            }
+        });
+    }
+
+    
+    if (screen.width >= 768) {
+        Promise.all([
+        loadExternalResource(cssPath, "css"),
+            loadExternalResource(live2d_path + "live2d.min.js", "js"),
+            loadExternalResource(live2d_path + "waifu-tips.js", "js")
+        ]).then(() => {
+            initWidget({
+                waifuPath: tipsJsonPath,
+                cdnPath: "https://fastly.jsdelivr.net/gh/fghrsh/live2d_api/",
+                tools: ["hitokoto", "asteroids", "switch-model", "switch-texture", "photo", "info", "quit"]
+            });
+            
+            initWaifuMouseEvent();
+        });
+    }
+    function initWaifuMouseEvent() {
+        const waifu = document.getElementById("waifu");
+        let isDown = false;
+        let waifuLeft;
+        let mouseLeft;
+        let waifuTop;
+        let mouseTop;
+        
+        waifu.onmousedown = function (e) {
+            isDown = true;
+            
+            waifuLeft = waifu.offsetLeft;
+            mouseLeft = e.clientX;
+            
+            waifuTop = waifu.offsetTop;
+            mouseTop = e.clientY;
+        }
+        
+        window.onmousemove = function (e) {
+            if (!isDown) {
+                return;
+            }
+            
+            let currentLeft = waifuLeft + (e.clientX - mouseLeft);
+            if (currentLeft < 0) {
+                currentLeft = 0;
+            } else if (currentLeft > window.innerWidth - 300) {
+                currentLeft = window.innerWidth - 300;
+            }
+            waifu.style.left = currentLeft  + "px";
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        }
+        
+        window.onmouseup = function (e) {
+            isDown = false;
+        }
+    }
+</script>
+
+    </body>
+</html>

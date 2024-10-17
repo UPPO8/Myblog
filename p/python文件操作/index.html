@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="文件操作 文件操作的重要性 数据持久化:文件是存储数据的一种非常基本且重要的方式。通过文件，我们可以将程序运行时产生的数据永久保存下来，以便将来使用。 跨平台兼容性:文件是一种通用的数据交换格式，可以在不同的操作系统和平台上进行传输和处理。 数据备份与恢复:定期备份数据到文件有助于防止数据丢失，便于数据恢复。 数据共享:文件可以轻松地在网络之间共享，使得多人协作成为可能。I 配置管理:许多应用程序使用文件来存储配置信息，方便用户根据需要调整设置。·日志记录:文件被广泛用于记录程序运行时的日志，这对于调试和性能监控非常重要 应用场景 数据分析:读取数据文件进行数据分析，或者程序的运行结果输出到文件，以便于报告或进一步分析。 Web开发:读取配置文件来设置Web服务器的各种参数，处理用户上传的文件。 系统管理:读取和写入日志文件以监控系统状态。 文本处理:读取文本文件，进行搜索、替换等操作，并将处理后的结果保存到文件中。 游戏开发:读取账号数据、保存账号数据，管理游戏资源文件。 文件的基本概念 文件的概念 文件是一个存储在某种持久性存储介质(如硬盘、固态驱动器或磁带等)上的数据集合。文件可以包含各种类型的信息，包括文本、图像、音频、视频、应用程序代码以及其他类型的二进制数据。文件是操作系统用来组织和管理这些数据的主要方式之一。\n">
+<title>Python文件操作</title>
+
+<link rel='canonical' href='https://UPPO8.github.io/Mybolg/p/python%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/'>
+
+<link rel="stylesheet" href="/Mybolg/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Python文件操作">
+<meta property='og:description' content="文件操作 文件操作的重要性 数据持久化:文件是存储数据的一种非常基本且重要的方式。通过文件，我们可以将程序运行时产生的数据永久保存下来，以便将来使用。 跨平台兼容性:文件是一种通用的数据交换格式，可以在不同的操作系统和平台上进行传输和处理。 数据备份与恢复:定期备份数据到文件有助于防止数据丢失，便于数据恢复。 数据共享:文件可以轻松地在网络之间共享，使得多人协作成为可能。I 配置管理:许多应用程序使用文件来存储配置信息，方便用户根据需要调整设置。·日志记录:文件被广泛用于记录程序运行时的日志，这对于调试和性能监控非常重要 应用场景 数据分析:读取数据文件进行数据分析，或者程序的运行结果输出到文件，以便于报告或进一步分析。 Web开发:读取配置文件来设置Web服务器的各种参数，处理用户上传的文件。 系统管理:读取和写入日志文件以监控系统状态。 文本处理:读取文本文件，进行搜索、替换等操作，并将处理后的结果保存到文件中。 游戏开发:读取账号数据、保存账号数据，管理游戏资源文件。 文件的基本概念 文件的概念 文件是一个存储在某种持久性存储介质(如硬盘、固态驱动器或磁带等)上的数据集合。文件可以包含各种类型的信息，包括文本、图像、音频、视频、应用程序代码以及其他类型的二进制数据。文件是操作系统用来组织和管理这些数据的主要方式之一。\n">
+<meta property='og:url' content='https://UPPO8.github.io/Mybolg/p/python%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/'>
+<meta property='og:site_name' content='UPPO Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-10-14T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-10-14T00:00:00&#43;00:00'/><meta property='og:image' content='https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png' />
+<meta name="twitter:title" content="Python文件操作">
+<meta name="twitter:description" content="文件操作 文件操作的重要性 数据持久化:文件是存储数据的一种非常基本且重要的方式。通过文件，我们可以将程序运行时产生的数据永久保存下来，以便将来使用。 跨平台兼容性:文件是一种通用的数据交换格式，可以在不同的操作系统和平台上进行传输和处理。 数据备份与恢复:定期备份数据到文件有助于防止数据丢失，便于数据恢复。 数据共享:文件可以轻松地在网络之间共享，使得多人协作成为可能。I 配置管理:许多应用程序使用文件来存储配置信息，方便用户根据需要调整设置。·日志记录:文件被广泛用于记录程序运行时的日志，这对于调试和性能监控非常重要 应用场景 数据分析:读取数据文件进行数据分析，或者程序的运行结果输出到文件，以便于报告或进一步分析。 Web开发:读取配置文件来设置Web服务器的各种参数，处理用户上传的文件。 系统管理:读取和写入日志文件以监控系统状态。 文本处理:读取文本文件，进行搜索、替换等操作，并将处理后的结果保存到文件中。 游戏开发:读取账号数据、保存账号数据，管理游戏资源文件。 文件的基本概念 文件的概念 文件是一个存储在某种持久性存储介质(如硬盘、固态驱动器或磁带等)上的数据集合。文件可以包含各种类型的信息，包括文本、图像、音频、视频、应用程序代码以及其他类型的二进制数据。文件是操作系统用来组织和管理这些数据的主要方式之一。\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png' />
+    <link rel="shortcut icon" href="/Mybolg/1828643.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/Mybolg/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/Mybolg/img/100_hu17204809037550521928.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😊</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/Mybolg">UPPO Blog</a></h1>
+            <h2 class="site-description">欢迎来到UPPO的博客</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/402008155'
+                        target="_blank"
+                        title="BiliBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg class="icon" style="width: 1em;height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1385"><path d="M125.258667 395.2c-14.016 105.909333-6.4 234.293333-0.277334 337.504l0.021334 0.234667c3.413333 57.450667 28.405333 101.322667 72.277333 126.912 33.429333 19.498667 70.538667 25.109333 105.642667 28.266666 42.261333 3.808 120.736 7.861333 214.4 7.882667 93.685333-0.021333 172.16-4.085333 214.410666-7.893333 35.114667-3.146667 72.213333-8.757333 105.653334-28.266667 43.872-25.578667 68.864-69.461333 72.288-126.901333V732.8c6.133333-103.232 13.76-231.669333-0.277334-337.6-13.866667-104.864-91.274667-135.264-131.008-136.810667a3286.506667 3286.506667 0 0 0-106.026666-5.258666c9.813333-10.997333 25.898667-30.058667 37.525333-49.109334q17.888-29.301333-11.093333-53.717333-14.613333-12.448-28.405334-11.584-15.306667 0.96-29.578666 18.293333c-20.437333 24.832-49.973333 72.16-63.306667 94.005334a4644.352 4644.352 0 0 0-51.072-0.277334l-69.28 0.277334c-13.333333-21.845333-42.858667-69.173333-63.306667-94.005334q-14.282667-17.333333-29.578666-18.293333-13.781333-0.853333-28.394667 11.584-28.992 24.416-11.114667 53.717333c11.637333 19.050667 27.712 38.112 37.525334 49.109334-35.370667 1.173333-70.72 2.933333-106.026667 5.258666-39.722667 1.536-117.12 31.946667-130.997333 136.810667z" fill="#FFFFFF" p-id="1386"></path><path d="M124.981333 732.704c-6.122667-103.210667-13.738667-231.594667 0.277334-337.504 13.866667-104.864 91.274667-135.264 130.997333-136.810667 35.306667-2.325333 70.656-4.085333 106.026667-5.258666-9.813333-10.997333-25.888-30.058667-37.525334-49.109334q-17.888-29.301333 11.114667-53.717333 14.613333-12.437333 28.394667-11.584 15.296 0.96 29.578666 18.293333c20.448 24.832 49.973333 72.16 63.306667 94.005334l69.28-0.277334c17.28 0 34.293333 0.106667 51.072 0.277334 13.333333-21.845333 42.869333-69.173333 63.306667-94.005334q14.272-17.333333 29.578666-18.293333 13.781333-0.853333 28.405334 11.584 28.981333 24.416 11.093333 53.717333c-11.626667 19.050667-27.701333 38.112-37.514667 49.109334 36.928 1.258667 72.341333 3.008 106.026667 5.258666 39.722667 1.536 117.12 31.946667 130.997333 136.810667 14.026667 105.930667 6.4 234.368 0.288 337.6l-0.010666 0.138667c-3.413333 57.44-28.416 101.322667-72.288 126.912-33.44 19.498667-70.538667 25.109333-105.642667 28.266666-42.261333 3.797333-120.736 7.861333-214.410667 7.882667-93.674667-0.021333-172.16-4.074667-214.410666-7.893333-35.104-3.146667-72.213333-8.757333-105.642667-28.266667-43.872-25.578667-68.864-69.450667-72.277333-126.901333l-0.021334-0.234667z m650.4-401.141333l-1.386666-0.064c-74.474667-4.981333-157.76-7.509333-247.562667-7.509334h-18.208c-89.792 0-173.077333 2.528-247.552 7.52l-1.386667 0.064c-0.106667 0-12.181333 1.077333-24.928 8.746667-19.594667 11.754667-31.605333 33.429333-35.701333 64.384-13.12 99.104-5.706667 223.765333 0.245333 323.946667 3.829333 64.373333 43.498667 80.469333 110.741334 86.517333 14.037333 1.28 89.962667 7.562667 207.690666 7.584 117.738667-0.021333 193.664-6.314667 207.701334-7.584 67.242667-6.048 106.922667-22.144 110.741333-86.528 5.952-100.170667 13.354667-224.832 0.245333-323.936-4.096-30.965333-16.106667-52.629333-35.712-64.394667-12.746667-7.658667-24.821333-8.746667-24.928-8.746666zM249.941333 548.906667c7.488 15.146667 25.973333 21.418667 41.269334 13.973333 0.608-0.298667 61.568-29.706667 134.869333-51.946667 16.298667-4.906667 25.482667-21.994667 20.48-38.122666-4.992-16.138667-22.261333-25.194667-38.56-20.234667-77.92 23.637333-141.28 54.208-143.936 55.498667a30.368 30.368 0 0 0-14.112 40.832z m493.525334 13.973333c15.285333 7.402667 33.76 1.152 41.248-13.973333a30.368 30.368 0 0 0-14.101334-40.842667c-2.666667-1.290667-66.026667-31.861333-143.946666-55.488-16.288-4.949333-33.536 4.117333-38.506667 20.234667-4.992 16.106667 4.16 33.173333 20.448 38.122666 73.045333 22.154667 134.24 51.637333 134.858667 51.946667zM575.008 679.509333c51.658667 0 65.76-67.530667 66.325333-70.410666a14.645333 14.645333 0 0 0-11.637333-17.205334 14.773333 14.773333 0 0 0-17.397333 11.52c-0.106667 0.469333-10.133333 46.805333-37.290667 46.805334-29.098667 0-44.544-40.64-44.693333-41.002667a14.805333 14.805333 0 0 0-13.834667-9.674667h-0.074667c-6.186667 0-11.701333 3.797333-13.866666 9.525334-4.032 10.666667-20.330667 41.141333-41.653334 41.141333-20.394667 0-35.210667-35.498667-38.794666-47.936a14.826667 14.826667 0 0 0-18.208-9.952 14.634667 14.634667 0 0 0-10.282667 17.898667c2.016 7.093333 21.024 69.290667 67.306667 69.290666 25.834667 0 44.213333-18.133333 55.530666-34.496 11.562667 16.394667 30.656 34.496 58.570667 34.496z" fill="#00AEEC" p-id="1387"></path></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/ilovegta/ilovegta.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/Mybolg/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Mybolg/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Mybolg/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Mybolg/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Mybolg/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#文件操作">文件操作</a>
+      <ol>
+        <li><a href="#文件操作的重要性">文件操作的重要性</a></li>
+        <li><a href="#应用场景">应用场景</a></li>
+      </ol>
+    </li>
+    <li><a href="#文件的基本概念">文件的基本概念</a>
+      <ol>
+        <li><a href="#文件的概念">文件的概念</a></li>
+        <li><a href="#文件的属性">文件的属性</a></li>
+        <li><a href="#文件的类型">文件的类型</a></li>
+      </ol>
+    </li>
+    <li><a href="#文件的路径">文件的路径</a>
+      <ol>
+        <li><a href="#绝对路径">绝对路径</a></li>
+        <li><a href="#相对路径">相对路径</a></li>
+        <li><a href="#路径中的特殊符合">路径中的特殊符合</a></li>
+        <li><a href="#使用场景">使用场景</a></li>
+      </ol>
+    </li>
+    <li><a href="#文件的操作">文件的操作</a>
+      <ol>
+        <li><a href="#打开文件">打开文件</a></li>
+        <li><a href="#文件模式">文件模式</a></li>
+        <li><a href="#读取文件">读取文件</a></li>
+        <li><a href="#写入文件">写入文件</a></li>
+        <li><a href="#关闭文件">关闭文件</a></li>
+        <li><a href="#with语句">with语句</a></li>
+      </ol>
+    </li>
+    <li><a href="#文件指针的操作">文件指针的操作</a>
+      <ol>
+        <li><a href="#获取文件指针的位置">获取文件指针的位置</a></li>
+        <li><a href="#改变文件指针的位置">改变文件指针的位置</a></li>
+      </ol>
+    </li>
+    <li><a href="#获取文件属性">获取文件属性</a>
+      <ol>
+        <li><a href="#获取文件大小">获取文件大小</a></li>
+        <li><a href="#获取文件的最后修改时间">获取文件的最后修改时间</a></li>
+        <li><a href="#获取文件的创建时间">获取文件的创建时间</a></li>
+        <li><a href="#获取文件的最后访问时间">获取文件的最后访问时间</a></li>
+      </ol>
+    </li>
+    <li><a href="#目录操作">目录操作</a>
+      <ol>
+        <li><a href="#创建目录">创建目录</a></li>
+        <li><a href="#删除目录">删除目录</a></li>
+        <li><a href="#改变当前工作目录">改变当前工作目录</a></li>
+        <li><a href="#获取当前工作目录">获取当前工作目录</a></li>
+        <li><a href="#列出自录下的所有内容">列出自录下的所有内容</a></li>
+        <li><a href="#重命名目录">重命名目录</a></li>
+        <li><a href="#检查路径是否为目录">检查路径是否为目录</a></li>
+        <li><a href="#路径拼接">路径拼接</a></li>
+        <li><a href="#路径拆分">路径拆分</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/Mybolg/p/python%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" alt="Featured image of post Python文件操作" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/Mybolg/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="background-color: #2a9d8f; color: #fff;">
+                学习记录
+            </a>
+        
+            <a href="/Mybolg/categories/python/" style="background-color: #2a9d8f; color: #fff;">
+                Python
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/Mybolg/p/python%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">Python文件操作</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Oct 14, 2024</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="文件操作">文件操作
+</h2><h3 id="文件操作的重要性">文件操作的重要性
+</h3><ol>
+<li><strong>数据持久化</strong>:文件是存储数据的一种非常基本且重要的方式。通过文件，我们可以将程序运行时产生的数据永久保存下来，以便将来使用。</li>
+<li><strong>跨平台兼容性</strong>:文件是一种通用的数据交换格式，可以在不同的操作系统和平台上进行传输和处理。</li>
+<li><strong>数据备份与恢复</strong>:定期备份数据到文件有助于防止数据丢失，便于数据恢复。</li>
+<li><strong>数据共享</strong>:文件可以轻松地在网络之间共享，使得多人协作成为可能。I</li>
+<li><strong>配置管理</strong>:许多应用程序使用文件来存储配置信息，方便用户根据需要调整设置。·日志记录:文件被广泛用于记录程序运行时的日志，这对于调试和性能监控非常重要</li>
+</ol>
+<h3 id="应用场景">应用场景
+</h3><ol>
+<li><strong>数据分析</strong>:读取数据文件进行数据分析，或者程序的运行结果输出到文件，以便于报告或进一步分析。</li>
+<li><strong>Web开发</strong>:读取配置文件来设置Web服务器的各种参数，处理用户上传的文件。</li>
+<li><strong>系统管理</strong>:读取和写入日志文件以监控系统状态。</li>
+<li><strong>文本处理</strong>:读取文本文件，进行搜索、替换等操作，并将处理后的结果保存到文件中。</li>
+<li><strong>游戏开发</strong>:读取账号数据、保存账号数据，管理游戏资源文件。</li>
+</ol>
+<h2 id="文件的基本概念">文件的基本概念
+</h2><h3 id="文件的概念">文件的概念
+</h3><p>文件是一个存储在某种持久性存储介质(如硬盘、固态驱动器或磁带等)上的数据集合。文件可以包含各种类型的信息，包括文本、图像、音频、视频、应用程序代码以及其他类型的二进制数据。文件是操作系统用来组织和管理这些数据的主要方式之一。</p>
+<p>文件通常由以下几部分组成:</p>
+<ol>
+<li><strong>数据</strong>:文件中存储的实际信息，即用户想要保存的具体信息，如文本、图像或代码等</li>
+<li><strong>元数据</strong>:关于文件本身的附加信息，包括但不限于文件名、创建日期、文件大小、文件类型等。</li>
+<li><strong>文件系统</strong>:这是操作系统用来组织和管理文件的一种逻辑结构，包括文件的命名、存储和检索方式。文件系统还负责管理磁盘空间的分配，并确保文件可以被正确地读写。常见的文件系统有 FAT32、NTFS 等。</li>
+</ol>
+<h3 id="文件的属性">文件的属性
+</h3><ol>
+<li><strong>文件名</strong>:用于标识文件的唯一名称，通常包含主文件名和扩展名(如 document.txt)</li>
+<li><strong>位置</strong>:文件存储在一个特定的位置，这个位置可以用目录或路径来表示。例如，在Windows系统中，文件路径可能是c:\Documents\example.txt;而在Unix-like系统中，路径可能是/home/user/Documents/example.txt。</li>
+<li><strong>文件类型</strong>:根据文件的内容和用途，文件可以有多种类型，如文本文件、图像文件、音频文件等4.文件大小:文件占用的存储空间大小，通常以字节(B)、千字节(KB)、兆字节(MB)或吉字节(GB)为单位</li>
+</ol>
+<h3 id="文件的类型">文件的类型
+</h3><p>在Windows系统中，大致可以分为以下几种:</p>
+<ol>
+<li>文本文件:包含可读字符的文件，如.txt、.csv、.html等。</li>
+<li>二进制文件:包含不可直接读的原始二进制数据的文件，如.exe、jpg、.mp3等。</li>
+<li>可执行文件:可以被操作系统执行的文件，如.exe(Windows)。</li>
+<li>数据文件:用于存储应用程序数据的文件，如数据库文件、配置文件等。</li>
+<li>目录/文件夹:用于组织和管理其他文件的特殊文件。</li>
+</ol>
+<p>在Linux系统中，可以分为以下几种:</p>
+<ol>
+<li>-：普通文件，比如txt、py等。</li>
+<li>d:目录文件，比如xx目录，类比Windows中的文件夹。</li>
+<li>b:块设备文件，Linux系统中的底层驱动文件。</li>
+<li>c:字符设备文件，Linux系统中的底层驱动文件。</li>
+<li>l:链接文件，类似于快捷方式</li>
+<li>p:管道文件，用于进程间的通信。</li>
+<li>s：套接字文件，用于网络通信的端点，用于网络传输。</li>
+</ol>
+<h2 id="文件的路径">文件的路径
+</h2><p>在计算机文件系统中，路径是用来标识文件或目录位置的一种方式。路径有两种主要的形式:绝对路径和相对路径。这两种路径形式对于在文件系统中导航和访问文件非常重要。</p>
+<h3 id="绝对路径">绝对路径
+</h3><p>绝对路径是从文件系统的根目录开始的一条完整路径，它指明了从根目录到达目标文件或目录的具体步骤。</p>
+<p>特点:</p>
+<ol>
+<li>不依赖于当前工作目录。</li>
+<li>在不同用户或程序间具有一致性</li>
+<li>提供了文件或目录的完整位置信息。</li>
+</ol>
+<p>示例:</p>
+<ol>
+<li>在Windows系统中，一个绝对路径可能看起来像这样:c:\users\John\Documents\report.txt。</li>
+<li>在Linux/Unix系统中，一个绝对路径可能看起来像这样:/home/john/Documents/report.txt。</li>
+</ol>
+<h3 id="相对路径">相对路径
+</h3><p>相对路径是指相对于某个起始点(通常是当前工作目录)到达目标文件或目录的路径。</p>
+<p>特点:</p>
+<ol>
+<li>取决于当前工作目录的位置。</li>
+<li>更加灵活，但可能会因上下文变化而变化。</li>
+<li>适用于在同一目录层级或附近层级内的文件访问</li>
+</ol>
+<p>示例:</p>
+<ol>
+<li>在Windows系统中，如果当前工作目录是c:\users\John\Documents，那么我想去找同目录下的example.txt的话，就是,\example.txt，如果上级目录下的example.txt的话，就是..\example.txt。</li>
+<li>在Linux/Unix中，如果当前工作目录是 /home/iohn/oocuments ，那么我想去找同目录下的example.txt的话，就是./example.txt，如果上级目录下的example.txt的话，就是../example.txt。</li>
+</ol>
+<h3 id="路径中的特殊符合">路径中的特殊符合
+</h3><ol>
+<li><strong>.</strong>(当前目录):表示当前目录。</li>
+<li><strong>..</strong>(上一级目录):表示当前目录的父目录。</li>
+</ol>
+<h3 id="使用场景">使用场景
+</h3><p><strong>绝对路径</strong>:当需要指定确切位置，或者在不同环境(如不同用户的系统)下保持一致时使用。</p>
+<p><strong>相对路径</strong>:当文件位于同一目录或相关联的子目录中时使用，可以使程序更加灵活和便携。</p>
+<h2 id="文件的操作">文件的操作
+</h2><h3 id="打开文件">打开文件
+</h3><p>在Python中，使用open()函数来打开文件，这个函数返回一个文件对象，可以用来进行后续的读写等操作。函数原型为:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">buffering</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">closefd</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>参数解释：</p>
+<ol>
+<li><strong>file_name</strong>:要打开的文件的路径加名称(包含后缀名)，可以是绝对路径也可以是相对路径。mode:打开文件的模式，默认为&rsquo;r&rsquo;，表示只读模式且以文本模式读取。</li>
+<li><strong>buffering</strong>:可选参数，缓冲区大小。0表示无缓冲，1表示行缓冲，更大的整数表示具体的缓冲区大小。默认为None，表示默认的缓冲策略，大多数情况下，使用默认值就可以了。</li>
+<li><strong>encoding</strong>:可选参数，用于指定文件的编码，仅适用于文本模式，默认值None表示使用系统的默认编码来打开文本文件。</li>
+<li><strong>errors</strong>:可选参数，用于指定如何处理编码和解码错误，对于二进制模式无效。常见的值有strict、ignore、replace等。</li>
+<li><strong>newline</strong>:可选参数，用于控制通用换行符模式的行为。它可以是None、&rsquo;&rsquo;、&rsquo;\n&rsquo;、&quot;\r&rsquo;或&rsquo;\r\n&rsquo;。如果设置为 None ，则通用换行符模式被启用，\n、\r和\r\n都被识别为换行符，并以\n的形式在文本模式下读取。如果设置为其他值，则在该值处进行换行符的转换。</li>
+<li><strong>closefd</strong>:可选参数，如果为True(默认值)，则在文件关闭时关闭文件描述符。如果为Fa1se，则文件描述符在文件关闭时保持打开状态。</li>
+</ol>
+<h3 id="文件模式">文件模式
+</h3><p>以下是几种常见的文件打开模式:</p>
+<ol>
+<li>&lsquo;r&rsquo;:read 只读模式(默认值)。如果文件不存在就会触发异常,</li>
+<li>&lsquo;r+&rsquo;:打开文件进行读写，该文件必须存在</li>
+<li>&lsquo;w&rsquo;:write 写入模式，如果文件存在则覆盖，不存在则创建。</li>
+<li>&lsquo;W+&rsquo;:打开文件进行读写，如果文件存在则覆盖，如果不存在则创建。</li>
+<li>&lsquo;a&rsquo;:追加模式，如果文件存在则在文件末尾追加内容，不存在则创建,</li>
+<li>&lsquo;a+&rsquo;:打开文件进行读写，如果文件存在则在末尾追加，如果不存在则创建。</li>
+<li>&lsquo;x&rsquo;:独占创建模式，如果文件已存在则抛出异常，这可以用来避免覆盖现有文件。</li>
+<li>&lsquo;b&rsquo;:二进制模式，读写时，数据不会被转换，直接以字节形式处理。</li>
+<li>&rsquo;t&rsquo;:文本模式(默认值)，读写时，数据会被视为字符串。</li>
+</ol>
+<h3 id="读取文件">读取文件
+</h3><p>打开文件后，可以使用以下方法读取内容:</p>
+<ol>
+<li><strong>read(size)</strong>:size是可选参数，在文本模式下，一次最多读取文件指针后面size个大小的字符，在二进制模式下，一次最多读取文件指针后面size个大小的字节，默认size为None，表示一次性读取文件指针后面的所有内容并将其作为字符串返回。</li>
+<li><strong>readline()</strong>:从文件中读取单行数据</li>
+<li><strong>readlines()</strong>:读取所有行，并返回一个列表。</li>
+</ol>
+<h3 id="写入文件">写入文件
+</h3><p>要将内容写入文件，可以使用以下方法:</p>
+<ol>
+<li><strong>write(str)</strong>:将str的内容追加到当前文件指针位置，并将文件指针移动到新的写入位置。会返回写入的字符数量，写入其他类型的对象时，要先将它们转化为字符串或字节对象。</li>
+<li><strong>writelines()</strong>:写入一个字符串列表。</li>
+</ol>
+<h3 id="关闭文件">关闭文件
+</h3><p>在python中，使用close()方法关闭文件。关闭文件是一个重要的操作，因为它释放了与文件对象关联的系统资源，并确保数据正确地写入存储介质。
+<strong>功能</strong>：</p>
+<ol>
+<li><strong>释放资源</strong>：关闭文件，释放与文件对象关联的所有系统资源，如文件描述符、缓冲区等。</li>
+<li><strong>刷新缓冲区</strong>:在关闭文件之前，它会自动刷新文件的内部缓冲区，确保所有缓冲的数据都被写入磁盘,</li>
+<li><strong>禁止进一步操作</strong>:关闭文件后，文件对象不再允许进行读取、写入或其他操作。
+<strong>重要性</strong>：
+文件操作完成后，应该关闭文件以释放资源，可以使用close()方法关闭文件。在Pvthon程序中，如果不关闭打开的文件，可能会产生以下影响:</li>
+<li><strong>资源管理</strong>:文件描述符是有限的资源，如果不关闭文件，可能会导致资源泄漏，特别是在打开大量文件时。</li>
+<li><strong>数据完整性</strong>:确保所有缓冲的数据都写入磁盘，防止数据丢失。尤其是在写入操作后，如果不关闭文件，可能会导致最后写入的数据没有保存。</li>
+<li><strong>防止错误</strong>:关闭文件可以防止对已关闭文件的非法操作，这些操作可能会引发异常。</li>
+<li><strong>提高效率</strong>:关闭不再需要的文件可以释放系统资源，提高程序的整体效率。</li>
+<li><strong>清理操作</strong>:在关闭文件时，可以执行一些清理操作，如关闭网络连接或释放其他相关资源。</li>
+</ol>
+<h3 id="with语句">with语句
+</h3><p>用于简化资源的打开和关闭过程，确保资源在Python中，with语句是一种上下文管理器(contextmanager)在不需要时得到适当的释放。这种机制常用于文件操作、网络连接、锁等资源的处理，可以避免资源泄露和出现其他资源管理问题。</p>
+<p>基本语法为:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">with</span> <span class="n">expression</span> <span class="p">[</span><span class="k">as</span> <span class="n">variabfel</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">with</span><span class="o">-</span><span class="n">block</span>
+</span></span><span class="line"><span class="cl"><span class="n">例如</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./1.txt&#39;</span><span class="p">,</span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">res</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">write</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol>
+<li><strong>表达式(expression)</strong>:这个表达式必须返回一个实现了上下文管理器协议的对象，也就是说，它需要包含enter_和_exit_两个方法。</li>
+<li><strong>as 子句</strong>:这是可选的。如果提供了as子句，那么expression中_enter_方法的返回值将被赋值给变量。</li>
+<li><strong>with-b1ock</strong>:这个代码块是 with语句的主体，在执行这个代码块之前，会首先调用上下文管理器的_enter_方法。当with-b1ock执行完毕后，不论是因为正常完成还是因为异常，都会调用上下文管理器的exit 方法，该方法负青关闭文件</li>
+</ol>
+<h2 id="文件指针的操作">文件指针的操作
+</h2><h3 id="获取文件指针的位置">获取文件指针的位置
+</h3><p>在python中，使用tell()函数去返回当前文件指针的位置.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">tell</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>tell()函数没有参数，它的功能就是返回文件指针当前位置相对于文件开头的偏移量。这个偏移量是一个整数，表示从文件开头到当前读取位置的字节数。</p>
+<p><strong>注意事项:</strong></p>
+<ol>
+<li>tell()方法仅在文件被打开用于读取时才有意义，因为在写入模式下，文件指针的位置会随着写入操作而改变</li>
+<li>在读取模式下，tell()方法返回的是当前读取位置相对于文件开头的偏移量。</li>
+<li>其返回值是字节数，不是字符数，对于utf-8的编码格式来说，一个汉字占三个字节，所以读取中文时，字符数与字节数是不一样的。</li>
+</ol>
+<h3 id="改变文件指针的位置">改变文件指针的位置
+</h3><p>在python中，使用seek()函数去改变文件指针的位置。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">seek</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span><span class="n">whence</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其中:
+<strong>offset</strong>:表示相对于whence的偏移量，是一个整数。这个偏移量可以是正数，也可以是负数。正数表示向文件末尾方向移动，负数表示向文件开头方向移动，0则表示不偏移。</p>
+<p><strong>whence</strong>:是一个可选的参数，默认为0。它指定了offset的起始位置，可以是以下三个值之一</p>
+<ol>
+<li><em><strong>0:表示从文件开头开始计算偏移量(默认值)</strong></em></li>
+<li><em><strong>1:表示从当前文件指针位置开始计算偏移量。</strong></em></li>
+<li><em><strong>2:表示从文件末尾开始计算偏移量。</strong></em></li>
+</ol>
+<p><strong>注意事项</strong>:</p>
+<ol>
+<li>seek 方法在文本模式和二进制模式下都有效，但文本模式whence只能使用默认值，不能自己修改。</li>
+<li>seek 方法基于字节偏移量。这意味着即使文件包含多字节字符，seek 改变的仍然是字节偏移量。</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">TextIOWrapper</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">path</span> <span class="o">=</span><span class="s1">&#39;./1.txt&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;./1.txt&#39;</span><span class="p">,</span><span class="s1">&#39;a+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">res</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ret</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fd</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ret1</span> <span class="o">=</span> <span class="n">fd</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">ret1</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="获取文件属性">获取文件属性
+</h2><p>在Python中，可以使用内置的os模块来获取文件的属性。以下是一些常用的方法来获取文件属性:</p>
+<h3 id="获取文件大小">获取文件大小
+</h3><p>在python中，使用**os.path.getsize()**获取指定文件的大小(以字节为单位)</p>
+<pre><code>os.path.getsize(path)
+</code></pre>
+<p>path(字符串)-文件的路径。</p>
+<p>返回一个整数，表示文件的大小(以字节为单位)。如果文件不存在或无法访问，会抛出异常。</p>
+<h3 id="获取文件的最后修改时间">获取文件的最后修改时间
+</h3><p>在python中，使用**os.path.getmtime()**获取指定文件的最后修改时间。</p>
+<pre><code>os.path.getmtime(path)
+</code></pre>
+<p>path(字符串)-文件的路径。</p>
+<h3 id="获取文件的创建时间">获取文件的创建时间
+</h3><p>在python中，使用**os.path.getctime()**获取指定文件的创建时间。</p>
+<pre><code>os.path.getctime(path)
+</code></pre>
+<p>path(字符串)-文件的路径。</p>
+<h3 id="获取文件的最后访问时间">获取文件的最后访问时间
+</h3><p>在python中，使用**os.path.getatime()**获取指定文件的最后访问时间。</p>
+<pre><code>os.path.getatime(path)
+</code></pre>
+<p>path(字符串)-文件的路径</p>
+<h2 id="目录操作">目录操作
+</h2><p>在Python中，可以使用多个模块来操作目录，但是最常用的就是os模块，以下就是一些常见的目录操作:</p>
+<h3 id="创建目录">创建目录
+</h3><p>在Python中使用os.mkdir(path)函数来创建目录。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="mo">0o777</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其中：</p>
+<ol>
+<li>path(字符串)-要创建的目录的路径。</li>
+<li>mode (整型，可选)-设置新创建目录的权限位。默认值是 0o777(八进制表示)，意味着所有人都有读、写和执行权限，只针对Linux系统，Windows系统会忽略。</li>
+</ol>
+<p>如果目录创建成功，则函数不返回任何内容。如果指定的路径已经存在就会抛出异常，如果路径是无效的，或者由于权限不足等原因无法创建目录，也会抛出异常。</p>
+<p><strong>注意事项</strong>：</p>
+<ol>
+<li><strong>os.mkdir</strong> 只能创建一级目录，如果父目录不存在，则会抛出异常。</li>
+<li>如果需要创建多级目录结构，可以使用<strong>os.makedirs</strong>函数，它会递归地创建所需的中间目录。</li>
+</ol>
+<h3 id="删除目录">删除目录
+</h3><p>在Python中使用os.rmdir(path)函数去删除目录。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="n">os</span><span class="o">.</span><span class="n">rmdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>path(字符串)-要删除的空目录的路径。</p>
+<p>如果目录删除成功，则函数不返回任何内容。如果指定的路径不存在，则会抛出异常，如果路径不是一个空目录,或者由于权限不足等原因无法删除目录，也会抛出此异常。</p>
+<p><strong>注意事项</strong>
+os.rmdir 只能删除空目录。如果目录中包含文件或其他目录，os.rmdir 将无法删除它，并且会抛出异常。</p>
+<h3 id="改变当前工作目录">改变当前工作目录
+</h3><p>在Python中使用os.chdir(path)函数来改变工作目录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>path(字符串)-要切换到的目录的路径。如果指定的路径不存在、指定的路径不是一个目录、没有权限更改到指定的目录就会抛出异常。</p>
+<p>如果目录切换成功，则函数不返回任何内容</p>
+<h3 id="获取当前工作目录">获取当前工作目录
+</h3><p>在Python中使用os.getcwd()函数获取当前的工作目录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>该函数没有参数，但会返回一个字符串，表示当前工作目录。</p>
+<h3 id="列出自录下的所有内容">列出自录下的所有内容
+</h3><p>在Python中使用os.listdir(path)函数获取指定目录下的所有文件和子目录的名称。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="n">items</span> <span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>path(字符串)-要列出内容的目录的路径。如果省略，默认为当前工作目录。如果指定的路径不存在、指定的路径不是一个目录、没有权限读取指定的目录就会抛出异常。</p>
+<p>这个函数返回一个列表，其中包含指定路径下的所有文件和子目录的名称。</p>
+<p><strong>注意事项</strong></p>
+<ol>
+<li>os.1istdir 不会递归地列出子目录中的内容。它只列出直接位于指定目录下的文件和子目录。</li>
+<li>返回的列表中只包含名称，不包含路径。如果需要完整路径，你需要将目录名称与路径结合起来。</li>
+<li>如果目录为空，返回的列表将是空的。</li>
+<li>在使用 os.1istdir 时，应该考虑到可能出现的异常，并适当处理它们，以确保代码的健壮性，</li>
+</ol>
+<h3 id="重命名目录">重命名目录
+</h3><p>在Python中使用os.rename(src，dst)函数对一个文件或目录进行重命名。这个函数可以将一个文件或目录从其当前路径(源路径)更改为一个新的路径(目标路径)。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">src</span><span class="p">,</span><span class="n">dst</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>参数解释</strong></p>
+<ol>
+<li>src(字符串)-要重命名的文件或目录的当前路径，</li>
+<li>dst(字符串)-文件或目录的新名称和路径。如果重命名成功，则函数不返回任何内容。</li>
+</ol>
+<h3 id="检查路径是否为目录">检查路径是否为目录
+</h3><p>在Python中使用os.path.isdir()函数检查给定的路径是否是一个目录。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os.path</span>
+</span></span><span class="line"><span class="cl"><span class="n">is_directory</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>参数解释</strong>：</p>
+<p>path(字符串)-要检查的路径,如果指定的路径是一个目录，返回 True;否则返回 Fa1se</p>
+<h3 id="路径拼接">路径拼接
+</h3><p>在Python中使用**os.path.join(path,*path)**函数将一个或多个路径组件合并成一个完整的路径!这个函数会根据操作系统的文件系统约定来正确地处理路径分隔符。</p>
+<pre><code>import os
+os.path.join(path,*paths)
+</code></pre>
+<p><strong>参数解释</strong>：</p>
+<ol>
+<li>path(字符串)-起始路径，通常是一个目录路径,</li>
+<li>*paths(可变参数)-需要连接到 path 的其他路径片段。返回一个字符串，表示将所有路径片段连接后的完整路径。</li>
+</ol>
+<p><strong>os.path.join()的作用包括</strong>:</p>
+<ol>
+<li>合并路径:将多个路径组件合并成一个单一的路径字符串,</li>
+<li>处理分隔符:它会根据操作系统自动添加或删除路径分隔符(例如，在 Windows 上是反斜杠\，在Unix/Linux 上是正斜杠 /)。</li>
+<li>消除冗余分隔符:如果路径组件之间有多余的分隔符，os.path,join() 会自动处理，避免产生错误的路径.</li>
+</ol>
+<p>使用os.path.join()的好处是，它能够确保生成的路径在不同的操作系统上是正确的，从而提高了代码的可移植性。此外，它还能避免手动拼接路径时可能出现的错误，如忘记添加分隔符或添加了错误的分隔符。</p>
+<h3 id="路径拆分">路径拆分
+</h3><p>在Python中使用os.path.split(path)函数将路径分割成两部分:目录路径和文件名。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="n">head</span><span class="p">,</span> <span class="n">tail</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>参数解释</strong>：</p>
+<ol>
+<li>path:表示要分割的路径，</li>
+<li>head:它是 path 的目录路径</li>
+<li>tai1:它是 path 的文件名</li>
+</ol>
+<p>os.path.split()的主要用途包括:</p>
+<ol>
+<li>从完整路径中提取文件名或目录名。</li>
+<li>用于文件处理时，需要单独操作文件名和路径的其他部分。</li>
+<li>在遍历文件系统时，帮助确定每个文件的上级目录。</li>
+</ol>
+<p>需要注意的是，如果提供的路径以路径分隔符结尾，那么 tai1 将是一个空字符串，表示路径的最后一部分是一个目录。此外，如果路径是空字符串，os.path.split()将返回两个空字符串。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/python-%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python-多线程</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/python-%E5%A4%9A%E8%BF%9B%E7%A8%8B/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python-多进程</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/python%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python的正则表达式</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/python%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python模块与异常处理机制</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/python%E7%9A%84%E7%B1%BB/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python的类</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 UPPO
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/Mybolg/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    
+    const cssPath = "https://UPPO8.github.io/Mybolg/waifu/waifu.css"
+    const tipsJsonPath = "https://UPPO8.github.io/Mybolg/waifu/waifu-tips.json"
+    
+    const live2d_path = "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
+
+    
+    function loadExternalResource(url, type) {
+        return new Promise((resolve, reject) => {
+            let tag;
+            if (type === "css") {
+                tag = document.createElement("link");
+                tag.rel = "stylesheet";
+                tag.href = url;
+            }
+            else if (type === "js") {
+                tag = document.createElement("script");
+                tag.src = url;
+            }
+            if (tag) {
+                tag.onload = () => resolve(url);
+                tag.onerror = () => reject(url);
+                document.head.appendChild(tag);
+            }
+        });
+    }
+
+    
+    if (screen.width >= 768) {
+        Promise.all([
+        loadExternalResource(cssPath, "css"),
+            loadExternalResource(live2d_path + "live2d.min.js", "js"),
+            loadExternalResource(live2d_path + "waifu-tips.js", "js")
+        ]).then(() => {
+            initWidget({
+                waifuPath: tipsJsonPath,
+                cdnPath: "https://fastly.jsdelivr.net/gh/fghrsh/live2d_api/",
+                tools: ["hitokoto", "asteroids", "switch-model", "switch-texture", "photo", "info", "quit"]
+            });
+            
+            initWaifuMouseEvent();
+        });
+    }
+    function initWaifuMouseEvent() {
+        const waifu = document.getElementById("waifu");
+        let isDown = false;
+        let waifuLeft;
+        let mouseLeft;
+        let waifuTop;
+        let mouseTop;
+        
+        waifu.onmousedown = function (e) {
+            isDown = true;
+            
+            waifuLeft = waifu.offsetLeft;
+            mouseLeft = e.clientX;
+            
+            waifuTop = waifu.offsetTop;
+            mouseTop = e.clientY;
+        }
+        
+        window.onmousemove = function (e) {
+            if (!isDown) {
+                return;
+            }
+            
+            let currentLeft = waifuLeft + (e.clientX - mouseLeft);
+            if (currentLeft < 0) {
+                currentLeft = 0;
+            } else if (currentLeft > window.innerWidth - 300) {
+                currentLeft = window.innerWidth - 300;
+            }
+            waifu.style.left = currentLeft  + "px";
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        }
+        
+        window.onmouseup = function (e) {
+            isDown = false;
+        }
+    }
+</script>
+
+    </body>
+</html>

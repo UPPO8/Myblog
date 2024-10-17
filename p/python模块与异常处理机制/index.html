@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="数据类型-数字 在Python中,数字类型包括以下几种:\n1.整型int( ):包括正整数,负整数和0,在程序中的表达与数学上一致\n2.浮点型float( ):小数.\n3.布尔型bool( ):特殊的整型,只用True和False,True为1,False为0.\n">
-<title>Python基础语法3</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="模块与包 模块的概念 模块就是一个包含了Python代码的.py为后缀的Python文件，可以被其他Python程序导入和使用，也可以自己独立执行，里面存放着一组相关的函数或者类，比如产看关键字列表时导入的keyword模块。\n">
+<title>Python模块与异常处理机制</title>
 
-<link rel='canonical' href='https://UPPO8.github.io/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%953/'>
+<link rel='canonical' href='https://UPPO8.github.io/Mybolg/p/python%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/'>
 
-<link rel="stylesheet" href="/Mybolg/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Python基础语法3">
-<meta property='og:description' content="数据类型-数字 在Python中,数字类型包括以下几种:\n1.整型int( ):包括正整数,负整数和0,在程序中的表达与数学上一致\n2.浮点型float( ):小数.\n3.布尔型bool( ):特殊的整型,只用True和False,True为1,False为0.\n">
-<meta property='og:url' content='https://UPPO8.github.io/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%953/'>
+<link rel="stylesheet" href="/Mybolg/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Python模块与异常处理机制">
+<meta property='og:description' content="模块与包 模块的概念 模块就是一个包含了Python代码的.py为后缀的Python文件，可以被其他Python程序导入和使用，也可以自己独立执行，里面存放着一组相关的函数或者类，比如产看关键字列表时导入的keyword模块。\n">
+<meta property='og:url' content='https://UPPO8.github.io/Mybolg/p/python%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/'>
 <meta property='og:site_name' content='UPPO Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-10-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-10-01T00:00:00&#43;00:00'/><meta property='og:image' content='https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png' />
-<meta name="twitter:title" content="Python基础语法3">
-<meta name="twitter:description" content="数据类型-数字 在Python中,数字类型包括以下几种:\n1.整型int( ):包括正整数,负整数和0,在程序中的表达与数学上一致\n2.浮点型float( ):小数.\n3.布尔型bool( ):特殊的整型,只用True和False,True为1,False为0.\n"><meta name="twitter:card" content="summary_large_image">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-10-11T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-10-11T00:00:00&#43;00:00'/><meta property='og:image' content='https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png' />
+<meta name="twitter:title" content="Python模块与异常处理机制">
+<meta name="twitter:description" content="模块与包 模块的概念 模块就是一个包含了Python代码的.py为后缀的Python文件，可以被其他Python程序导入和使用，也可以自己独立执行，里面存放着一组相关的函数或者类，比如产看关键字列表时导入的keyword模块。\n"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png' />
     <link rel="shortcut icon" href="/Mybolg/1828643.png" />
 
@@ -262,19 +262,30 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#数据类型-数字">数据类型-数字</a>
+    <li><a href="#模块与包">模块与包</a>
       <ol>
-        <li><a href="#布尔型数据的短路求值">布尔型数据的短路求值</a></li>
+        <li><a href="#模块的概念">模块的概念</a></li>
+        <li><a href="#包的概念">包的概念</a></li>
       </ol>
     </li>
-    <li><a href="#数据类型-字符串">数据类型-字符串</a>
+    <li><a href="#异常处理机制">异常处理机制</a>
       <ol>
-        <li><a href="#转义字符">转义字符</a></li>
-        <li><a href="#字符串的访问">字符串的访问</a></li>
-        <li><a href="#字符串的操作">字符串的操作</a></li>
+        <li><a href="#自定义异常">自定义异常</a></li>
       </ol>
     </li>
-    <li><a href="#每日一曲">每日一曲</a></li>
+    <li><a href="#迭代器">迭代器</a>
+      <ol>
+        <li><a href="#可迭代对象">可迭代对象</a></li>
+        <li><a href="#迭代器与可迭代对象的关系">迭代器与可迭代对象的关系：</a></li>
+        <li><a href="#使用迭代器遍历列表">使用迭代器遍历列表</a></li>
+      </ol>
+    </li>
+    <li><a href="#生成器">生成器</a>
+      <ol>
+        <li><a href="#生成器的特点">生成器的特点</a></li>
+        <li><a href="#生成器函数">生成器函数</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -289,9 +300,9 @@
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%953/">
+            <a href="/Mybolg/p/python%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/">
                 
-                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" alt="Featured image of post Python基础语法3" />
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" alt="Featured image of post Python模块与异常处理机制" />
                 
             </a>
         </div>
@@ -314,7 +325,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%953/">Python基础语法3</a>
+            <a href="/Mybolg/p/python%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/">Python模块与异常处理机制</a>
         </h2>
     
         
@@ -336,7 +347,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Oct 01, 2024</time>
+                <time class="article-time--published">Oct 11, 2024</time>
             </div>
         
 
@@ -352,15 +363,18 @@
     <section class="article-content">
     
     
-    <h2 id="数据类型-数字">数据类型-数字
-</h2><p>在Python中,数字类型包括以下几种:</p>
-<p>1.整型int( ):包括正整数,负整数和0,在程序中的表达与数学上一致</p>
-<p>2.浮点型float( ):小数.</p>
-<p>3.布尔型bool( ):特殊的整型,只用True和False,True为1,False为0.</p>
-<p>4.复数complex( ):与数学上表达式一致,分为实部与虚部,用j表示,多用于科学计算.</p>
-<h3 id="布尔型数据的短路求值">布尔型数据的短路求值
-</h3><p>在Python中,布尔型数据的短路求值是一种特殊的逻辑运算规则，当逻辑表达式的某个部分已经能够确定整个表达式的值时，就不再计算表达式的其余部分。
-比如在下面个例子中</p>
+    <h2 id="模块与包">模块与包
+</h2><h3 id="模块的概念">模块的概念
+</h3><p>模块就是一个包含了Python代码的.py为后缀的Python文件，可以被其他Python程序导入和使用，也可以自己独立执行，里面存放着一组相关的函数或者类，比如产看关键字列表时导入的keyword模块。</p>
+<p>模块的导入有以下几种形式：</p>
+<ol>
+<li>import 模块</li>
+<li>import 模块 as 别名</li>
+<li>from 模块 import 模块</li>
+<li>from 模块 import *</li>
+<li>from 模块 import 模块 as 别名</li>
+</ol>
+<p>使用import直接导入</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -368,17 +382,131 @@
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
+</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
-</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl"><span class="n">re1</span> <span class="o">=</span> <span class="n">a</span> <span class="ow">or</span> <span class="n">b</span>
-</span></span><span class="line"><span class="cl"><span class="n">re2</span> <span class="o">=</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">re1</span><span class="p">,</span><span class="n">re2</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1">#moduleA</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="数据类型-字符串">数据类型-字符串
-</h2><p>字符串由引号括起来的一系列数字,字母,及中文的组合,并且定义好的字符串是不可修改的.</p>
+</div><p>调用模块A的方式为：moduleA.add( )</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1">#moduleB</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">moduleA</span>
+</span></span><span class="line"><span class="cl"><span class="n">ret</span> <span class="o">=</span> <span class="n">module</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>模块的作用：</p>
+<ol>
+<li>令Python代码的编写不必从零开始。</li>
+<li>避免了同一模块内命名重复问题。</li>
+<li>方便代码的管理与维护，提高代码的维护性。</li>
+</ol>
+<h3 id="包的概念">包的概念
+</h3><p>包就是一个有层次的文件目录结构，用来跟好的组织和管理模块。通俗的说就是一个目录，里面存放Python文件和新的包目录，并且每一个包都需要存在一个__init__.py文件。</p>
+<p><strong>init</strong>.py文件的主要作用：</p>
+<ol>
+<li>标识包目录</li>
+<li>执行初始化代码</li>
+<li>控制包的导入行为：通过__all__ 来控制那些模块可以被导入，防止不需要的模块导入。</li>
+<li>提供包级别的命名空间</li>
+<li>批量导入模块</li>
+</ol>
+<p>第三方包的相关操作：</p>
+<ol>
+<li>
+<p>安装包</p>
+<pre><code> pip install package-name == version
+</code></pre>
+</li>
+<li>
+<p>更新包</p>
+<pre><code> pip install -upgrade package-name == version
+</code></pre>
+</li>
+<li>
+<p>卸载包</p>
+<pre><code> pip uninstall package-name
+</code></pre>
+</li>
+</ol>
+<h2 id="异常处理机制">异常处理机制
+</h2><p>异常是一个事件，会在程序执行过程中产生，并且会影响程序的正常执行。</p>
+<p>一般情况下，Python遇见错误的代码或者无法处理正常程序就会产生一个异常，异常被抛出后，捕捉程序会按照某种机制继续运行，如果对抛出的异常不做任何处理，程序就会终止运行。</p>
+<p>常见的异常有：</p>
+<ol>
+<li>KeyboardInterrupt：用户主动结束程序</li>
+<li>AttributeError：尝试访问对象没有的属性</li>
+<li>TypeError：操作非法类型的数据</li>
+<li>IndexError：序列中没有索引</li>
+<li>KeyError：字典中没有键</li>
+<li>Exception：通用的异常类，用于捕获其他说有的异常情况</li>
+</ol>
+<p>在Python中，使用try、except、finally、else关键字来组合成不同方式，其中try和except时异常处理机制的核心。</p>
+<p>异常处理分三种，捕获单个异常、捕获多个异常和捕获全部异常，在捕获dao对应的异常后，不会再导致程序终止执行，而是会执行处理异常的代码。</p>
+<p>异常捕获格式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">try</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#有可能发生异常的代码</span>
+</span></span><span class="line"><span class="cl"><span class="k">except</span> <span class="n">某个异常</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#某个异常可以用（异常1，异常2）表示捕获多个异常</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#也可以用替换为Exception，捕获所有异常</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#异常发生后要执行的代码</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#如果没有异常发生，在try执行完毕后执行这里的代码</span>
+</span></span><span class="line"><span class="cl"><span class="k">finally</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#不管有没有捕获到异常，最后都会执行这里的代码</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="自定义异常">自定义异常
+</h3><p>在Python中使用raise关键字手动抛出异常，使用方法：</p>
+<pre><code>    raise Exception(arg)
+</code></pre>
+<ol>
+<li>Exception用于指定要抛出的异常类型，该类型来自Python解释器自带的异常类型。</li>
+<li>agr是一个可选参数，用于提供关于异常的信息。
+例如：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">raise</span> <span class="ne">NameError</span><span class="p">(</span><span class="s1">&#39;未定义变量&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>自定义异常，在Python中，自定义属于自己的异常必须继承Exception类，其格式：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -394,204 +522,116 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1">#单引号</span>
-</span></span><span class="line"><span class="cl"><span class="n">src</span> <span class="o">=</span> <span class="s1">&#39;hello world&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#三引号创建多行字符串</span>
-</span></span><span class="line"><span class="cl"><span class="n">src2</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;
-</span></span></span><span class="line"><span class="cl"><span class="s1">闲吟秋景外，
-</span></span></span><span class="line"><span class="cl"><span class="s1">万事觉悠悠。
-</span></span></span><span class="line"><span class="cl"><span class="s1">此夜若无月，
-</span></span></span><span class="line"><span class="cl"><span class="s1">一年虚过秋。
-</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">src1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">src2</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MyException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">code</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">code</span> <span class="o">=</span> <span class="n">code</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">traceback</span> <span class="o">=</span><span class="n">traceback</span> 
+</span></span><span class="line"><span class="cl"><span class="c1">#使用自定义异常</span>
+</span></span><span class="line"><span class="cl"><span class="k">try</span><span class="err">：</span>
+</span></span><span class="line"><span class="cl">        <span class="k">raise</span> <span class="n">MyException</span><span class="p">(</span><span class="n">message</span><span class="p">:</span><span class="s2">&#34;&#34;</span><span class="p">,</span><span class="n">code</span> <span class="o">=</span> <span class="mi">404</span> <span class="p">,</span> <span class="n">traceback</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">except</span> <span class="n">MyException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;捕获到自定义异常：</span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;错误代码：</span><span class="si">{</span><span class="n">e</span><span class="o">.</span><span class="n">code</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;追踪信息：</span><span class="si">{</span><span class="n">e</span><span class="o">.</span><span class="n">traceback</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="转义字符">转义字符
-</h3><p>转义字符：是一种特殊字符，用于表示无法直接表示的字符，以反斜杠“\”开头。<br>
-常用的转义字符：</p>
-<pre><code>换行符：\n，用于实现换行。
-制表符：\t，相当于一个Tab。
-回车符：\r，将光标移至当前行的开头。
-反斜杠：\\，将反斜杠本身转义，使反斜杠本身成为一个普通字符。
-单引号与双引号：\’和\”，将单引号与双引号转义，使其不再是字符串的标识，而是仅仅只是一个单引号或双引号。
-</code></pre>
-<h3 id="字符串的访问">字符串的访问
-</h3><p>字符串的访问有下标访问与切片访问。下标访问：所谓的下标，其实就是编号，通过编号就可以找到对应的字符，下标可按照从左至右的顺序开始计算，也可以按照从右至左的顺序开始计算，但是访问的时候下标不能超出范围。</p>
-<pre><code>    src = 'zhangsan'
-    src[0] = z
-    src[1] = h
-</code></pre>
-<p>切片访问与下标访问类似，都是通过字符串的下标进行的，不同的是，下标访问每次只能访问到单个字符，切片访问可以一次访问到多个字符，其访问方式为：</p>
-<pre><code>    字符串名[初始位置：终止位置：步长]
-</code></pre>
-<p>访问时，包括初始位置不包括终止位置，且步长默认为1。如果没有给出初始位置，默认初始位置为开始位置；如果没有给出终止位置，默认终止位置为字符串结束位置，此时访问时包括终止位置。</p>
-<pre><code>    src = 'zhangsan lisi'
-    print(src[0:10:1]) 
-    #打印结果:zhangsan l
-    #从左0开始,到第9个,步长为1,打印输出
-</code></pre>
-<h3 id="字符串的操作">字符串的操作
-</h3><p>字符串的操作总结来说有:查询、转换、判断、分割等</p>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>查询函数</th>
-          <th>解释</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>find()</td>
-          <td>检测字符串是否包含指定字符，如果是则返回开始的索引值，否则返回-1</td>
-      </tr>
-      <tr>
-          <td>index()</td>
-          <td>检测字符串是否包含指定字符，如果是则返回开始的索引值，否则报错</td>
-      </tr>
-      <tr>
-          <td>rfind()</td>
-          <td>从右向左，检测字符串是否包含指定字符，如果是则返回开始的索引值，否则返回-1</td>
-      </tr>
-      <tr>
-          <td>rindex()</td>
-          <td>从右向左，检测字符串是否包含指定字符，如果是则返回开始的索引值，否则报错</td>
-      </tr>
-  </tbody>
-</table></div>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>转换函数</th>
-          <th>解释</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>lower()</td>
-          <td>将字符串转换为小写</td>
-      </tr>
-      <tr>
-          <td>upper()</td>
-          <td>将字符串转换为大写</td>
-      </tr>
-      <tr>
-          <td>title()</td>
-          <td>将字符串中每个单词的首字母大写</td>
-      </tr>
-  </tbody>
-</table></div>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>判断函数</th>
-          <th>解释</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>startswith()</td>
-          <td>如果字符串一obj开头,返回True,否则返回False</td>
-      </tr>
-      <tr>
-          <td>endswith()</td>
-          <td>如果字符串以obj结尾，则返回True，否则返回False</td>
-      </tr>
-      <tr>
-          <td>isspace()</td>
-          <td>如果字符串只包含空格则返回True，否则返回False</td>
-      </tr>
-      <tr>
-          <td>isalnum()</td>
-          <td>如果字符串都是字母或数字则返回True，否则返回False</td>
-      </tr>
-      <tr>
-          <td>isdigit()</td>
-          <td>如果字符串都是数字则返回True，否则返回False</td>
-      </tr>
-      <tr>
-          <td>isalpha()</td>
-          <td>如果字符串都是字母则返回True，否则返回False</td>
-      </tr>
-  </tbody>
-</table></div>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>分割函数</th>
-          <th>解释</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>partition()</td>
-          <td>将字符串根据参数分割为三部分</td>
-      </tr>
-      <tr>
-          <td>rpartition()</td>
-          <td>从右向左，将字符串根据参数分割为三部分</td>
-      </tr>
-      <tr>
-          <td>split()</td>
-          <td>将字符串根据参数进行分割，且可以指定分割的次数</td>
-      </tr>
-      <tr>
-          <td>splitlines()</td>
-          <td>按照\n分割，返回一个列表</td>
-      </tr>
-  </tbody>
-</table></div>
+</div><p>在Python中记录日志文件，记录日志使用logging库，日志的级别从高到底为：</p>
+<ol>
+<li>Critical:系统崩溃级别的错误</li>
+<li>error：运行时的错误，可能导致程序无法运行</li>
+<li>warning：警告消息</li>
+<li>info：信息性消息，程序正常运行</li>
+<li>debug：详细信息，通常在诊断问题时有用</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1">#字符串的分割</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#partition()函数:将字符串按参数分割</span>
-</span></span><span class="line"><span class="cl"><span class="n">str3</span> <span class="o">=</span> <span class="s1">&#39;hello world hello python&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">str3</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">str3</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#split()将字符串分割有限次</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">str3</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">str3</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#count()函数</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">str3</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;o&#39;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#join函数</span>
-</span></span><span class="line"><span class="cl"><span class="n">str4</span> <span class="o">=</span> <span class="s1">&#39;_&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="n">str5</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span><span class="s1">&#39;world&#39;</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">str4</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">str5</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#replace函数</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">str3</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span><span class="s1">&#39;nihao&#39;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#capitalize函数,将首字母大写</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">str3</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">logging</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#设置日志打印到指定路径，日志打印级别</span>
+</span></span><span class="line"><span class="cl"><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span> <span class="s1">&#39;./app.log&#39;</span><span class="err">，</span><span class="n">level</span><span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">,</span><span class="nb">format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%(name)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1"> - </span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#format = &#39;%(name)s - %(levelname)s - %(asctime)s - %(message)s&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">logging</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;程序崩溃&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;程序出错&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;警告&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;正常运行&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;调试运行&#39;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="每日一曲">每日一曲
-</h2><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330px height=86px src="
-https://i.y.qq.com/n2/m/outchain/player/index.html?songid=521726934&songtype=0"></iframe>
+</div><h2 id="迭代器">迭代器
+</h2><p>迭代器(iterator)是一个实现了迭代器协议的对象。迭代器协议指的是对象需要实现两个方法:</p>
+<ol>
+<li>__iter__方法:当迭代器被创建时，这个方法会被调用，并且应该返回迭代器对象本身。这个方法使得对象能
+够被用在for循环以及其他需要送代器的上下文中。</li>
+<li>__next__方法:这个方法会在每次迭代中被调用，并且返回序列中的下一个元素。如果所有的元素都已经迭代完毕，会抛出一个Stopiteration类型的异常，表示迭代已经完成。</li>
+</ol>
+<h3 id="可迭代对象">可迭代对象
+</h3><p>可迭代对象(Iterable)是指能够返回一个迭代器的对象，换句话说，可迭代对象是实现了__iter__方法的对象，具有以下特点:</p>
+<ol>
+<li>实现了__iter__ 方法:可迭代对象必须拥有该方法，以便于返回一个迭代器对象。</li>
+<li>可以用于for循环: 可迭代对象可以用于for循环，在for循环时，Python会自动调用__iter__方法来获取迭代器，然后不断调用迭代器的__next__去获取下一个元素。</li>
+</ol>
+<p>Python中内置的列表、元组、字符串等都是可迭代对象，在使用for循环去遍历时，会调用可迭代对象的__iter__方法来获取一个迭代器，接着不断调用迭代器的__next__方法去获取下一个元素，直到元素全部迭代完毕，抛出异常，for循环会自己捕获这个异常并退出循环，从而完成一次for循环。</p>
+<h3 id="迭代器与可迭代对象的关系">迭代器与可迭代对象的关系：
+</h3><ol>
+<li>所有迭代器都是可迭代对象:因为迭代器都必须具有__iter__和__next__方法，并且通常返回自身，也可以去访问序列中的下一个元素，并在所有元素都被迭代后抛出Stoplteration异常。</li>
+<li>不是所有可迭代对象都是迭代器:可迭代对象只实现__iter__ 方法，并不实现__next__方法。比如Python内置的列表、元组、字符串等虽然是可迭代对象，但不是迭代器。</li>
+</ol>
+<p>简单来说就是：1.凡是可作用for循环的对象都是可迭代对象；2.凡是同时拥有__iter__和__next__方法的都是迭代器。</p>
+<h3 id="使用迭代器遍历列表">使用迭代器遍历列表
+</h3><p>比如下列使用迭代器 __next__方法来遍历列表</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">ls1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">ls1_iter</span> <span class="o">=</span> <span class="n">ls1</span><span class="o">.</span><span class="fm">__iter__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">item</span> <span class="o">=</span> <span class="n">ls1_iter</span><span class="o">.</span><span class="fm">__next__</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;遍历完成&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="生成器">生成器
+</h2><p>生成器(Generator)是一种特殊的迭代器，它可以在需要时动态生成值,避免一次性生成所有值所占用的大量内存。生成器使用 yield语句来产生值，可以通过迭代器协议来逐个获取生成器产生的值。生成器可以在循环中被逐个迭代，从而实现高效地处理大量数据或者无限序列。在Python中，生成器可以通过函数定义和生成器表达式来创建。</p>
+<h3 id="生成器的特点">生成器的特点
+</h3><p>生成器的主要特点包括:</p>
+<ol>
+<li>惰性求值:生成器不会在创建时生成所有值，而是逐个生成值。这意味着生成器可以在需要的时候再去生成值,</li>
+<li>使用yield关键字:只有yield被调用时，生成器才会返回一个值，并且程序暂停执行，直到下一次迭代时才继续执行。</li>
+<li>内存效率:生成器可以处理大型数据集或生成大型数据结构，而不会占用太多内存，因为它们只在需要时生成值。</li>
+<li>迭代器协议:生成器也是迭代器，所有实现了迭代器协议，因此可以用于for循环和其他需要迭代器的代码中。</li>
+</ol>
+<h3 id="生成器函数">生成器函数
+</h3><p>生成器使用最多的地方是和函数结合，因此，拥有生成器的函数就叫做生成器函数，也可以理解为函数中包含了vield关键字的函数就是一个生成器函数。生成器函数包含如下特点:</p>
+<ol>
+<li>使用yield关键字:普通函数使用return返回值，而生成器函数使用yield关键字返回值。</li>
+<li>状态保持:生成器函数在每次产生一个值之后会暂停执行，并保持当前的状态，包括局部变量的状态和当前的执行位置。当再次调用
+生成器时，他会从上次yield语句之后的地方继续执行。</li>
+<li>惰性求值:生成器只在需要时才计算并生成值，这意味着它可以高效处理大量数据或无限流数据,</li>
+</ol>
+<p>生成器函数在调用时，不会立即执行函数里面的代码，而是会先返回一个生成器的对象，当调用生成器对象的__next__方法时，才会进入函数中并执行函数里面的代码，遇到yield关键字后，函数的执行将会暂停，并将yield后面的表达式作为当前迭代的值返回。然后每次调用生成器的__next__方法或使用for循环进行迭代时，函数会从上次暂停的地方继续执行，直到再次遇到yield关键字，并再次返回一个值，直到无法继续生成为止。</p>
 
 </section>
 
@@ -692,7 +732,7 @@ https://i.y.qq.com/n2/m/outchain/player/index.html?songid=521726934&songtype=0">
             
                 
 <article class="has-image">
-    <a href="/Mybolg/p/python%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/">
+    <a href="/Mybolg/p/python%E7%9A%84%E7%B1%BB/">
         
         
             <div class="article-image">
@@ -703,7 +743,7 @@ https://i.y.qq.com/n2/m/outchain/player/index.html?songid=521726934&songtype=0">
         
 
         <div class="article-details">
-            <h2 class="article-title">Python模块与异常处理机制</h2>
+            <h2 class="article-title">Python的类</h2>
         </div>
     </a>
 </article>

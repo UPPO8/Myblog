@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="数据类型-数字 在Python中,数字类型包括以下几种:\n1.整型int( ):包括正整数,负整数和0,在程序中的表达与数学上一致\n2.浮点型float( ):小数.\n3.布尔型bool( ):特殊的整型,只用True和False,True为1,False为0.\n">
-<title>Python基础语法3</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="正则表达式 正则表达式，又称规则表达式，(Regular Expression，在代码中常简写为regex、regexp或RE)，是一种文体模式，包括普通字符(例如，a到z之间的字母)和特殊字符(称为&quot;元字符&quot;)。正则表达式使用单个字符串来描述。匹配一系列符合某个句法规则的字符串，通常被用来检索、替换那些符合某个模式(规则)的文本。通俗的说，正则表达式就是一种语法规则，用来匹配文本中的文本。\n">
+<title>Python的正则表达式</title>
 
-<link rel='canonical' href='https://UPPO8.github.io/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%953/'>
+<link rel='canonical' href='https://UPPO8.github.io/Mybolg/p/python%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/'>
 
-<link rel="stylesheet" href="/Mybolg/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Python基础语法3">
-<meta property='og:description' content="数据类型-数字 在Python中,数字类型包括以下几种:\n1.整型int( ):包括正整数,负整数和0,在程序中的表达与数学上一致\n2.浮点型float( ):小数.\n3.布尔型bool( ):特殊的整型,只用True和False,True为1,False为0.\n">
-<meta property='og:url' content='https://UPPO8.github.io/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%953/'>
+<link rel="stylesheet" href="/Mybolg/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Python的正则表达式">
+<meta property='og:description' content="正则表达式 正则表达式，又称规则表达式，(Regular Expression，在代码中常简写为regex、regexp或RE)，是一种文体模式，包括普通字符(例如，a到z之间的字母)和特殊字符(称为&quot;元字符&quot;)。正则表达式使用单个字符串来描述。匹配一系列符合某个句法规则的字符串，通常被用来检索、替换那些符合某个模式(规则)的文本。通俗的说，正则表达式就是一种语法规则，用来匹配文本中的文本。\n">
+<meta property='og:url' content='https://UPPO8.github.io/Mybolg/p/python%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/'>
 <meta property='og:site_name' content='UPPO Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-10-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-10-01T00:00:00&#43;00:00'/><meta property='og:image' content='https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png' />
-<meta name="twitter:title" content="Python基础语法3">
-<meta name="twitter:description" content="数据类型-数字 在Python中,数字类型包括以下几种:\n1.整型int( ):包括正整数,负整数和0,在程序中的表达与数学上一致\n2.浮点型float( ):小数.\n3.布尔型bool( ):特殊的整型,只用True和False,True为1,False为0.\n"><meta name="twitter:card" content="summary_large_image">
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-10-13T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-10-13T00:00:00&#43;00:00'/><meta property='og:image' content='https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png' />
+<meta name="twitter:title" content="Python的正则表达式">
+<meta name="twitter:description" content="正则表达式 正则表达式，又称规则表达式，(Regular Expression，在代码中常简写为regex、regexp或RE)，是一种文体模式，包括普通字符(例如，a到z之间的字母)和特殊字符(称为&quot;元字符&quot;)。正则表达式使用单个字符串来描述。匹配一系列符合某个句法规则的字符串，通常被用来检索、替换那些符合某个模式(规则)的文本。通俗的说，正则表达式就是一种语法规则，用来匹配文本中的文本。\n"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png' />
     <link rel="shortcut icon" href="/Mybolg/1828643.png" />
 
@@ -262,19 +262,21 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#数据类型-数字">数据类型-数字</a>
+    <li><a href="#正则表达式">正则表达式</a>
       <ol>
-        <li><a href="#布尔型数据的短路求值">布尔型数据的短路求值</a></li>
+        <li><a href="#rematch">re.match</a></li>
+        <li><a href="#research">re.search</a></li>
+        <li><a href="#refindall">re.findall</a></li>
+        <li><a href="#resub">re.sub</a></li>
+        <li><a href="#resplit">re.split</a></li>
+        <li><a href="#recompile">re.compile</a></li>
       </ol>
     </li>
-    <li><a href="#数据类型-字符串">数据类型-字符串</a>
+    <li><a href="#装饰器">装饰器</a>
       <ol>
-        <li><a href="#转义字符">转义字符</a></li>
-        <li><a href="#字符串的访问">字符串的访问</a></li>
-        <li><a href="#字符串的操作">字符串的操作</a></li>
+        <li><a href="#装饰器的基本用法">装饰器的基本用法</a></li>
       </ol>
     </li>
-    <li><a href="#每日一曲">每日一曲</a></li>
   </ol>
 </nav>
         </div>
@@ -289,9 +291,9 @@
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%953/">
+            <a href="/Mybolg/p/python%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
                 
-                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" alt="Featured image of post Python基础语法3" />
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" alt="Featured image of post Python的正则表达式" />
                 
             </a>
         </div>
@@ -314,7 +316,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%953/">Python基础语法3</a>
+            <a href="/Mybolg/p/python%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">Python的正则表达式</a>
         </h2>
     
         
@@ -336,7 +338,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Oct 01, 2024</time>
+                <time class="article-time--published">Oct 13, 2024</time>
             </div>
         
 
@@ -352,33 +354,50 @@
     <section class="article-content">
     
     
-    <h2 id="数据类型-数字">数据类型-数字
-</h2><p>在Python中,数字类型包括以下几种:</p>
-<p>1.整型int( ):包括正整数,负整数和0,在程序中的表达与数学上一致</p>
-<p>2.浮点型float( ):小数.</p>
-<p>3.布尔型bool( ):特殊的整型,只用True和False,True为1,False为0.</p>
-<p>4.复数complex( ):与数学上表达式一致,分为实部与虚部,用j表示,多用于科学计算.</p>
-<h3 id="布尔型数据的短路求值">布尔型数据的短路求值
-</h3><p>在Python中,布尔型数据的短路求值是一种特殊的逻辑运算规则，当逻辑表达式的某个部分已经能够确定整个表达式的值时，就不再计算表达式的其余部分。
-比如在下面个例子中</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
-</span></span><span class="line"><span class="cl"><span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
-</span></span><span class="line"><span class="cl"><span class="n">re1</span> <span class="o">=</span> <span class="n">a</span> <span class="ow">or</span> <span class="n">b</span>
-</span></span><span class="line"><span class="cl"><span class="n">re2</span> <span class="o">=</span> <span class="n">a</span> <span class="ow">and</span> <span class="n">b</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">re1</span><span class="p">,</span><span class="n">re2</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="数据类型-字符串">数据类型-字符串
-</h2><p>字符串由引号括起来的一系列数字,字母,及中文的组合,并且定义好的字符串是不可修改的.</p>
+    <h2 id="正则表达式">正则表达式
+</h2><p>正则表达式，又称规则表达式，(Regular Expression，在代码中常简写为regex、regexp或RE)，是一种文体模式，包括普通字符(例如，a到z之间的字母)和特殊字符(称为&quot;元字符&quot;)。正则表达式使用单个字符串来描述。匹配一系列符合某个句法规则的字符串，通常被用来检索、替换那些符合某个模式(规则)的文本。通俗的说，正则表达式就是一种语法规则，用来匹配文本中的文本。</p>
+<h3 id="rematch">re.match
+</h3><p>该函数尝试从字符串的起始位置匹配，如果起始位置没有匹配成功的话，就返回None，否则会返回一个匹配对象，匹配对象的方法可参考下面的表格。</p>
+<div class="table-wrapper"><table>
+  <thead>
+      <tr>
+          <th>方法</th>
+          <th>说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>group()</td>
+          <td>返回被匹配的字符串</td>
+      </tr>
+      <tr>
+          <td>start()</td>
+          <td>返回匹配开始的位置</td>
+      </tr>
+      <tr>
+          <td>ecd()</td>
+          <td>返回匹配结束的位置</td>
+      </tr>
+      <tr>
+          <td>span()</td>
+          <td>返回一个元组包含开始和结束的位置</td>
+      </tr>
+  </tbody>
+</table></div>
+<p>函数原型:</p>
+<pre><code>re.match(pattern，string，flags=0)
+其中：
+    pattern:正则表达式的格式。
+    string:被匹配的文本。
+    flags(可选):标志位，用于控制正则表达式的匹配方式，
+    如:是否区分大小写、设置多行匹配模式等，具体有哪些标志可参考下面的附录1表格。
+</code></pre>
+<p>常用的应用场景有:</p>
+<ol>
+<li>验证输入格式:检查用户输入是否符合特定的格式，例如电子邮件、电话号码、日期等</li>
+<li>提取信息:从字符串的开始位置提取符合正则表达式模式的字串，如提取文件名等。</li>
+<li>数据解析:在处理日志文件或配置文件时，可以用来解析每行的开始部分，获取关键信息。</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -394,153 +413,65 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1">#单引号</span>
-</span></span><span class="line"><span class="cl"><span class="n">src</span> <span class="o">=</span> <span class="s1">&#39;hello world&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#三引号创建多行字符串</span>
-</span></span><span class="line"><span class="cl"><span class="n">src2</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;
-</span></span></span><span class="line"><span class="cl"><span class="s1">闲吟秋景外，
-</span></span></span><span class="line"><span class="cl"><span class="s1">万事觉悠悠。
-</span></span></span><span class="line"><span class="cl"><span class="s1">此夜若无月，
-</span></span></span><span class="line"><span class="cl"><span class="s1">一年虚过秋。
-</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">src1</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">src2</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">email</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;请输入有效的邮箱:&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pattern</span> <span class="o">=</span><span class="sa">r</span><span class="s2">&#34;[0-9a-zA-Z+-_.]+@[0-9a-zA-Z.-]+\.[a-zA-Z]{2,}&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#匹配【0-9，a-z，A-Z，+ - _ .至少一次】，【@符号】，【匹配0-9，a-z，A-Z，- . 至少一次】，【符号.】，【a-z，A-Z两次以上】</span>
+</span></span><span class="line"><span class="cl">    <span class="n">res</span> <span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="k">match</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="n">email</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">res</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;您的邮箱格式正确&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;您的邮箱格式有误，请重新输入&#39;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="转义字符">转义字符
-</h3><p>转义字符：是一种特殊字符，用于表示无法直接表示的字符，以反斜杠“\”开头。<br>
-常用的转义字符：</p>
-<pre><code>换行符：\n，用于实现换行。
-制表符：\t，相当于一个Tab。
-回车符：\r，将光标移至当前行的开头。
-反斜杠：\\，将反斜杠本身转义，使反斜杠本身成为一个普通字符。
-单引号与双引号：\’和\”，将单引号与双引号转义，使其不再是字符串的标识，而是仅仅只是一个单引号或双引号。
+</div><h3 id="research">re.search
+</h3><p>该函数从文本中获取第一个符合正则表达式模式的字符的位置，并返回一个匹配对象，如果没有匹配到，就返回None.</p>
+<p>函数原型:</p>
+<pre><code>re.search(pattern，string,flags=0)
+其中：
+    pattern:正则表达式的格式。
+    string:被匹配的文本。
+    flags(可选):标志位，用于控制正则表达式的匹配方式，
+    如:是否区分大小写、设置多行匹配模式等，具体有哪些标志可参考下面表格。
 </code></pre>
-<h3 id="字符串的访问">字符串的访问
-</h3><p>字符串的访问有下标访问与切片访问。下标访问：所谓的下标，其实就是编号，通过编号就可以找到对应的字符，下标可按照从左至右的顺序开始计算，也可以按照从右至左的顺序开始计算，但是访问的时候下标不能超出范围。</p>
-<pre><code>    src = 'zhangsan'
-    src[0] = z
-    src[1] = h
-</code></pre>
-<p>切片访问与下标访问类似，都是通过字符串的下标进行的，不同的是，下标访问每次只能访问到单个字符，切片访问可以一次访问到多个字符，其访问方式为：</p>
-<pre><code>    字符串名[初始位置：终止位置：步长]
-</code></pre>
-<p>访问时，包括初始位置不包括终止位置，且步长默认为1。如果没有给出初始位置，默认初始位置为开始位置；如果没有给出终止位置，默认终止位置为字符串结束位置，此时访问时包括终止位置。</p>
-<pre><code>    src = 'zhangsan lisi'
-    print(src[0:10:1]) 
-    #打印结果:zhangsan l
-    #从左0开始,到第9个,步长为1,打印输出
-</code></pre>
-<h3 id="字符串的操作">字符串的操作
-</h3><p>字符串的操作总结来说有:查询、转换、判断、分割等</p>
 <div class="table-wrapper"><table>
   <thead>
       <tr>
-          <th>查询函数</th>
-          <th>解释</th>
+          <th>flags参数</th>
+          <th>说明</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>find()</td>
-          <td>检测字符串是否包含指定字符，如果是则返回开始的索引值，否则返回-1</td>
+          <td><strong>re.I</strong></td>
+          <td>忽略字母大小写</td>
       </tr>
       <tr>
-          <td>index()</td>
-          <td>检测字符串是否包含指定字符，如果是则返回开始的索引值，否则报错</td>
+          <td><strong>re.L</strong></td>
+          <td>影响 “w, “W, “b, 和 “B，这取决于当前的本地化设置。</td>
       </tr>
       <tr>
-          <td>rfind()</td>
-          <td>从右向左，检测字符串是否包含指定字符，如果是则返回开始的索引值，否则返回-1</td>
+          <td><strong>re.M</strong></td>
+          <td>多行匹配，使^和&amp;能够匹配每一行的行首和行尾</td>
       </tr>
       <tr>
-          <td>rindex()</td>
-          <td>从右向左，检测字符串是否包含指定字符，如果是则返回开始的索引值，否则报错</td>
+          <td><strong>re.S</strong></td>
+          <td>单行匹配，使.特殊字符能匹配任何字符，包括换行符</td>
+      </tr>
+      <tr>
+          <td><strong>re.X</strong></td>
+          <td>允许你编写更易于阅读的正则表达式，忽略空白字符和注释</td>
       </tr>
   </tbody>
 </table></div>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>转换函数</th>
-          <th>解释</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>lower()</td>
-          <td>将字符串转换为小写</td>
-      </tr>
-      <tr>
-          <td>upper()</td>
-          <td>将字符串转换为大写</td>
-      </tr>
-      <tr>
-          <td>title()</td>
-          <td>将字符串中每个单词的首字母大写</td>
-      </tr>
-  </tbody>
-</table></div>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>判断函数</th>
-          <th>解释</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>startswith()</td>
-          <td>如果字符串一obj开头,返回True,否则返回False</td>
-      </tr>
-      <tr>
-          <td>endswith()</td>
-          <td>如果字符串以obj结尾，则返回True，否则返回False</td>
-      </tr>
-      <tr>
-          <td>isspace()</td>
-          <td>如果字符串只包含空格则返回True，否则返回False</td>
-      </tr>
-      <tr>
-          <td>isalnum()</td>
-          <td>如果字符串都是字母或数字则返回True，否则返回False</td>
-      </tr>
-      <tr>
-          <td>isdigit()</td>
-          <td>如果字符串都是数字则返回True，否则返回False</td>
-      </tr>
-      <tr>
-          <td>isalpha()</td>
-          <td>如果字符串都是字母则返回True，否则返回False</td>
-      </tr>
-  </tbody>
-</table></div>
-<div class="table-wrapper"><table>
-  <thead>
-      <tr>
-          <th>分割函数</th>
-          <th>解释</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>partition()</td>
-          <td>将字符串根据参数分割为三部分</td>
-      </tr>
-      <tr>
-          <td>rpartition()</td>
-          <td>从右向左，将字符串根据参数分割为三部分</td>
-      </tr>
-      <tr>
-          <td>split()</td>
-          <td>将字符串根据参数进行分割，且可以指定分割的次数</td>
-      </tr>
-      <tr>
-          <td>splitlines()</td>
-          <td>按照\n分割，返回一个列表</td>
-      </tr>
-  </tbody>
-</table></div>
+<p>常用的应用场景有:</p>
+<ol>
+<li>检查字符串是否包含子串:检査一个字符串是否包含某个特定的文本。</li>
+<li>提取数据:从字符串中的任意位置提取信息，例如从一个文本段落中提取所有提到的日期。</li>
+<li>搜索文件:在某文件中查找特定的消息或事件。</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -557,42 +488,197 @@
 </span><span class="lnt">12
 </span><span class="lnt">13
 </span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1">#字符串的分割</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#partition()函数:将字符串按参数分割</span>
-</span></span><span class="line"><span class="cl"><span class="n">str3</span> <span class="o">=</span> <span class="s1">&#39;hello world hello python&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">str3</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">str3</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">))</span>
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl"><span class="n">text</span> <span class="o">=</span><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">gjiaokremgn
+</span></span></span><span class="line"><span class="cl"><span class="s1">vkn24124pa2
+</span></span></span><span class="line"><span class="cl"><span class="s1">13315561889
+</span></span></span><span class="line"><span class="cl"><span class="s1">hbvuijrbnio
+</span></span></span><span class="line"><span class="cl"><span class="s1">15633567985
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#split()将字符串分割有限次</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">str3</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">str3</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#count()函数</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">str3</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s1">&#39;o&#39;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#join函数</span>
-</span></span><span class="line"><span class="cl"><span class="n">str4</span> <span class="o">=</span> <span class="s1">&#39;_&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="n">str5</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span><span class="s1">&#39;world&#39;</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">str4</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">str5</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#replace函数</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">str3</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span><span class="s1">&#39;nihao&#39;</span><span class="p">))</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#capitalize函数,将首字母大写</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">str3</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="n">pattern</span> <span class="o">=</span><span class="sa">r</span><span class="s1">&#39;^[1]</span><span class="si">{1}</span><span class="s1">[3589]</span><span class="si">{1}</span><span class="s1">[0-9]</span><span class="si">{9}</span><span class="s1">$&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="n">text</span><span class="err">，</span><span class="n">re</span><span class="o">.</span><span class="n">M</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">res</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">start</span><span class="p">())</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="每日一曲">每日一曲
-</h2><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330px height=86px src="
-https://i.y.qq.com/n2/m/outchain/player/index.html?songid=521726934&songtype=0"></iframe>
-
+</div><h3 id="refindall">re.findall
+</h3><p>该函数从文本中寻找所有与模式匹配的子串，并将所有的匹配结果存储到一个列表中进行返回，如果没有匹配成功会返回一个空列表。</p>
+<p>函数原型:</p>
+<pre><code>re.findall(pattern，string，flags=0)
+其中：
+    pattern:正则表达式的格式。
+    string:被匹配的文本。
+    flags(可选):标志位，用于控制正则表达式的匹配方式，
+    如:是否区分大小写、设置多行匹配模式等，具体有哪些标志可参考上面的表格flags参数。
+</code></pre>
+<p>常用的应用场景有:</p>
+<ol>
+<li>提取多个子串:当你需要在字符串中找到所有匹配特定模式的字串时,</li>
+<li>文本分析:在文本中，提取文本中特定的词汇、短语或模式。</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl"><span class="n">text</span> <span class="o">=</span><span class="s1">&#39;&#39;&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s1">gjiaokremgn
+</span></span></span><span class="line"><span class="cl"><span class="s1">vkn24124pa2
+</span></span></span><span class="line"><span class="cl"><span class="s1">13315561889
+</span></span></span><span class="line"><span class="cl"><span class="s1">hbvuijrbnio
+</span></span></span><span class="line"><span class="cl"><span class="s1">15633567985
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">pattern</span> <span class="o">=</span><span class="sa">r</span><span class="s1">&#39;^[1]</span><span class="si">{1}</span><span class="s1">[3589]</span><span class="si">{1}</span><span class="s1">[0-9]</span><span class="si">{9}</span><span class="s1">$&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span><span class="n">text</span><span class="err">，</span><span class="n">re</span><span class="o">.</span><span class="n">M</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="resub">re.sub
+</h3><p>该函数的作用就是将文本中与模式匹配的部分替换为其他的内容。</p>
+<p>函数原型:</p>
+<pre><code>re.sub(pattern,repl,string,count，flags=0)
+其中：
+    pattern:正则表达式的格式。
+    repl:这是替换文本或一个函数。如果是文本，就是将匹配到的内容替换为该文本;如果是函数，会在函数中进行文本处理的操作。
+    string:被匹配的文本。
+    count(可选):这是可选参数，表示替换的最大次数。默认值为0，表示替换所有匹配项。
+    flags(可选):标志位，用于控制正则表达式的匹配方式，
+    如:是否区分大小写、设置多行匹配模式等，具体有哪些标志可参考下面的附录1表格。
+</code></pre>
+<p>常用的应用场景有:</p>
+<ol>
+<li>文本格式化:将文本中的特定模式的文本替换为另一种格式。</li>
+<li>数据清洗:在处理数据时，移除或替换无效或不需要的字符，比如在一系列文本中删除非数字字符以清理电话号码。</li>
+<li>敏感信息脱敏:在显示或存储数据前，将敏感信息(比如身份证号、手机号)的部分内容替换为星号</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#原始字符串</span>
+</span></span><span class="line"><span class="cl"><span class="n">text</span> <span class="o">=</span><span class="s2">&#34;Hello 123 World 456&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#定义一个正则表达式模式，匹配数字\d</span>
+</span></span><span class="line"><span class="cl"><span class="n">pattern</span> <span class="o">=</span><span class="sa">r</span><span class="s1">&#39;d+&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#定义一个替换函数</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">replace</span><span class="p">(</span><span class="k">match</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#将匹配到的数字乘以2</span>
+</span></span><span class="line"><span class="cl">    <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="k">match</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">number</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#使用re.sub 和替换函数</span>
+</span></span><span class="line"><span class="cl"><span class="n">new_text</span> <span class="o">=</span><span class="n">re</span><span class="p">,</span><span class="n">sub</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">replace</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">new_text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#输出&#34;Hello 246 World 91</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="resplit">re.split
+</h3><p>该函数的作用就是将某文本根据匹配模式进行分割，并将分割后的结果放入列表中返回。</p>
+<p>函数原型:</p>
+<pre><code>re.split(pattern,string,maxsplit，flags=0)
+其中：
+    pattern:正则表达式的格式,
+    string:被匹配的文本。
+    maxsplit(可选):这是可选参数，表示最大分割次数。默认值为0，表示分割所有匹配项。
+    flags(可选):标志位，用于控制正则表达式的匹配方式，
+    如:是否区分大小写、设置多行匹配模式等，具体有哪些标志可参考上面的表格。
+</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">re</span>
+</span></span><span class="line"><span class="cl"><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;apple, banana, orange, watermelon&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">fruits</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;,\s*&#39;</span><span class="p">,</span><span class="n">text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#匹配，\s 匹配空白符，*匹配0次或多次</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="recompile">re.compile
+</h3><p>该函数会预先编译正则表达式要匹配的模式，并会返回一个正则表达式的对象，该对象与re.match返回的对象不同，该对象可以调用上面的函数。</p>
+<p>函数原型:</p>
+<pre><code>re.compile(pattern,flags=0)
+其中：    
+    pattern:要匹配的正则表达式。
+    flags(可选):标志位，用于控制正则表达式的匹配方式，
+    如:是否区分大小写、设置多行匹配模式等，具体有哪些标志可参考上面的表格。
+</code></pre>
+<p>常见的应用场景:
+<strong>多次匹配</strong>:当你需要在一个较长的文本中多次应用同一个正则表达式时，使用re.compile可以避免每次匹配时都重新编译表达式。</p>
+<h2 id="装饰器">装饰器
+</h2><p>在Python中，装饰器(Decorator)本质上是一种特殊的嵌套函数，它接收一个函数作为参数(该函数就是被装饰的函数)，并返回一个新的函数(装饰之后的函数)。</p>
+<p>装饰器最大的作用就是可以让我们在不改变被装饰函数的代码的情况下去给它添加新的功能</p>
+<h3 id="装饰器的基本用法">装饰器的基本用法
+</h3><p>在不改变原有func()的情况下，使用装饰器给func()函数添加打印b，c的功能。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">decorator</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">f1</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">f</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">f1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">func</span> <span class="o">=</span> <span class="n">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#可以替换为@decorator</span>
+</span></span><span class="line"><span class="cl"><span class="n">func</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
@@ -673,25 +759,6 @@ https://i.y.qq.com/n2/m/outchain/player/index.html?songid=521726934&songtype=0">
             
                 
 <article class="has-image">
-    <a href="/Mybolg/p/python%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Python的正则表达式</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
     <a href="/Mybolg/p/python%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/">
         
         
@@ -704,6 +771,25 @@ https://i.y.qq.com/n2/m/outchain/player/index.html?songid=521726934&songtype=0">
 
         <div class="article-details">
             <h2 class="article-title">Python模块与异常处理机制</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/python%E7%9A%84%E7%B1%BB/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python的类</h2>
         </div>
     </a>
 </article>
