@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="递归介绍及原理 递归 递归(Recursion)，是一种解决问题的方法，其精髓在于将问题分解为规模更小的相同问题。持续分解，直到问题规模小到可以用非常简单直接的方式来解决。递归的问题分解方式非常独特，其算法方面的明显特征就是:在算法流程中调用自身。\n">
+<title>Python-排序算法</title>
+
+<link rel='canonical' href='https://UPPO8.github.io/Mybolg/p/python-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/'>
+
+<link rel="stylesheet" href="/Mybolg/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Python-排序算法">
+<meta property='og:description' content="递归介绍及原理 递归 递归(Recursion)，是一种解决问题的方法，其精髓在于将问题分解为规模更小的相同问题。持续分解，直到问题规模小到可以用非常简单直接的方式来解决。递归的问题分解方式非常独特，其算法方面的明显特征就是:在算法流程中调用自身。\n">
+<meta property='og:url' content='https://UPPO8.github.io/Mybolg/p/python-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/'>
+<meta property='og:site_name' content='UPPO Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-10-22T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-10-22T00:00:00&#43;00:00'/><meta property='og:image' content='https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png' />
+<meta name="twitter:title" content="Python-排序算法">
+<meta name="twitter:description" content="递归介绍及原理 递归 递归(Recursion)，是一种解决问题的方法，其精髓在于将问题分解为规模更小的相同问题。持续分解，直到问题规模小到可以用非常简单直接的方式来解决。递归的问题分解方式非常独特，其算法方面的明显特征就是:在算法流程中调用自身。\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png' />
+    <link rel="shortcut icon" href="/Mybolg/1828643.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/Mybolg/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/Mybolg/img/100_hu17204809037550521928.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😊</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/Mybolg">UPPO Blog</a></h1>
+            <h2 class="site-description">欢迎来到UPPO的博客</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/402008155'
+                        target="_blank"
+                        title="BiliBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg class="icon" style="width: 1em;height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1385"><path d="M125.258667 395.2c-14.016 105.909333-6.4 234.293333-0.277334 337.504l0.021334 0.234667c3.413333 57.450667 28.405333 101.322667 72.277333 126.912 33.429333 19.498667 70.538667 25.109333 105.642667 28.266666 42.261333 3.808 120.736 7.861333 214.4 7.882667 93.685333-0.021333 172.16-4.085333 214.410666-7.893333 35.114667-3.146667 72.213333-8.757333 105.653334-28.266667 43.872-25.578667 68.864-69.461333 72.288-126.901333V732.8c6.133333-103.232 13.76-231.669333-0.277334-337.6-13.866667-104.864-91.274667-135.264-131.008-136.810667a3286.506667 3286.506667 0 0 0-106.026666-5.258666c9.813333-10.997333 25.898667-30.058667 37.525333-49.109334q17.888-29.301333-11.093333-53.717333-14.613333-12.448-28.405334-11.584-15.306667 0.96-29.578666 18.293333c-20.437333 24.832-49.973333 72.16-63.306667 94.005334a4644.352 4644.352 0 0 0-51.072-0.277334l-69.28 0.277334c-13.333333-21.845333-42.858667-69.173333-63.306667-94.005334q-14.282667-17.333333-29.578666-18.293333-13.781333-0.853333-28.394667 11.584-28.992 24.416-11.114667 53.717333c11.637333 19.050667 27.712 38.112 37.525334 49.109334-35.370667 1.173333-70.72 2.933333-106.026667 5.258666-39.722667 1.536-117.12 31.946667-130.997333 136.810667z" fill="#FFFFFF" p-id="1386"></path><path d="M124.981333 732.704c-6.122667-103.210667-13.738667-231.594667 0.277334-337.504 13.866667-104.864 91.274667-135.264 130.997333-136.810667 35.306667-2.325333 70.656-4.085333 106.026667-5.258666-9.813333-10.997333-25.888-30.058667-37.525334-49.109334q-17.888-29.301333 11.114667-53.717333 14.613333-12.437333 28.394667-11.584 15.296 0.96 29.578666 18.293333c20.448 24.832 49.973333 72.16 63.306667 94.005334l69.28-0.277334c17.28 0 34.293333 0.106667 51.072 0.277334 13.333333-21.845333 42.869333-69.173333 63.306667-94.005334q14.272-17.333333 29.578666-18.293333 13.781333-0.853333 28.405334 11.584 28.981333 24.416 11.093333 53.717333c-11.626667 19.050667-27.701333 38.112-37.514667 49.109334 36.928 1.258667 72.341333 3.008 106.026667 5.258666 39.722667 1.536 117.12 31.946667 130.997333 136.810667 14.026667 105.930667 6.4 234.368 0.288 337.6l-0.010666 0.138667c-3.413333 57.44-28.416 101.322667-72.288 126.912-33.44 19.498667-70.538667 25.109333-105.642667 28.266666-42.261333 3.797333-120.736 7.861333-214.410667 7.882667-93.674667-0.021333-172.16-4.074667-214.410666-7.893333-35.104-3.146667-72.213333-8.757333-105.642667-28.266667-43.872-25.578667-68.864-69.450667-72.277333-126.901333l-0.021334-0.234667z m650.4-401.141333l-1.386666-0.064c-74.474667-4.981333-157.76-7.509333-247.562667-7.509334h-18.208c-89.792 0-173.077333 2.528-247.552 7.52l-1.386667 0.064c-0.106667 0-12.181333 1.077333-24.928 8.746667-19.594667 11.754667-31.605333 33.429333-35.701333 64.384-13.12 99.104-5.706667 223.765333 0.245333 323.946667 3.829333 64.373333 43.498667 80.469333 110.741334 86.517333 14.037333 1.28 89.962667 7.562667 207.690666 7.584 117.738667-0.021333 193.664-6.314667 207.701334-7.584 67.242667-6.048 106.922667-22.144 110.741333-86.528 5.952-100.170667 13.354667-224.832 0.245333-323.936-4.096-30.965333-16.106667-52.629333-35.712-64.394667-12.746667-7.658667-24.821333-8.746667-24.928-8.746666zM249.941333 548.906667c7.488 15.146667 25.973333 21.418667 41.269334 13.973333 0.608-0.298667 61.568-29.706667 134.869333-51.946667 16.298667-4.906667 25.482667-21.994667 20.48-38.122666-4.992-16.138667-22.261333-25.194667-38.56-20.234667-77.92 23.637333-141.28 54.208-143.936 55.498667a30.368 30.368 0 0 0-14.112 40.832z m493.525334 13.973333c15.285333 7.402667 33.76 1.152 41.248-13.973333a30.368 30.368 0 0 0-14.101334-40.842667c-2.666667-1.290667-66.026667-31.861333-143.946666-55.488-16.288-4.949333-33.536 4.117333-38.506667 20.234667-4.992 16.106667 4.16 33.173333 20.448 38.122666 73.045333 22.154667 134.24 51.637333 134.858667 51.946667zM575.008 679.509333c51.658667 0 65.76-67.530667 66.325333-70.410666a14.645333 14.645333 0 0 0-11.637333-17.205334 14.773333 14.773333 0 0 0-17.397333 11.52c-0.106667 0.469333-10.133333 46.805333-37.290667 46.805334-29.098667 0-44.544-40.64-44.693333-41.002667a14.805333 14.805333 0 0 0-13.834667-9.674667h-0.074667c-6.186667 0-11.701333 3.797333-13.866666 9.525334-4.032 10.666667-20.330667 41.141333-41.653334 41.141333-20.394667 0-35.210667-35.498667-38.794666-47.936a14.826667 14.826667 0 0 0-18.208-9.952 14.634667 14.634667 0 0 0-10.282667 17.898667c2.016 7.093333 21.024 69.290667 67.306667 69.290666 25.834667 0 44.213333-18.133333 55.530666-34.496 11.562667 16.394667 30.656 34.496 58.570667 34.496z" fill="#00AEEC" p-id="1387"></path></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/ilovegta/ilovegta.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/Mybolg/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Mybolg/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Mybolg/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Mybolg/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Mybolg/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#递归介绍及原理">递归介绍及原理</a>
+      <ol>
+        <li><a href="#递归">递归</a></li>
+        <li><a href="#递归应用">递归应用</a></li>
+      </ol>
+    </li>
+    <li><a href="#线性查找与二分查找">线性查找与二分查找</a></li>
+    <li><a href="#排序算法">排序算法</a>
+      <ol>
+        <li><a href="#冒泡排序">冒泡排序</a></li>
+        <li><a href="#选择排序">选择排序</a></li>
+        <li><a href="#插入排序">插入排序</a></li>
+        <li><a href="#希尔排序">希尔排序</a></li>
+        <li><a href="#快速排序">快速排序</a></li>
+      </ol>
+    </li>
+    <li><a href="#归并排序">归并排序</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/Mybolg/p/python-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" alt="Featured image of post Python-排序算法" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/Mybolg/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="background-color: #2a9d8f; color: #fff;">
+                学习记录
+            </a>
+        
+            <a href="/Mybolg/categories/python/" style="background-color: #2a9d8f; color: #fff;">
+                Python
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/Mybolg/p/python-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">Python-排序算法</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Oct 22, 2024</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="递归介绍及原理">递归介绍及原理
+</h2><h3 id="递归">递归
+</h3><p>递归(Recursion)，是一种解决问题的方法，其精髓在于将问题分解为规模更小的相同问题。持续分解，直到问题规模小到可以用非常简单直接的方式来解决。递归的问题分解方式非常独特，其算法方面的明显特征就是:在算法流程中调用自身。</p>
+<p>递归三定律:</p>
+<ol>
+<li>递归算法必须有一个基本结束条件(最小规模问题的直接解决)</li>
+<li>递归算法必须能改变状态向基本结束条件演进(减小问题规模)</li>
+<li>递归算法必须调用自身(解决减小了规模的相同问题)</li>
+</ol>
+<h3 id="递归应用">递归应用
+</h3><p>求斐波那契数列</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">fibo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fibo_list</span> <span class="o">=</span> <span class="n">fibo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">fibo_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fibo_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">fibo_list</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">fibo_list</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">fibo</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="s1">&#39;&#39;&#39;打印结果&#39;&#39;&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">34</span><span class="p">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="线性查找与二分查找">线性查找与二分查找
+</h2><p>查找：可以说是我们在代码中运用最多的操作，比如我们经常需要在一个列表里找到我们需要的一个元素，然后返回它的位置。其实之前的哈希表就是非常高效率的查找数据结构，很明显地它是用空间换时间。</p>
+<p>使用Python还有一些其他的查找方法:</p>
+<p><strong>线性查找</strong>:它从数据集的开头开始逐个元素进行比较，直到找到目标元素或遍历完整个数据集。</p>
+<p><strong>二分查找</strong>:二分查找适用于已排序的数据集。它通过反复将数据集一分为二，并比较中间元素来快速缩小搜索范围，直到找到目标元素或确定它不存在。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1">#线性查找</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">linear_search</span><span class="p">(</span><span class="n">num_list</span><span class="p">,</span><span class="n">target_num</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">num_list</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">num_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">target_num</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#二分查找</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">num_list</span><span class="p">,</span><span class="n">target_num</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#sort()将改变原始列表，并从小到大排序；sorted()则不会改变原始列表</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num_list</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">low</span> <span class="o">=</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">    <span class="n">high</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">num_list</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">low</span> <span class="o">&lt;=</span> <span class="n">high</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span><span class="o">+</span><span class="n">high</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+</span></span><span class="line"><span class="cl">        <span class="n">mid_num</span> <span class="o">=</span> <span class="n">num_list</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">mid_num</span> <span class="o">==</span> <span class="n">target_num</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">mid</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">mid_num</span> <span class="o">&lt;</span> <span class="n">target_num</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span><span class="o">+</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">elif</span> <span class="n">mid_num</span> <span class="o">&gt;</span> <span class="n">target_num</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span><span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">num_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">target_num</span> <span class="o">=</span> <span class="mi">9</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#使用线性查找</span>
+</span></span><span class="line"><span class="cl"><span class="n">res1</span> <span class="o">=</span> <span class="n">linear_search</span><span class="p">(</span><span class="n">num_list</span><span class="p">,</span><span class="n">target_num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">res1</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;没有找到目标值&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;找到目标值</span><span class="si">{</span><span class="n">target_num</span><span class="si">}</span><span class="s1">的索引:</span><span class="si">{</span><span class="n">res1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#使用二分查找</span>
+</span></span><span class="line"><span class="cl"><span class="n">res2</span> <span class="o">=</span> <span class="n">binary_search</span><span class="p">(</span><span class="n">num_list</span><span class="p">,</span><span class="n">target_num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">res2</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;没有找到目标值&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;找到目标值</span><span class="si">{</span><span class="n">target_num</span><span class="si">}</span><span class="s1">的索引:</span><span class="si">{</span><span class="n">res2</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="排序算法">排序算法
+</h2><h3 id="冒泡排序">冒泡排序
+</h3><p>冒泡排序(Bubble Sort)，是一种简单直观的排序算法，它的工作原理是:重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。遍历数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为最大或最小的元素会经由交换慢慢“浮”到数列的顶端。</p>
+<p>算法步骤:</p>
+<ol>
+<li>比较相邻的元素。如果第一个比第二个大，就交换他们两个。</li>
+<li>对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。这步做完后，最后的元素会是最大的数。</li>
+<li>针对所有的元素重复以上的步骤，除了最后一个</li>
+<li>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较，</li>
+</ol>
+<p>冒泡排序代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">double_sort</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="o">-</span><span class="n">i</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">&gt;</span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">],</span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">arr</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="选择排序">选择排序
+</h3><p>选择排序(Selection Sort)，是一种简单的排序算法。他的工作原理:首先在未排序的序存放到排序序列的起始位置，然后，再从剩余未排序元素中列中找到最小(大)的元素，继续寻找最小(大)的元素，然后放回已排序序列的末尾。以此类推，直到所有元素均排序完毕。</p>
+<p>算法步骤：</p>
+<ol>
+<li>首先在未排序序列中找到最小(大)元素，存放到排序序列的起始位置</li>
+<li>再从剩余未排序元素中继续寻找最小(大)元素，然后放到已排序序列的末尾</li>
+<li>重复第二步，直到所有元素均排序完毕。</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">selection_sort</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">min_id</span> <span class="o">=</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">min_id</span><span class="p">]</span><span class="o">&gt;</span><span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">min_id</span> <span class="o">=</span> <span class="n">j</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#将找到的最小元素与第一个元素交换</span>
+</span></span><span class="line"><span class="cl">        <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">arr</span><span class="p">[</span><span class="n">min_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">min_id</span><span class="p">],</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">arr</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="插入排序">插入排序
+</h3><p>插入排序(Insertion Sort)，是一种简单的排序算法他的工作原理:通过构建有序序列对于未排序数据，在已排序序列中从后向前扫描，找到相应位置并插入。因此需要反复把已排序元素逐步向后挪位，为最新元素提供插入空间。</p>
+<p>算法步骤:</p>
+<ol>
+<li>未排序序列中的第一个元素，视为该元素已排序</li>
+<li>取出下一个待排序元素，在已排序序列中从后向前扫描，比较已排序序列元素和待排序元素，如果已排序的元素大于待插入元素，将该元素向后移动一位，为待插入元素腾出空间。</li>
+<li>重复步骤2，直到所有元素均排序完毕</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">insertion_sort</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">key</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">        <span class="n">j</span> <span class="o">=</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># j不能为负数</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">key</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="n">j</span> <span class="o">-=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">        <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">arr</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="希尔排序">希尔排序
+</h3><p>希尔排序:是插入排序的一种，也称缩小增量排序。是插入排序算法的一种更高效的改进版本。希尔排序是非稳定排序算法。</p>
+<p>算法步骤:</p>
+<ol>
+<li>取一个小于待排序列表长度的正整数d1，把所有距离为d1的数据看成一组，在组内进行插入排序。</li>
+<li>再取一个小于d1的正整数d2，继续用d2分组进行组内插入排序，</li>
+<li>取的分组距离越来越小，组内的数据越来越多，直到d(n)=1，所有数据被分成一组再进行插入排序，则列表排序完成。</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">shell_sort</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 取整计算增量（间隔）值</span>
+</span></span><span class="line"><span class="cl">    <span class="n">gap</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="n">gap</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 从增量值开始遍历比较</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">gap</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">j</span> <span class="o">=</span> <span class="n">i</span>
+</span></span><span class="line"><span class="cl">            <span class="n">current</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 元素与他同列的前面的每个元素比较，如果比前面的小则互换</span>
+</span></span><span class="line"><span class="cl">            <span class="k">while</span> <span class="n">j</span> <span class="o">-</span> <span class="n">gap</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">current</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="n">gap</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span> <span class="o">-</span> <span class="n">gap</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="n">j</span> <span class="o">-=</span> <span class="n">gap</span>
+</span></span><span class="line"><span class="cl">            <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">current</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 缩小增量（间隔）值</span>
+</span></span><span class="line"><span class="cl">        <span class="n">gap</span> <span class="o">//=</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">arr</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="快速排序">快速排序
+</h3><p>快速排序:也是一种常见且高效的采用分治策略的排序算法，它通过选取一个“基准”元素通过一次排序将待排序的数据分割成独立的两部分，小于基准的放左边，大于基准的放右边。然后递归地对左右两部分进行排序。</p>
+<p>算法步骤：</p>
+<ol>
+<li>从未排序的序列中挑出一个元素，称为“基准”(通常选取第一个数据)</li>
+<li>重新排序数列，所有元素比基准值小的摆放在基准左边，所有元素比基准值大的摆在基准的右边(相同的数可以到任一边)。在这个分区结束之后，该基准就处于序列的中间位置。这个称为分区(partition)操作。</li>
+<li>递归地把小于基准值元素的子序列和大于基准值元素的子序列排序，</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">quick_sort</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">arr</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 选取基准，随便选哪个都可以，选中间的便于理解</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mid</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 定义基准值左右两个数列</span>
+</span></span><span class="line"><span class="cl">    <span class="n">left</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 从原始数组中移除基准值</span>
+</span></span><span class="line"><span class="cl">    <span class="n">arr</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 大于基准值放右边</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">item</span> <span class="o">&gt;=</span> <span class="n">mid</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">right</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 小于基准值放左边</span>
+</span></span><span class="line"><span class="cl">            <span class="n">left</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 使用迭代进行比较</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">quick_sort</span><span class="p">(</span><span class="n">left</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="n">mid</span><span class="p">]</span> <span class="o">+</span> <span class="n">quick_sort</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="归并排序">归并排序
+</h2><p>归并排序是一种分治思想的应用，将一个大问题分解成两个小问题，分别解决这两个小问题，然后将解决的小问题合并起来，得到大问题的解。</p>
+<p>算法步骤：</p>
+<ol>
+<li>将数组分解成两个较小的子数组，直到子数组的大小为1</li>
+<li>递归地对子数组进行排序，并将已排序的子数组合并成一个大的有序数组。</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">merge_sort</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;归并排序&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">arr</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 使用二分法将数列分两个</span>
+</span></span><span class="line"><span class="cl">    <span class="n">mid</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="n">left</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[:</span><span class="n">mid</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">right</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 使用递归运算</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">marge</span><span class="p">(</span><span class="n">merge_sort</span><span class="p">(</span><span class="n">left</span><span class="p">),</span> <span class="n">merge_sort</span><span class="p">(</span><span class="n">right</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">marge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;排序合并两个数列&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 两个数列都有值</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">left</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">right</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 左右两个数列第一个最小放前面</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">left</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">right</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">left</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">right</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 只有一个数列中还有值，直接添加</span>
+</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">+=</span> <span class="n">left</span>
+</span></span><span class="line"><span class="cl">    <span class="n">result</span> <span class="o">+=</span> <span class="n">right</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">result</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">merge_sort</span><span class="p">([</span><span class="mi">11</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">33</span> <span class="p">,</span> <span class="mi">69</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span><span class="mi">39</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">22</span><span class="p">])</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>python有一个模块，专门提供了归并排序的方法，叫做“heapq”模块，因此我们只要将分解后的结果导入该方法即可</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">heapq</span> <span class="kn">import</span> <span class="n">merge</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">merge_sort</span><span class="p">(</span><span class="n">lst</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">lst</span>          <span class="c1"># 从递归中返回长度为1的序列</span>
+</span></span><span class="line"><span class="cl">    <span class="n">middle</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+</span></span><span class="line"><span class="cl">    <span class="n">left</span> <span class="o">=</span> <span class="n">merge_sort</span><span class="p">(</span><span class="n">lst</span><span class="p">[:</span><span class="n">middle</span><span class="p">])</span>     <span class="c1"># 通过不断递归，将原始序列拆分成n个小序列</span>
+</span></span><span class="line"><span class="cl">    <span class="n">right</span> <span class="o">=</span> <span class="n">merge_sort</span><span class="p">(</span><span class="n">lst</span><span class="p">[</span><span class="n">middle</span><span class="p">:])</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="n">merge_sort</span><span class="p">([</span><span class="mi">11</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">33</span> <span class="p">,</span> <span class="mi">69</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span><span class="mi">39</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">22</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 返回结果[11, 11, 22, 33, 33, 36, 39, 44, 55, 66, 69, 77, 88, 99]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/python-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python-数据结构</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/python-%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python-多线程</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/python-%E5%A4%9A%E8%BF%9B%E7%A8%8B/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python-多进程</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/python%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python文件操作</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/python%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python的正则表达式</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 UPPO
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/Mybolg/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    
+    const cssPath = "https://UPPO8.github.io/Mybolg/waifu/waifu.css"
+    const tipsJsonPath = "https://UPPO8.github.io/Mybolg/waifu/waifu-tips.json"
+    
+    const live2d_path = "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
+
+    
+    function loadExternalResource(url, type) {
+        return new Promise((resolve, reject) => {
+            let tag;
+            if (type === "css") {
+                tag = document.createElement("link");
+                tag.rel = "stylesheet";
+                tag.href = url;
+            }
+            else if (type === "js") {
+                tag = document.createElement("script");
+                tag.src = url;
+            }
+            if (tag) {
+                tag.onload = () => resolve(url);
+                tag.onerror = () => reject(url);
+                document.head.appendChild(tag);
+            }
+        });
+    }
+
+    
+    if (screen.width >= 768) {
+        Promise.all([
+        loadExternalResource(cssPath, "css"),
+            loadExternalResource(live2d_path + "live2d.min.js", "js"),
+            loadExternalResource(live2d_path + "waifu-tips.js", "js")
+        ]).then(() => {
+            initWidget({
+                waifuPath: tipsJsonPath,
+                cdnPath: "https://fastly.jsdelivr.net/gh/fghrsh/live2d_api/",
+                tools: ["hitokoto", "asteroids", "switch-model", "switch-texture", "photo", "info", "quit"]
+            });
+            
+            initWaifuMouseEvent();
+        });
+    }
+    function initWaifuMouseEvent() {
+        const waifu = document.getElementById("waifu");
+        let isDown = false;
+        let waifuLeft;
+        let mouseLeft;
+        let waifuTop;
+        let mouseTop;
+        
+        waifu.onmousedown = function (e) {
+            isDown = true;
+            
+            waifuLeft = waifu.offsetLeft;
+            mouseLeft = e.clientX;
+            
+            waifuTop = waifu.offsetTop;
+            mouseTop = e.clientY;
+        }
+        
+        window.onmousemove = function (e) {
+            if (!isDown) {
+                return;
+            }
+            
+            let currentLeft = waifuLeft + (e.clientX - mouseLeft);
+            if (currentLeft < 0) {
+                currentLeft = 0;
+            } else if (currentLeft > window.innerWidth - 300) {
+                currentLeft = window.innerWidth - 300;
+            }
+            waifu.style.left = currentLeft  + "px";
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        }
+        
+        window.onmouseup = function (e) {
+            isDown = false;
+        }
+    }
+</script>
+
+    </body>
+</html>

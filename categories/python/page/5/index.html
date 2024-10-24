@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Python基础语法">
+<title>Category: Python - Pager 5 - UPPO Blog</title>
+
+<link rel='canonical' href='https://UPPO8.github.io/Mybolg/categories/python/'>
+
+<link rel="stylesheet" href="/Mybolg/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Category: Python - UPPO Blog">
+<meta property='og:description' content="Python基础语法">
+<meta property='og:url' content='https://UPPO8.github.io/Mybolg/categories/python/'>
+<meta property='og:site_name' content='UPPO Blog'>
+<meta property='og:type' content='website'><meta property='og:updated_time' content=' 2024-10-24T00:00:00&#43;00:00 '/><meta property='og:image' content='https://UPPO8.github.io/Mybolg/categories/python/R-C.png' />
+<meta name="twitter:title" content="Category: Python - UPPO Blog">
+<meta name="twitter:description" content="Python基础语法"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://UPPO8.github.io/Mybolg/categories/python/R-C.png' /><link rel="alternate" type="application/rss&#43;xml" href="https://UPPO8.github.io/Mybolg/categories/python/index.xml">
+    <link rel="shortcut icon" href="/Mybolg/1828643.png" />
+
+    </head>
+    <body class="">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/Mybolg/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/Mybolg/img/100_hu17204809037550521928.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😊</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/Mybolg">UPPO Blog</a></h1>
+            <h2 class="site-description">欢迎来到UPPO的博客</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/402008155'
+                        target="_blank"
+                        title="BiliBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg class="icon" style="width: 1em;height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1385"><path d="M125.258667 395.2c-14.016 105.909333-6.4 234.293333-0.277334 337.504l0.021334 0.234667c3.413333 57.450667 28.405333 101.322667 72.277333 126.912 33.429333 19.498667 70.538667 25.109333 105.642667 28.266666 42.261333 3.808 120.736 7.861333 214.4 7.882667 93.685333-0.021333 172.16-4.085333 214.410666-7.893333 35.114667-3.146667 72.213333-8.757333 105.653334-28.266667 43.872-25.578667 68.864-69.461333 72.288-126.901333V732.8c6.133333-103.232 13.76-231.669333-0.277334-337.6-13.866667-104.864-91.274667-135.264-131.008-136.810667a3286.506667 3286.506667 0 0 0-106.026666-5.258666c9.813333-10.997333 25.898667-30.058667 37.525333-49.109334q17.888-29.301333-11.093333-53.717333-14.613333-12.448-28.405334-11.584-15.306667 0.96-29.578666 18.293333c-20.437333 24.832-49.973333 72.16-63.306667 94.005334a4644.352 4644.352 0 0 0-51.072-0.277334l-69.28 0.277334c-13.333333-21.845333-42.858667-69.173333-63.306667-94.005334q-14.282667-17.333333-29.578666-18.293333-13.781333-0.853333-28.394667 11.584-28.992 24.416-11.114667 53.717333c11.637333 19.050667 27.712 38.112 37.525334 49.109334-35.370667 1.173333-70.72 2.933333-106.026667 5.258666-39.722667 1.536-117.12 31.946667-130.997333 136.810667z" fill="#FFFFFF" p-id="1386"></path><path d="M124.981333 732.704c-6.122667-103.210667-13.738667-231.594667 0.277334-337.504 13.866667-104.864 91.274667-135.264 130.997333-136.810667 35.306667-2.325333 70.656-4.085333 106.026667-5.258666-9.813333-10.997333-25.888-30.058667-37.525334-49.109334q-17.888-29.301333 11.114667-53.717333 14.613333-12.437333 28.394667-11.584 15.296 0.96 29.578666 18.293333c20.448 24.832 49.973333 72.16 63.306667 94.005334l69.28-0.277334c17.28 0 34.293333 0.106667 51.072 0.277334 13.333333-21.845333 42.869333-69.173333 63.306667-94.005334q14.272-17.333333 29.578666-18.293333 13.781333-0.853333 28.405334 11.584 28.981333 24.416 11.093333 53.717333c-11.626667 19.050667-27.701333 38.112-37.514667 49.109334 36.928 1.258667 72.341333 3.008 106.026667 5.258666 39.722667 1.536 117.12 31.946667 130.997333 136.810667 14.026667 105.930667 6.4 234.368 0.288 337.6l-0.010666 0.138667c-3.413333 57.44-28.416 101.322667-72.288 126.912-33.44 19.498667-70.538667 25.109333-105.642667 28.266666-42.261333 3.797333-120.736 7.861333-214.410667 7.882667-93.674667-0.021333-172.16-4.074667-214.410666-7.893333-35.104-3.146667-72.213333-8.757333-105.642667-28.266667-43.872-25.578667-68.864-69.450667-72.277333-126.901333l-0.021334-0.234667z m650.4-401.141333l-1.386666-0.064c-74.474667-4.981333-157.76-7.509333-247.562667-7.509334h-18.208c-89.792 0-173.077333 2.528-247.552 7.52l-1.386667 0.064c-0.106667 0-12.181333 1.077333-24.928 8.746667-19.594667 11.754667-31.605333 33.429333-35.701333 64.384-13.12 99.104-5.706667 223.765333 0.245333 323.946667 3.829333 64.373333 43.498667 80.469333 110.741334 86.517333 14.037333 1.28 89.962667 7.562667 207.690666 7.584 117.738667-0.021333 193.664-6.314667 207.701334-7.584 67.242667-6.048 106.922667-22.144 110.741333-86.528 5.952-100.170667 13.354667-224.832 0.245333-323.936-4.096-30.965333-16.106667-52.629333-35.712-64.394667-12.746667-7.658667-24.821333-8.746667-24.928-8.746666zM249.941333 548.906667c7.488 15.146667 25.973333 21.418667 41.269334 13.973333 0.608-0.298667 61.568-29.706667 134.869333-51.946667 16.298667-4.906667 25.482667-21.994667 20.48-38.122666-4.992-16.138667-22.261333-25.194667-38.56-20.234667-77.92 23.637333-141.28 54.208-143.936 55.498667a30.368 30.368 0 0 0-14.112 40.832z m493.525334 13.973333c15.285333 7.402667 33.76 1.152 41.248-13.973333a30.368 30.368 0 0 0-14.101334-40.842667c-2.666667-1.290667-66.026667-31.861333-143.946666-55.488-16.288-4.949333-33.536 4.117333-38.506667 20.234667-4.992 16.106667 4.16 33.173333 20.448 38.122666 73.045333 22.154667 134.24 51.637333 134.858667 51.946667zM575.008 679.509333c51.658667 0 65.76-67.530667 66.325333-70.410666a14.645333 14.645333 0 0 0-11.637333-17.205334 14.773333 14.773333 0 0 0-17.397333 11.52c-0.106667 0.469333-10.133333 46.805333-37.290667 46.805334-29.098667 0-44.544-40.64-44.693333-41.002667a14.805333 14.805333 0 0 0-13.834667-9.674667h-0.074667c-6.186667 0-11.701333 3.797333-13.866666 9.525334-4.032 10.666667-20.330667 41.141333-41.653334 41.141333-20.394667 0-35.210667-35.498667-38.794666-47.936a14.826667 14.826667 0 0 0-18.208-9.952 14.634667 14.634667 0 0 0-10.282667 17.898667c2.016 7.093333 21.024 69.290667 67.306667 69.290666 25.834667 0 44.213333-18.133333 55.530666-34.496 11.562667 16.394667 30.656 34.496 58.570667 34.496z" fill="#00AEEC" p-id="1387"></path></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/ilovegta/ilovegta.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/Mybolg/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Mybolg/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Mybolg/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Mybolg/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Mybolg/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                <form action="/Mybolg/search/" class="search-form widget" >
+        <p>
+            <label>搜索</label>
+            <input name="keyword" required placeholder="输入关键词..." />
+        
+            <button title="搜索">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+            </button>
+        </p>
+    </form>
+            
+        
+            
+                <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-infinity" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M9.828 9.172a4 4 0 1 0 0 5.656 a10 10 0 0 0 2.172 -2.828a10 10 0 0 1 2.172 -2.828 a4 4 0 1 1 0 5.656a10 10 0 0 1 -2.172 -2.828a10 10 0 0 0 -2.172 -2.828" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">归档</h2>
+
+        
+        
+        
+        
+        
+        <div class="widget-archive--list">
+            <div class="archives-year">
+                    <a href="/Mybolg/archives/#2024">
+                        
+                            <span class="year">2024</span>
+                            <span class="count">17</span>
+                        
+                    </a> 
+                </div>
+            
+        </div>
+    </section>
+            
+        
+            
+                <section class="widget tagCloud">
+    <div class="widget-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+    </div>
+    <h2 class="widget-title section-title">分类</h2>
+
+    <div class="tagCloud-tags">
+        
+            <a href="/Mybolg/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="font_size_15">
+                学习记录
+            </a>
+        
+            <a href="/Mybolg/categories/python/" class="font_size_14">
+                Python
+            </a>
+        
+            <a href="/Mybolg/categories/%E6%97%A5%E5%B8%B8/" class="font_size_2">
+                日常
+            </a>
+        
+            <a href="/Mybolg/categories/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/" class="font_size_1">
+                机器视觉
+            </a>
+        
+    </div>
+</section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <header>
+        <h3 class="section-title">
+            
+                Categories
+            
+        </h3>
+
+        <div class="section-card">
+            <div class="section-details">
+                <h3 class="section-count">14 个页面</h3>
+                <h1 class="section-term">Python</h1>
+                
+                    <h2 class="section-description">Python基础语法</h2>
+                
+            </div>
+                <div class="section-image">
+                    <img src="/Mybolg/categories/python/R-C_hu16667255607921892109.png" 
+                            width="120"
+                            height="120" 
+                            loading="lazy">
+                    
+                </div>
+            
+        </div>
+    </header>
+    
+    <section class="article-list--compact">
+        
+            <article>
+    <a href="/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%953/">
+        <div class="article-details">
+            <h2 class="article-title">Python基础语法3</h2>
+            <footer class="article-time">
+                <time datetime='2024-10-01T00:00:00Z'>Oct 01, 2024</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" alt="Featured image of post Python基础语法3" />
+                
+            </div>
+        
+    </a>
+</article>
+        
+            <article>
+    <a href="/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%951/">
+        <div class="article-details">
+            <h2 class="article-title">Python基础语法1</h2>
+            <footer class="article-time">
+                <time datetime='2024-09-30T00:00:00Z'>Sep 30, 2024</time>
+            </footer>
+        </div>
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/write-plan.jpg" loading="lazy" alt="Featured image of post Python基础语法1" />
+                
+            </div>
+        
+    </a>
+</article>
+        
+    </section>
+    <nav class='pagination'>
+        
+        
+
+        
+            
+                    <a class='page-link' href='/Mybolg/categories/python/'>1</a>
+                
+            
+            
+                    
+                        
+                        <span class='page-link dots'>&hellip;</span>
+                    
+                
+            
+            
+                    
+                
+            
+            
+                    <a class='page-link' href='/Mybolg/categories/python/page/4/'>4</a>
+                
+            
+            
+                <span class='page-link current'>5</span>
+                
+            
+    </nav>
+
+<footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 UPPO
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/Mybolg/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    
+    const cssPath = "https://UPPO8.github.io/Mybolg/waifu/waifu.css"
+    const tipsJsonPath = "https://UPPO8.github.io/Mybolg/waifu/waifu-tips.json"
+    
+    const live2d_path = "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
+
+    
+    function loadExternalResource(url, type) {
+        return new Promise((resolve, reject) => {
+            let tag;
+            if (type === "css") {
+                tag = document.createElement("link");
+                tag.rel = "stylesheet";
+                tag.href = url;
+            }
+            else if (type === "js") {
+                tag = document.createElement("script");
+                tag.src = url;
+            }
+            if (tag) {
+                tag.onload = () => resolve(url);
+                tag.onerror = () => reject(url);
+                document.head.appendChild(tag);
+            }
+        });
+    }
+
+    
+    if (screen.width >= 768) {
+        Promise.all([
+        loadExternalResource(cssPath, "css"),
+            loadExternalResource(live2d_path + "live2d.min.js", "js"),
+            loadExternalResource(live2d_path + "waifu-tips.js", "js")
+        ]).then(() => {
+            initWidget({
+                waifuPath: tipsJsonPath,
+                cdnPath: "https://fastly.jsdelivr.net/gh/fghrsh/live2d_api/",
+                tools: ["hitokoto", "asteroids", "switch-model", "switch-texture", "photo", "info", "quit"]
+            });
+            
+            initWaifuMouseEvent();
+        });
+    }
+    function initWaifuMouseEvent() {
+        const waifu = document.getElementById("waifu");
+        let isDown = false;
+        let waifuLeft;
+        let mouseLeft;
+        let waifuTop;
+        let mouseTop;
+        
+        waifu.onmousedown = function (e) {
+            isDown = true;
+            
+            waifuLeft = waifu.offsetLeft;
+            mouseLeft = e.clientX;
+            
+            waifuTop = waifu.offsetTop;
+            mouseTop = e.clientY;
+        }
+        
+        window.onmousemove = function (e) {
+            if (!isDown) {
+                return;
+            }
+            
+            let currentLeft = waifuLeft + (e.clientX - mouseLeft);
+            if (currentLeft < 0) {
+                currentLeft = 0;
+            } else if (currentLeft > window.innerWidth - 300) {
+                currentLeft = window.innerWidth - 300;
+            }
+            waifu.style.left = currentLeft  + "px";
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        }
+        
+        window.onmouseup = function (e) {
+            isDown = false;
+        }
+    }
+</script>
+
+    </body>
+</html>

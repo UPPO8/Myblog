@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>机器视觉 on UPPO Blog</title>
+        <link>https://UPPO8.github.io/Mybolg/categories/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/</link>
+        <description>Recent content in 机器视觉 on UPPO Blog</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>UPPO</copyright>
+        <lastBuildDate>Thu, 24 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://UPPO8.github.io/Mybolg/categories/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>机器视觉与OpenCV-1</title>
+        <link>https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-1/</link>
+        <pubDate>Thu, 24 Oct 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-1/</guid>
+        <description>&lt;img src="https://UPPO8.github.io/Mybolg/images/OpenCVCourse/write-plan.jpg" alt="Featured image of post 机器视觉与OpenCV-1" /&gt;&lt;p&gt;等待更新&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
