@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="等待更新\n">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="RGB图像 像素是图像的基本单元，每个像素存储着图像的颜色、亮度和其他特征，一张图片是由和多个像素组成。\n在计算机中，RGB三种颜色被称为RGB三通道，且每个通道的取值范围是0-255，根据这三个通道存储的像素值来对应不同的颜色。[0,0,0]为黑色，[255，255，255]为白色。\n">
 <title>机器视觉与OpenCV-1</title>
 
 <link rel='canonical' href='https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-1/'>
 
 <link rel="stylesheet" href="/Mybolg/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="机器视觉与OpenCV-1">
-<meta property='og:description' content="等待更新\n">
+<meta property='og:description' content="RGB图像 像素是图像的基本单元，每个像素存储着图像的颜色、亮度和其他特征，一张图片是由和多个像素组成。\n在计算机中，RGB三种颜色被称为RGB三通道，且每个通道的取值范围是0-255，根据这三个通道存储的像素值来对应不同的颜色。[0,0,0]为黑色，[255，255，255]为白色。\n">
 <meta property='og:url' content='https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-1/'>
 <meta property='og:site_name' content='UPPO Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-10-24T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-10-24T00:00:00&#43;00:00'/><meta property='og:image' content='https://UPPO8.github.io/Mybolg/images/OpenCVCourse/write-plan.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-10-27T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-10-27T00:00:00&#43;00:00'/><meta property='og:image' content='https://UPPO8.github.io/Mybolg/images/OpenCVCourse/write-plan.jpg' />
 <meta name="twitter:title" content="机器视觉与OpenCV-1">
-<meta name="twitter:description" content="等待更新\n"><meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="RGB图像 像素是图像的基本单元，每个像素存储着图像的颜色、亮度和其他特征，一张图片是由和多个像素组成。\n在计算机中，RGB三种颜色被称为RGB三通道，且每个通道的取值范围是0-255，根据这三个通道存储的像素值来对应不同的颜色。[0,0,0]为黑色，[255，255，255]为白色。\n"><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='https://UPPO8.github.io/Mybolg/images/OpenCVCourse/write-plan.jpg' />
     <link rel="shortcut icon" href="/Mybolg/1828643.png" />
 
@@ -240,7 +240,41 @@
     </ol>
 </aside>
 
-    
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#rgb图像">RGB图像</a></li>
+    <li><a href="#图像灰度化">图像灰度化</a></li>
+    <li><a href="#二值化">二值化</a></li>
+    <li><a href="#自适应阈值法">自适应阈值法</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
 
             <main class="main full-width">
     <article class="has-image main-article">
@@ -293,7 +327,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Oct 24, 2024</time>
+                <time class="article-time--published">Oct 27, 2024</time>
             </div>
         
 
@@ -309,7 +343,577 @@
     <section class="article-content">
     
     
-    <p>等待更新</p>
+    <h2 id="rgb图像">RGB图像
+</h2><p>像素是图像的基本单元，每个像素存储着图像的颜色、亮度和其他特征，一张图片是由和多个像素组成。</p>
+<p>在计算机中，RGB三种颜色被称为RGB三通道，且每个通道的取值范围是0-255，根据这三个通道存储的像素值来对应不同的颜色。[0,0,0]为黑色，[255，255，255]为白色。</p>
+<p>在计算机中，图像是以数组的形式存在的。一个RGB图像放到内存中就是一个三维数组，第一维为图像的宽度，第二维为图像的高度，第三维则是图像中每个像素点的RGB三个像素值。注意在openCV中像素的存储顺序是BGR。</p>
+<p>比如将一个RGB图像使用openCV维度展开。
+<img src="/Mybolg/images/OpenCVCourse/1/001.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="原图"
+	
+	
+></p>
+<p><img src="/Mybolg/images/OpenCVCourse/1/002.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="展开图"
+	
+	
+></p>
+<p>Python中实现代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">cv2</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建一个空白的 700x700 彩色图像</span>
+</span></span><span class="line"><span class="cl"><span class="n">image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">700</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 绘制黑色边框，每个 100x100 像素的块周围</span>
+</span></span><span class="line"><span class="cl"><span class="n">block_size</span> <span class="o">=</span> <span class="mi">100</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#画出分割线</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="n">block_size</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="n">block_size</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">top_left</span> <span class="o">=</span> <span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bottom_right</span> <span class="o">=</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="n">block_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="n">block_size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 绘制 X 型图案，将两个对角线方向的块填充为红色</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">((</span><span class="n">i</span> <span class="o">//</span> <span class="n">block_size</span> <span class="o">==</span> <span class="n">j</span> <span class="o">//</span> <span class="n">block_size</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">i</span> <span class="o">//</span> <span class="n">block_size</span> <span class="o">+</span> <span class="n">j</span> <span class="o">//</span> <span class="n">block_size</span> <span class="o">==</span> <span class="mi">6</span><span class="p">))</span> <span class="ow">and</span> <span class="p">(</span><span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">i</span> <span class="o">!=</span> <span class="mi">600</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cv2</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">top_left</span><span class="p">,</span> <span class="n">bottom_right</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># 使用 -1 填充矩形为红色</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">cv2</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">top_left</span><span class="p">,</span> <span class="n">bottom_right</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># 绘制其他块的白色边框</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 将 BGR 通道顺序转换为 RGB 顺序，用于 Matplotlib 显示</span>
+</span></span><span class="line"><span class="cl"><span class="n">image_rgb</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 显示原图</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_rgb</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Original Image&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>  <span class="c1"># 不显示坐标轴</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 拆分彩色通道</span>
+</span></span><span class="line"><span class="cl"><span class="n">b</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建三个空白图像，用于每个表示每个通道</span>
+</span></span><span class="line"><span class="cl"><span class="n">blue_channel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">700</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">green_channel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">700</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">red_channel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">700</span><span class="p">,</span> <span class="mi">700</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 分配颜色通道数据</span>
+</span></span><span class="line"><span class="cl"><span class="n">blue_channel</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl"><span class="n">green_channel</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">g</span>
+</span></span><span class="line"><span class="cl"><span class="n">red_channel</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">r</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 将 BGR 通道顺序转换为 RGB 顺序，用于 Matplotlib 显示</span>
+</span></span><span class="line"><span class="cl"><span class="n">blue_channel_rgb</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">blue_channel</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">green_channel_rgb</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">green_channel</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">red_channel_rgb</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">red_channel</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#显示拆分的颜色通道</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建一行三列的布局，本图在第一个位置</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">blue_channel_rgb</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#显示标题</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Blue Channel&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#不显示坐标轴</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">green_channel_rgb</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Green Channel&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">red_channel_rgb</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Red Channel&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#合理布局所有图像</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="图像灰度化">图像灰度化
+</h2><p>灰度图：单通道图，每个像素点只存一个像素值，图像整体表现为灰色，从0-255表现为从黑到白的过程。
+灰度化的三种方法：</p>
+<p>加权均值法：对于彩色图像的每个像素，它会按照一定的权重去乘以每个通道的像素值，并将其相加，得到最后的值就是灰度图像中对应位置的像素值,比如一个像素值为[91，121，46]，则权重的比例为： R乘以0.299，G乘以0.587，B乘以0.114。</p>
+<pre><code>    91*0.99+121*0.587+46*0.114
+</code></pre>
+<p>平均值法：对于彩色图像的每个像素，它会将R、G、B三个通道的像素值全部加起来，然后再除以三，得到的平均值就是灰度图像中对应位置的像素值。</p>
+<p>最大值法：对于彩色图像的每个像素，它会从R、G、B三个通道的值中选出最大的一个，并将其作为灰度图像中对应位置的像素值。</p>
+<p>在Pyhton中使用openCV的cv2.imread()函数读取图片，使用shape函数读取属性，shape[0]为高度，shape[1]为宽度，shape[3]为维度。
+代码实现：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">cv2</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">weight_average</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#设定权重</span>
+</span></span><span class="line"><span class="cl">    <span class="n">wr</span> <span class="o">=</span> <span class="mf">0.299</span>
+</span></span><span class="line"><span class="cl">    <span class="n">wg</span> <span class="o">=</span> <span class="mf">0.587</span>
+</span></span><span class="line"><span class="cl">    <span class="n">wb</span> <span class="o">=</span> <span class="mf">0.114</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 加权灰度化</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#遍历彩色图像中的每一个像素点，进行加权平均操作。</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">img_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">img_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">image_np_gray</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">wr</span> <span class="o">*</span> <span class="n">image_np</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">wg</span> <span class="o">*</span> <span class="n">image_np</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                <span class="n">wb</span> <span class="o">*</span> <span class="n">image_np</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">image_np_gray</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">maximum</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 最大值灰度化</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">img_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>  <span class="c1"># 按行读取图片的像素bgr</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">img_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>  <span class="c1"># 对每一行按照列进行每一个像素格子进行读取</span>
+</span></span><span class="line"><span class="cl">            <span class="n">image_np_gray</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">image_np</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">image_np</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">image_np</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># 求灰度值</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">image_np_gray</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">average</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 平均灰度化</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">img_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">img_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">image_np_gray</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">image_np</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">image_np</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">image_np</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">][</span><span class="mi">2</span><span class="p">]))</span> <span class="o">//</span> <span class="mi">3</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">image_np_gray</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#设定读取图片的路径</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span> <span class="o">=</span> <span class="s2">&#34;./hui.png&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#读取该图片</span>
+</span></span><span class="line"><span class="cl">    <span class="n">image_np</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#读取图片Numpy数组的属性，【高度，宽度，像素值】</span>
+</span></span><span class="line"><span class="cl">    <span class="n">img_shape</span> <span class="o">=</span> <span class="n">image_np</span><span class="o">.</span><span class="n">shape</span>
+</span></span><span class="line"><span class="cl">    <span class="n">image_np_gray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">img_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">img_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">#使用openCV读取的图像为BGR，用plt显示图像需要转化为RGB图像显示</span>
+</span></span><span class="line"><span class="cl">    <span class="n">res_img1</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">weight_average</span><span class="p">(),</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">res_img2</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">maximum</span><span class="p">(),</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">res_img3</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">average</span><span class="p">(),</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">res_img1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;weight_average&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">res_img2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;maximum&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">res_img3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;average&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img src="/Mybolg/images/OpenCVCourse/1/003.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="彩色图"
+	
+	
+></p>
+<p><img src="/Mybolg/images/OpenCVCourse/1/004.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="灰度图"
+	
+	
+></p>
+<h2 id="二值化">二值化
+</h2><p>二值化图：就是将图像中的像素改成只有两种值，其操作的图像必须是灰度图。
+<img src="/Mybolg/images/OpenCVCourse/1/005.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="二值化图"
+	
+	
+></p>
+<p>二值化的方法：<a class="link" href="https://docs.opencv.org/4.3.0/d7/d4d/tutorial_py_thresholding.html"  target="_blank" rel="noopener"
+    >参考链接</a></p>
+<p>阈值法(THRESH_BINARY)：通过设置一个阈值，将灰度图中的每一个像素值与该阈值进行比较，小于等于阈值的像素就被设置为0（黑），大于阈值的像素就被设置为maxval。</p>
+<p>反阈值法(THRESH_BINARY_INV)：与阈值法相反。反阈值法是当灰度图的像素值大于阈值时，该像素值将会变成0（黑），当灰度图的像素值小于等于阈值时，该像素值将会变成maxval。</p>
+<p>截断阈值法(THRESH_TRUNC)：指将灰度图中的所有像素与阈值进行比较，像素值大于阈值的部分将会被修改为阈值，小于等于阈值的部分不变。换句话说，经过截断阈值法处理过的二值化图中的最大像素值就是阈值。</p>
+<p>低阈值零处理(THRESH_TOZERO)：就是像素值小于等于阈值的部分被置为0（也就是黑色），大于阈值的部分不变。</p>
+<p>超阈值零处理(THRESH_TOZERO_INV):就是将灰度图中的每个像素与阈值进行比较，像素值大于阈值的部分置为0（也就是黑色），像素值小于等于阈值的部分不变。</p>
+<p>OTSU阈值法：OTSU算法是通过一个值将这张图分前景色和背景色（也就是灰度图中小于这个值的是一类，大于这个值的是一类），通过统计学方法（最大类间方差）来验证该值的合理性，当根据该值进行分割时，使用最大类间方差计算得到的值最大时，该值就是二值化算法中所需要的阈值。通常该值是从灰度图中的最小值加1开始进行迭代计算，直到灰度图中的最大像素值减1，然后把得到的最大类间方差值进行比较，来得到二值化的阈值。</p>
+<p>简单阈值法实现代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/env python3</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># -*- coding: utf-8 -*-</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">cv2</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;006.png&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#阈值法</span>
+</span></span><span class="line"><span class="cl"><span class="n">ret</span><span class="p">,</span> <span class="n">th1</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">THRESH_BINARY</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#反阈值法</span>
+</span></span><span class="line"><span class="cl"><span class="n">ret</span><span class="p">,</span> <span class="n">th2</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">THRESH_BINARY_INV</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#截断阈值法</span>
+</span></span><span class="line"><span class="cl"><span class="n">ret</span><span class="p">,</span> <span class="n">th3</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">THRESH_TRUNC</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#低阈值零处理</span>
+</span></span><span class="line"><span class="cl"><span class="n">ret</span><span class="p">,</span> <span class="n">th4</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">THRESH_TOZERO</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#超阈值零处理</span>
+</span></span><span class="line"><span class="cl"><span class="n">ret</span><span class="p">,</span> <span class="n">th5</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">THRESH_TOZERO_INV</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Original Image&#39;</span><span class="p">,</span> <span class="s1">&#39;BINARY&#39;</span><span class="p">,</span> <span class="s1">&#39;BINARY_INV&#39;</span><span class="p">,</span> <span class="s1">&#39;TRUNC&#39;</span><span class="p">,</span> <span class="s1">&#39;TOZERO&#39;</span><span class="p">,</span> <span class="s1">&#39;TOZERO_INV&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">img</span><span class="p">,</span> <span class="n">th1</span><span class="p">,</span> <span class="n">th2</span><span class="p">,</span> <span class="n">th3</span><span class="p">,</span> <span class="n">th4</span><span class="p">,</span> <span class="n">th5</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">titles</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([]),</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行结果：</p>
+<p><img src="/Mybolg/images/OpenCVCourse/1/007.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<p>使用OTSU方法；</p>
+<p>模式：cv.threshold(img,0,255,cv.THRESH_BINARY+cv.THRESH_OTSU)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">cv2</span> <span class="k">as</span> <span class="nn">cv</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">img</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;006.png&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># global thresholding</span>
+</span></span><span class="line"><span class="cl"><span class="n">ret1</span><span class="p">,</span><span class="n">th1</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="mi">127</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="n">cv</span><span class="o">.</span><span class="n">THRESH_BINARY</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Otsu&#39;s thresholding</span>
+</span></span><span class="line"><span class="cl"><span class="n">ret2</span><span class="p">,</span><span class="n">th2</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="n">cv</span><span class="o">.</span><span class="n">THRESH_BINARY</span><span class="o">+</span><span class="n">cv</span><span class="o">.</span><span class="n">THRESH_OTSU</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Otsu&#39;s thresholding after Gaussian filtering</span>
+</span></span><span class="line"><span class="cl"><span class="n">blur</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">GaussianBlur</span><span class="p">(</span><span class="n">img</span><span class="p">,(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">ret3</span><span class="p">,</span><span class="n">th3</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">blur</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="n">cv</span><span class="o">.</span><span class="n">THRESH_BINARY</span><span class="o">+</span><span class="n">cv</span><span class="o">.</span><span class="n">THRESH_OTSU</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># plot all the images and their histograms</span>
+</span></span><span class="line"><span class="cl"><span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">img</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">th1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="n">img</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">th2</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="n">blur</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">th3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Original Noisy Image&#39;</span><span class="p">,</span><span class="s1">&#39;Histogram&#39;</span><span class="p">,</span><span class="s1">&#39;Global Thresholding (v=127)&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s1">&#39;Original Noisy Image&#39;</span><span class="p">,</span><span class="s1">&#39;Histogram&#39;</span><span class="p">,</span><span class="s2">&#34;Otsu&#39;s Thresholding&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="s1">&#39;Gaussian filtered Image&#39;</span><span class="p">,</span><span class="s1">&#39;Histogram&#39;</span><span class="p">,</span><span class="s2">&#34;Otsu&#39;s Thresholding&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="p">],</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">titles</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="p">]),</span> <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([]),</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="mi">2</span><span class="p">),</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span><span class="mi">256</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">titles</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="mi">1</span><span class="p">]),</span> <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([]),</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="mi">3</span><span class="p">),</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="mi">2</span><span class="p">],</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">titles</span><span class="p">[</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="mi">2</span><span class="p">]),</span> <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([]),</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行结果：</p>
+<p><img src="/Mybolg/images/OpenCVCourse/1/008.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h2 id="自适应阈值法">自适应阈值法
+</h2><p>使用了一个全局值作为阈值，这可能并非在所有情况下都是好的，例如，如果图像在不同区域具有不同的照明条件。在这种情况下，自适应阈值可以提供帮助。在这里，算法根据像素周围的小区域确定像素的阈值。因此，我们为同一图像的不同区域获得不同的阈值，从而为具有不同照明的图像提供更好的结果。</p>
+<p>函数cv.adaptiveThreshold有三个参数，</p>
+<ol>
+<li>cv.ADAPTIVE_THRESH_MEAN_C：阈值是邻域面积减去常数 C 的平均值。</li>
+<li>cv.ADAPTIVE_THRESH_GAUSSIAN_C：阈值是邻域值减去常数 C 的高斯加权和。</li>
+<li>blockSize 确定邻域区域的大小</li>
+<li>C 是从邻域像素的平均值或加权和中减去的常数。</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="c1">#自适应阈值法</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">cv2</span> <span class="k">as</span> <span class="nn">cv</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+</span></span><span class="line"><span class="cl"><span class="n">img</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;006.png&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">img</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">medianBlur</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#简单阈值法</span>
+</span></span><span class="line"><span class="cl"><span class="n">ret</span><span class="p">,</span><span class="n">th1</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">img</span><span class="p">,</span><span class="mi">127</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="n">cv</span><span class="o">.</span><span class="n">THRESH_BINARY</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#自适应平均阈值法</span>
+</span></span><span class="line"><span class="cl"><span class="n">th2</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">adaptiveThreshold</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">img</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv</span><span class="o">.</span><span class="n">ADAPTIVE_THRESH_MEAN_C</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv</span><span class="o">.</span><span class="n">THRESH_BINARY</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">11</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="c1">#blockSize为11，C为2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#自适应高斯阈值法</span>
+</span></span><span class="line"><span class="cl"><span class="n">th3</span> <span class="o">=</span> <span class="n">cv</span><span class="o">.</span><span class="n">adaptiveThreshold</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">img</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv</span><span class="o">.</span><span class="n">ADAPTIVE_THRESH_GAUSSIAN_C</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv</span><span class="o">.</span><span class="n">THRESH_BINARY</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="mi">11</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="c1">#blockSize为11，C为2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Original Image&#39;</span><span class="p">,</span> <span class="s1">&#39;Global Thresholding (v = 127)&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;Adaptive Mean Thresholding&#39;</span><span class="p">,</span> <span class="s1">&#39;Adaptive Gaussian Thresholding&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">img</span><span class="p">,</span> <span class="n">th1</span><span class="p">,</span> <span class="n">th2</span><span class="p">,</span> <span class="n">th3</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">titles</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([]),</span><span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
+</span></span><span class="line"><span class="cl"><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行结果：</p>
+<p><img src="/Mybolg/images/OpenCVCourse/1/009.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
 
 </section>
 
@@ -331,6 +935,63 @@
     <h2 class="section-title">相关文章</h2>
     <div class="related-content">
         <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-4/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/OpenCVCourse/write-plan.jpg" loading="lazy" data-key="" data-hash="/Mybolg/images/OpenCVCourse/write-plan.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">机器视觉与OpenCV-4</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-3/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/OpenCVCourse/write-plan.jpg" loading="lazy" data-key="" data-hash="/Mybolg/images/OpenCVCourse/write-plan.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">机器视觉与OpenCV-3</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-2/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/OpenCVCourse/write-plan.jpg" loading="lazy" data-key="" data-hash="/Mybolg/images/OpenCVCourse/write-plan.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">机器视觉与OpenCV-2</h2>
+        </div>
+    </a>
+</article>
+
             
                 
 <article class="has-image">
@@ -365,63 +1026,6 @@
 
         <div class="article-details">
             <h2 class="article-title">Python-数据结构</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/Mybolg/p/python-%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Python-多线程</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/Mybolg/p/python-%E5%A4%9A%E8%BF%9B%E7%A8%8B/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Python-多进程</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/Mybolg/p/python%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">
-        
-        
-            <div class="article-image">
-                
-                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Python文件操作</h2>
         </div>
     </a>
 </article>

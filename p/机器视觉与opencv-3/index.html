@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="图像梯度处理 sober算子，， 图像梯度计算的是图像变化的速度。对于图像的边缘部分，其灰度值变化较大，梯度值也较大；相反，对于图像中比较平滑的部分，其灰度值变化较小，相应的梯度值也较小。一般情况下，图像梯度计算的是图像的边缘信息。\n">
+<title>机器视觉与OpenCV-3</title>
+
+<link rel='canonical' href='https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-3/'>
+
+<link rel="stylesheet" href="/Mybolg/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="机器视觉与OpenCV-3">
+<meta property='og:description' content="图像梯度处理 sober算子，， 图像梯度计算的是图像变化的速度。对于图像的边缘部分，其灰度值变化较大，梯度值也较大；相反，对于图像中比较平滑的部分，其灰度值变化较小，相应的梯度值也较小。一般情况下，图像梯度计算的是图像的边缘信息。\n">
+<meta property='og:url' content='https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-3/'>
+<meta property='og:site_name' content='UPPO Blog'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-10-31T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-10-31T00:00:00&#43;00:00'/><meta property='og:image' content='https://UPPO8.github.io/Mybolg/images/OpenCVCourse/write-plan.jpg' />
+<meta name="twitter:title" content="机器视觉与OpenCV-3">
+<meta name="twitter:description" content="图像梯度处理 sober算子，， 图像梯度计算的是图像变化的速度。对于图像的边缘部分，其灰度值变化较大，梯度值也较大；相反，对于图像中比较平滑的部分，其灰度值变化较小，相应的梯度值也较小。一般情况下，图像梯度计算的是图像的边缘信息。\n"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='https://UPPO8.github.io/Mybolg/images/OpenCVCourse/write-plan.jpg' />
+    <link rel="shortcut icon" href="/Mybolg/1828643.png" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/Mybolg/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/Mybolg/img/100_hu17204809037550521928.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">😊</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/Mybolg">UPPO Blog</a></h1>
+            <h2 class="site-description">欢迎来到UPPO的博客</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/402008155'
+                        target="_blank"
+                        title="BiliBili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg class="icon" style="width: 1em;height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1385"><path d="M125.258667 395.2c-14.016 105.909333-6.4 234.293333-0.277334 337.504l0.021334 0.234667c3.413333 57.450667 28.405333 101.322667 72.277333 126.912 33.429333 19.498667 70.538667 25.109333 105.642667 28.266666 42.261333 3.808 120.736 7.861333 214.4 7.882667 93.685333-0.021333 172.16-4.085333 214.410666-7.893333 35.114667-3.146667 72.213333-8.757333 105.653334-28.266667 43.872-25.578667 68.864-69.461333 72.288-126.901333V732.8c6.133333-103.232 13.76-231.669333-0.277334-337.6-13.866667-104.864-91.274667-135.264-131.008-136.810667a3286.506667 3286.506667 0 0 0-106.026666-5.258666c9.813333-10.997333 25.898667-30.058667 37.525333-49.109334q17.888-29.301333-11.093333-53.717333-14.613333-12.448-28.405334-11.584-15.306667 0.96-29.578666 18.293333c-20.437333 24.832-49.973333 72.16-63.306667 94.005334a4644.352 4644.352 0 0 0-51.072-0.277334l-69.28 0.277334c-13.333333-21.845333-42.858667-69.173333-63.306667-94.005334q-14.282667-17.333333-29.578666-18.293333-13.781333-0.853333-28.394667 11.584-28.992 24.416-11.114667 53.717333c11.637333 19.050667 27.712 38.112 37.525334 49.109334-35.370667 1.173333-70.72 2.933333-106.026667 5.258666-39.722667 1.536-117.12 31.946667-130.997333 136.810667z" fill="#FFFFFF" p-id="1386"></path><path d="M124.981333 732.704c-6.122667-103.210667-13.738667-231.594667 0.277334-337.504 13.866667-104.864 91.274667-135.264 130.997333-136.810667 35.306667-2.325333 70.656-4.085333 106.026667-5.258666-9.813333-10.997333-25.888-30.058667-37.525334-49.109334q-17.888-29.301333 11.114667-53.717333 14.613333-12.437333 28.394667-11.584 15.296 0.96 29.578666 18.293333c20.448 24.832 49.973333 72.16 63.306667 94.005334l69.28-0.277334c17.28 0 34.293333 0.106667 51.072 0.277334 13.333333-21.845333 42.869333-69.173333 63.306667-94.005334q14.272-17.333333 29.578666-18.293333 13.781333-0.853333 28.405334 11.584 28.981333 24.416 11.093333 53.717333c-11.626667 19.050667-27.701333 38.112-37.514667 49.109334 36.928 1.258667 72.341333 3.008 106.026667 5.258666 39.722667 1.536 117.12 31.946667 130.997333 136.810667 14.026667 105.930667 6.4 234.368 0.288 337.6l-0.010666 0.138667c-3.413333 57.44-28.416 101.322667-72.288 126.912-33.44 19.498667-70.538667 25.109333-105.642667 28.266666-42.261333 3.797333-120.736 7.861333-214.410667 7.882667-93.674667-0.021333-172.16-4.074667-214.410666-7.893333-35.104-3.146667-72.213333-8.757333-105.642667-28.266667-43.872-25.578667-68.864-69.450667-72.277333-126.901333l-0.021334-0.234667z m650.4-401.141333l-1.386666-0.064c-74.474667-4.981333-157.76-7.509333-247.562667-7.509334h-18.208c-89.792 0-173.077333 2.528-247.552 7.52l-1.386667 0.064c-0.106667 0-12.181333 1.077333-24.928 8.746667-19.594667 11.754667-31.605333 33.429333-35.701333 64.384-13.12 99.104-5.706667 223.765333 0.245333 323.946667 3.829333 64.373333 43.498667 80.469333 110.741334 86.517333 14.037333 1.28 89.962667 7.562667 207.690666 7.584 117.738667-0.021333 193.664-6.314667 207.701334-7.584 67.242667-6.048 106.922667-22.144 110.741333-86.528 5.952-100.170667 13.354667-224.832 0.245333-323.936-4.096-30.965333-16.106667-52.629333-35.712-64.394667-12.746667-7.658667-24.821333-8.746667-24.928-8.746666zM249.941333 548.906667c7.488 15.146667 25.973333 21.418667 41.269334 13.973333 0.608-0.298667 61.568-29.706667 134.869333-51.946667 16.298667-4.906667 25.482667-21.994667 20.48-38.122666-4.992-16.138667-22.261333-25.194667-38.56-20.234667-77.92 23.637333-141.28 54.208-143.936 55.498667a30.368 30.368 0 0 0-14.112 40.832z m493.525334 13.973333c15.285333 7.402667 33.76 1.152 41.248-13.973333a30.368 30.368 0 0 0-14.101334-40.842667c-2.666667-1.290667-66.026667-31.861333-143.946666-55.488-16.288-4.949333-33.536 4.117333-38.506667 20.234667-4.992 16.106667 4.16 33.173333 20.448 38.122666 73.045333 22.154667 134.24 51.637333 134.858667 51.946667zM575.008 679.509333c51.658667 0 65.76-67.530667 66.325333-70.410666a14.645333 14.645333 0 0 0-11.637333-17.205334 14.773333 14.773333 0 0 0-17.397333 11.52c-0.106667 0.469333-10.133333 46.805333-37.290667 46.805334-29.098667 0-44.544-40.64-44.693333-41.002667a14.805333 14.805333 0 0 0-13.834667-9.674667h-0.074667c-6.186667 0-11.701333 3.797333-13.866666 9.525334-4.032 10.666667-20.330667 41.141333-41.653334 41.141333-20.394667 0-35.210667-35.498667-38.794666-47.936a14.826667 14.826667 0 0 0-18.208-9.952 14.634667 14.634667 0 0 0-10.282667 17.898667c2.016 7.093333 21.024 69.290667 67.306667 69.290666 25.834667 0 44.213333-18.133333 55.530666-34.496 11.562667 16.394667 30.656 34.496 58.570667 34.496z" fill="#00AEEC" p-id="1387"></path></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/ilovegta/ilovegta.github.io'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/Mybolg/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Mybolg/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Mybolg/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Mybolg/%E5%85%B3%E4%BA%8E/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>关于</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/Mybolg/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#图像梯度处理">图像梯度处理</a>
+      <ol>
+        <li><a href="#sober算子">sober算子，，</a></li>
+        <li><a href="#filter2d方法">filter2D方法</a></li>
+        <li><a href="#laplaceian算子">Laplaceian算子</a></li>
+        <li><a href="#例子">例子</a></li>
+      </ol>
+    </li>
+    <li><a href="#图像边缘检测">图像边缘检测</a>
+      <ol>
+        <li><a href="#canny算法">canny算法</a></li>
+        <li><a href="#非极大值抑制">非极大值抑制</a></li>
+        <li><a href="#双阈值筛选">双阈值筛选</a></li>
+        <li><a href="#示例">示例</a></li>
+        <li><a href="#参考链接">参考链接</a></li>
+      </ol>
+    </li>
+    <li><a href="#图像凸包检测">图像凸包检测</a>
+      <ol>
+        <li><a href="#graham扫描法">graham扫描法</a></li>
+        <li><a href="#andrew扫描链法">Andrew扫描链法</a></li>
+        <li><a href="#quickhull法">QuickHull法</a></li>
+        <li><a href="#示例-1">示例</a></li>
+      </ol>
+    </li>
+    <li><a href="#绘制图像轮廓">绘制图像轮廓</a>
+      <ol>
+        <li><a href="#检测轮廓">检测轮廓</a></li>
+        <li><a href="#轮廓的绘制">轮廓的绘制</a></li>
+        <li><a href="#示例-2">示例</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="has-image main-article">
+    <header class="article-header">
+        <div class="article-image">
+            <a href="/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-3/">
+                
+                    <img src="/Mybolg/images/OpenCVCourse/write-plan.jpg" loading="lazy" alt="Featured image of post 机器视觉与OpenCV-3" />
+                
+            </a>
+        </div>
+    
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/Mybolg/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="background-color: #2a9d8f; color: #fff;">
+                学习记录
+            </a>
+        
+            <a href="/Mybolg/categories/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/" style="background-color: #2a9d8f; color: #fff;">
+                机器视觉
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-3/">机器视觉与OpenCV-3</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Oct 31, 2024</time>
+            </div>
+        
+
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="图像梯度处理">图像梯度处理
+</h2><h3 id="sober算子">sober算子，，
+</h3><p>图像梯度计算的是图像变化的速度。对于图像的边缘部分，其灰度值变化较大，梯度值也较大；相反，对于图像中比较平滑的部分，其灰度值变化较小，相应的梯度值也较小。一般情况下，图像梯度计算的是图像的边缘信息。</p>
+<p>Sobel 算子是一种离散的微分算子，该算子结合了高斯平滑和微分求导运算。该算子利用局部差分寻找边缘，计算所得的是一个梯度的近似值。下图为Sobel算子示例：</p>
+<pre><code>    [-1 0 1]        [-1 -2  -1]
+    [-2 0 2]        [0  0   0]
+    [-1 0 1]        [1  2   1]
+</code></pre>
+<p><code>dst = cv2.Sobel( src, ddepth, dx, dy,ksize, scale, delta, borderType )</code></p>
+<p>式中：<br>
+dst 代表目标图像。<br>
+src 代表原始图像。<br>
+ddepth 代表输出图像的深度，-1：与输入图像深度相同。<br>
+dx 代表 x 方向上的求导阶数，值为1或0。<br>
+dy 代表 y 方向上的求导阶数，值为1或0。<br>
+（dx和dy不能同时为0）<br>
+ksize 代表 Sobel 核的大小。该值为-1 时，则会使用 Scharr 算子进行运算。<br>
+scale 代表计算导数值时所采用的缩放因子，默认情况下该值是 1，是没有缩放的。</p>
+<h3 id="filter2d方法">filter2D方法
+</h3><p>参考链接：</p>
+<ul>
+<li><a class="link" href="https://docs.opencv.org/4.5.1/d4/d86/group__imgproc__filter.html#ga27c049795ce870216ddfb366086b5a04"  target="_blank" rel="noopener"
+    >https://docs.opencv.org/4.5.1/d4/d86/group__imgproc__filter.html#ga27c049795ce870216ddfb366086b5a04</a></li>
+</ul>
+<p><code>dst=cv.filter2D(src, ddepth, kernel, dst, anchor, delta, borderType)</code></p>
+<p>式中的参数与sobel类似。</p>
+<h3 id="laplaceian算子">Laplaceian算子
+</h3><p>参考链接：</p>
+<ul>
+<li><a class="link" href="https://docs.opencv.org/4.5.1/d4/d86/group__imgproc__filter.html#gad78703e4c8fe703d479c1860d76429e6"  target="_blank" rel="noopener"
+    >https://docs.opencv.org/4.5.1/d4/d86/group__imgproc__filter.html#gad78703e4c8fe703d479c1860d76429e6</a></li>
+</ul>
+<p><code>dst	=	cv.Laplacian(src, ddepth, dst, ksize, scale, delta, borderType)</code></p>
+<h3 id="例子">例子
+</h3><p>原图:</p>
+<p><img src="/Mybolg/images/OpenCVCourse/3/001.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="1"
+	
+	
+></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">cv2</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span> <span class="o">=</span> <span class="s2">&#34;./001.png&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">image_np</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#使用sobel算子</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sobel_res</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">Sobel</span><span class="p">(</span><span class="n">image_np</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ksize</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#filter2D方法</span>
+</span></span><span class="line"><span class="cl">    <span class="n">kernel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">f2D_res</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">filter2D</span><span class="p">(</span><span class="n">image_np</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">kernel</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#使用拉普拉斯变换</span>
+</span></span><span class="line"><span class="cl">    <span class="n">laplcian_res</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">Laplacian</span><span class="p">(</span><span class="n">image_np</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 返回处理正确后的内容</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">&#34;sobel&#34;</span><span class="p">,</span> <span class="n">sobel_res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="s2">&#34;002.png&#34;</span><span class="p">,</span> <span class="n">sobel_res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s1">&#39;filter2D&#39;</span><span class="p">,</span> <span class="n">f2D_res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="s2">&#34;003.png&#34;</span><span class="p">,</span> <span class="n">f2D_res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">&#34;laplacian&#34;</span><span class="p">,</span> <span class="n">laplcian_res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="s2">&#34;004.png&#34;</span><span class="p">,</span> <span class="n">laplcian_res</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用sobel算子：</p>
+<p><img src="/Mybolg/images/OpenCVCourse/3/002.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="2"
+	
+	
+></p>
+<p>filter2D方法：</p>
+<p><img src="/Mybolg/images/OpenCVCourse/3/003.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="3"
+	
+	
+></p>
+<p>使用拉普拉斯变换：</p>
+<p><img src="/Mybolg/images/OpenCVCourse/3/004.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="4"
+	
+	
+></p>
+<h2 id="图像边缘检测">图像边缘检测
+</h2><h3 id="canny算法">canny算法
+</h3><p>Canny算法是一种被广泛应用于边缘检测的标准算法，其目标是找到一个最优的边缘检测解或找寻一幅图像中灰度强度变化最强的位置。最优边缘检测主要通过低错误率、高定位性和最小响应三个标准进行评价。Canny算子的简要步骤如下：</p>
+<p>（1）去噪声：应用高斯滤波来平滑图像，目的是去除噪声</p>
+<p>（2）梯度：找寻图像的梯度</p>
+<p>（3）非极大值抑制：应用非最大抑制技术来过滤掉非边缘像素，将模糊的边界变得清晰。该过程保留了每个像素点上梯度强度的极大值，过滤掉其他的值。</p>
+<p>（4）应用双阈值的方法来决定可能的（潜在的）边界；</p>
+<p>（5）利用滞后技术来跟踪边界。若某一像素位置和强边界相连的弱边界认为是边界，其他的弱边界则被删除。</p>
+<h3 id="非极大值抑制">非极大值抑制
+</h3><p>对于每个像素点，它进行如下操作：应用非最大抑制技术来过滤掉非边缘像素，将模糊的边界变得清晰。该过程保留了每个像素点上梯度强度的极大值，过滤掉其他的值。</p>
+<p>1）将其梯度方向近似为以下值中的一个，包括0、45、90、135、180、225、270和315，即表示上下左右和45度方向。</p>
+<p>2）比较该像素点和其梯度正负方向的像素点的梯度强度，如果该像素点梯度强度最大则保留，否则抑制（删除，即置为0）。</p>
+<h3 id="双阈值筛选">双阈值筛选
+</h3><p>经过非极大抑制后图像中仍然有很多噪声点。Canny算法中应用了一种叫双阈值的技术。即设定一个阈值上界和阈值下界（opencv中通常由人为指定的），图像中的像素点如果大于阈值上界则认为必然是边界（称为强边界，strong edge），小于阈值下界则认为必然不是边界，两者之间的则认为是候选项（称为弱边界，weak edge），需进行进一步处理。</p>
+<p><img src="/Mybolg/images/OpenCVCourse/3/e5743f4108c4ac0b4af3b564ffb85e5e.png"
+	
+	
+	
+	loading="lazy"
+	
+	
+></p>
+<h3 id="示例">示例
+</h3><p>在OpenCV中，Canny() 函数用法如下所示：</p>
+<p><code>edges = Canny(image, threshold1, threshold2[, edges[, apertureSize[, L2gradient]]])</code></p>
+<p>其中，参数：</p>
+<ul>
+<li>mage 表示输入图像；</li>
+<li>edges 表示输出的边缘图，其大小和类型与输入图像相同；</li>
+<li>threshold1 表示第一个滞后性阈值；</li>
+<li>threshold2 表示第二个滞后性阈值；</li>
+<li>apertureSize 表示应用Sobel算子的孔径大小，其默认值为3；</li>
+<li>L2gradient 表示一个计算图像梯度幅值的标识，默认值为false。</li>
+</ul>
+<p>原图：</p>
+<p><img src="/Mybolg/images/OpenCVCourse/3/005.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="5"
+	
+	
+></p>
+<p>代码实现：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">cv2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span> <span class="o">=</span> <span class="s2">&#34;./002.png&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">image_np</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 转为灰度图</span>
+</span></span><span class="line"><span class="cl">    <span class="n">image_np_gray</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image_np</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 进行二值化</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ret</span><span class="p">,</span> <span class="n">image_np_thresh</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">        <span class="n">image_np_gray</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="mi">127</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="mi">255</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cv2</span><span class="o">.</span><span class="n">THRESH_BINARY</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># canny边缘检测</span>
+</span></span><span class="line"><span class="cl">    <span class="n">edges_images</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">Canny</span><span class="p">(</span><span class="n">image_np_thresh</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 返回处理正确后的内容</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">&#34;edges_images&#34;</span><span class="p">,</span> <span class="n">edges_images</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#cv2.imwrite(&#39;006.png&#39;, edges_images)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>结果展示：</p>
+<p><img src="/Mybolg/images/OpenCVCourse/3/006.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="6"
+	
+	
+></p>
+<h3 id="参考链接">参考链接
+</h3><ul>
+<li>
+<p><a class="link" href="https://docs.opencv.org/4.5.1/da/d5c/tutorial_canny_detector.html"  target="_blank" rel="noopener"
+    >https://docs.opencv.org/4.5.1/da/d5c/tutorial_canny_detector.html</a></p>
+</li>
+<li>
+<p><a class="link" href="https://blog.csdn.net/zaishuiyifangxym/article/details/90142702"  target="_blank" rel="noopener"
+    >https://blog.csdn.net/zaishuiyifangxym/article/details/90142702</a></p>
+</li>
+</ul>
+<h2 id="图像凸包检测">图像凸包检测
+</h2><p>凸包：通俗的说，就是完全凸起，没有凹处的多边形，也叫做凸多边形。一般来说凸包都是伴随着某类点集存在的，也被称为某个点集的凸包。</p>
+<p>对于一个点集来说，如果该点集存在凸包，那么这个点集中的所有的点要么在这个凸包上，要么在这个凸包内。</p>
+<p>凸包检测常用在物体识别、手势识别及边界检测等领域。</p>
+<h3 id="graham扫描法">graham扫描法
+</h3><p>Graham扫描法：</p>
+<ol>
+<li>将纵坐标最小的点记为P0，且以该点为原点构建二维坐标系，那么P0就一定是一个凸包点。</li>
+<li>计算各个点对于P0的角度�，按照从小到大的顺序进行排序（逆时针顺序），当角度相同时,与P0
+较近的点排在前面。那么角度最大的点和角度最小的点一定是凸包点。</li>
+<li>用栈来记录已知的凸包点，先将P0和P1放入栈中，然后去求下一个凸包点。</li>
+<li>入栈下一个点，将栈顶的两个点相连，得到一条直线。看下一个点在直线的右侧还是左侧，如果
+是右侧就执行步骤5，如果在左侧或在直线上就执行步骤6。</li>
+<li></li>
+<li>如果在右侧，说明栈顶的那个点不是凸包点，将栈顶元素出栈并执行步骤4。</li>
+<li>如果在左侧或直线上，说明该点是凸包点，就将其保存。
+检查栈顶的点是不是步骤2中角度值最大的那个点，如果是就结束了，如果不是就将当前点的下个
+点作为要计算的对象，执行步骤4，直到栈顶元素就是步骤2中角度值最大的点，那么循环结束。</li>
+</ol>
+<h3 id="andrew扫描链法">Andrew扫描链法
+</h3><p>Andrew扫描链法:</p>
+<ol>
+<li>对所有点按坐标x为第一关键字、y为第二关键字排序，第1个和最后一个肯定在凸包上。包点，这样就可以构建出下凸包。</li>
+<li>先顺序遍历所有点，通过三个点所构建的两个向量的叉积来判断是不是凸</li>
+<li>然后逆序遍历所有点，按照相同的方式就可以构建出上凸包，最后将上凸
+包和下凸包连接即可。</li>
+</ol>
+<h3 id="quickhull法">QuickHull法
+</h3><p>QuickHull法：</p>
+<ol>
+<li>将所有的点放在二维坐标系中，找到最横坐标最小和最大的两个点P1和
+P2并连线。此时整个点集被该直线分为两部分，直线上方叫上包，直线
+下方叫下包。</li>
+<li>以上包为例，找到上包中的点距离该直线最远的点P3，连线P1、P3，并
+寻找直线P1P3左侧的点与直线P2P3右侧的点，然后重复本步骤，直到找
+不到为止。对下包也是这么操作。</li>
+</ol>
+<h3 id="示例-1">示例
+</h3><p>原图：</p>
+<p><img src="/Mybolg/images/OpenCVCourse/3/007.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="7"
+	
+	
+></p>
+<p>代码实现：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">cv2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span> <span class="o">=</span> <span class="s2">&#34;./011.png&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">convex_image</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 得到灰度图做Canny边缘检测</span>
+</span></span><span class="line"><span class="cl">    <span class="n">image_np_gray</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">edges</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">Canny</span><span class="p">(</span><span class="n">image_np_gray</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 提取并绘制轮廓</span>
+</span></span><span class="line"><span class="cl">    <span class="n">contours</span><span class="p">,</span> <span class="n">hierarchy</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">findContours</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">RETR_TREE</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CHAIN_APPROX_NONE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">img_contour</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">drawContours</span><span class="p">(</span><span class="n">convex_image</span><span class="p">,</span> <span class="n">contours</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 寻找凸包</span>
+</span></span><span class="line"><span class="cl">    <span class="n">hulls</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">contour</span> <span class="ow">in</span> <span class="n">contours</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">hull</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">convexHull</span><span class="p">(</span><span class="n">contour</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">hulls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hull</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 绘制凸包</span>
+</span></span><span class="line"><span class="cl">    <span class="n">img_convex_hull</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">drawContours</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">hulls</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 返回处理正确后的内容</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">&#34;convex_image&#34;</span><span class="p">,</span> <span class="n">img_convex_hull</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">#cv2.imwrite(&#39;012.png&#39;, convex_image)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>结果展示：</p>
+<p><img src="/Mybolg/images/OpenCVCourse/3/008.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="8"
+	
+	
+></p>
+<h2 id="绘制图像轮廓">绘制图像轮廓
+</h2><p>轮廓的概念：
+轮廓是指目标物体或者区域在图像中的外部边界线或者边界区域，通常由一系
+列相连的像素组成，这些像素共同构成了一个封闭的形状，从而组成了轮廓。</p>
+<p>轮廓与边缘的区别：
+轮廓是一组连续的点或线，而边缘不连续。并且边缘更多的是作为图像的特征使用，比如可以用边缘特征来区分脸和手，而轮廓主要用来分析物体的形态，比如物体的周长、面积等。</p>
+<p>轮廓的作用：</p>
+<ol>
+<li>形状分析：通过轮廓，可以分析物体的形状，比如是圆形、矩形还是更复
+杂的形状。</li>
+<li>目标识别：在识别特定物体时，轮廓可以作为物体的一个重要特征。</li>
+<li>图像分割：利用轮廓，可以将图像分割成多个区域，每个区域代表一个物
+体或者物体的一个部分。</li>
+</ol>
+<h3 id="检测轮廓">检测轮廓
+</h3><p>在opencv中,使用cv2.findContours()函数来查找检测物体的轮廓:</p>
+<p><code>contours, hierarchy = cv2.findContours(image, mode, method)</code></p>
+<p>式中：</p>
+<pre><code>image：输入图像.
+
+mode：轮廓的模式。cv2.RETR_EXTERNAL只检测外轮廓；cv2.RETR_LIST检测的轮廓不建立等级关系；cv2.RETR_CCOMP建立两个等级的轮廓，上一层为外边界，内层为内孔的边界。如果内孔内还有连通物体，则这个物体的边界也在顶层；cv2.RETR_TREE建立一个等级树结构的轮廓。
+
+method：轮廓的近似方法。cv2.CHAIN_APPROX_NOME存储所有的轮廓点，相邻的两个点的像素位置差不超过1；cv2.CHAIN_APPROX_SIMPLE压缩水平方向、垂直方向、对角线方向的元素，只保留该方向的终点坐标，例如一个矩形轮廓只需要4个点来保存轮廓信息；cv2.CHAIN_APPROX_TC89_L1，cv2.CV_CHAIN_APPROX_TC89_KCOS
+
+contours：返回的轮廓
+
+hierarchy：每条轮廓对应的属性
+</code></pre>
+<h3 id="轮廓的绘制">轮廓的绘制
+</h3><p>OpenCV中通过cv2.drawContours在图像上绘制轮廓。</p>
+<p><code>cv2.drawContours(image, contours, contourIdx, color, thickness=None, lineType=None, hierarchy=None, maxLevel=None, offset=None)</code></p>
+<p>式中：</p>
+<pre><code>第一个参数是指明在哪幅图像上绘制轮廓；
+
+第二个参数是轮廓本身，在Python中是一个list。
+
+第三个参数指定绘制轮廓list中的哪条轮廓，如果是-1，则绘制其中的所有轮廓。
+
+color：线的颜色（0，0，255）表示红色；（255，0，0）表示蓝色；
+
+thickness表明轮廓线的宽度，如果是-1（cv2.FILLED），则为填充模式。
+</code></pre>
+<h3 id="示例-2">示例
+</h3><p>实现代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">cv2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">path</span> <span class="o">=</span> <span class="s2">&#34;./007.png&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">image_np</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">contour_image</span> <span class="o">=</span> <span class="n">image_np</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 转为灰度图</span>
+</span></span><span class="line"><span class="cl">    <span class="n">image_np_gray</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">image_np</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">    <span class="c1"># 进行二值化</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ret</span><span class="p">,</span> <span class="n">image_np_thresh</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="n">image_np_gray</span><span class="p">,</span> <span class="mi">127</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">THRESH_BINARY_INV</span> <span class="o">+</span> <span class="n">cv2</span><span class="o">.</span><span class="n">THRESH_OTSU</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">    <span class="c1"># 查找轮廓</span>
+</span></span><span class="line"><span class="cl">    <span class="n">contours</span><span class="p">,</span> <span class="n">hierarchy</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">findContours</span><span class="p">(</span><span class="n">image_np_thresh</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">RETR_EXTERNAL</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CHAIN_APPROX_SIMPLE</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">    <span class="c1"># 绘制轮廓</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv2</span><span class="o">.</span><span class="n">drawContours</span><span class="p">(</span><span class="n">contour_image</span><span class="p">,</span> <span class="n">contours</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span>  
+</span></span><span class="line"><span class="cl">    <span class="c1"># 结果显示</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">&#34;contour_image&#34;</span><span class="p">,</span> <span class="n">contour_image</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>结果展示：
+<img src="/Mybolg/images/OpenCVCourse/3/009.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="9"
+	
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相关文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-4/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/OpenCVCourse/write-plan.jpg" loading="lazy" data-key="" data-hash="/Mybolg/images/OpenCVCourse/write-plan.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">机器视觉与OpenCV-4</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-2/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/OpenCVCourse/write-plan.jpg" loading="lazy" data-key="" data-hash="/Mybolg/images/OpenCVCourse/write-plan.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">机器视觉与OpenCV-2</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-1/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/OpenCVCourse/write-plan.jpg" loading="lazy" data-key="" data-hash="/Mybolg/images/OpenCVCourse/write-plan.jpg"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">机器视觉与OpenCV-1</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/python-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python-排序算法</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="has-image">
+    <a href="/Mybolg/p/python-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+        
+        
+            <div class="article-image">
+                
+                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                
+            </div>
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Python-数据结构</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 UPPO
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.27.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/Mybolg/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<script>
+    
+    const cssPath = "https://UPPO8.github.io/Mybolg/waifu/waifu.css"
+    const tipsJsonPath = "https://UPPO8.github.io/Mybolg/waifu/waifu-tips.json"
+    
+    const live2d_path = "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
+
+    
+    function loadExternalResource(url, type) {
+        return new Promise((resolve, reject) => {
+            let tag;
+            if (type === "css") {
+                tag = document.createElement("link");
+                tag.rel = "stylesheet";
+                tag.href = url;
+            }
+            else if (type === "js") {
+                tag = document.createElement("script");
+                tag.src = url;
+            }
+            if (tag) {
+                tag.onload = () => resolve(url);
+                tag.onerror = () => reject(url);
+                document.head.appendChild(tag);
+            }
+        });
+    }
+
+    
+    if (screen.width >= 768) {
+        Promise.all([
+        loadExternalResource(cssPath, "css"),
+            loadExternalResource(live2d_path + "live2d.min.js", "js"),
+            loadExternalResource(live2d_path + "waifu-tips.js", "js")
+        ]).then(() => {
+            initWidget({
+                waifuPath: tipsJsonPath,
+                cdnPath: "https://fastly.jsdelivr.net/gh/fghrsh/live2d_api/",
+                tools: ["hitokoto", "asteroids", "switch-model", "switch-texture", "photo", "info", "quit"]
+            });
+            
+            initWaifuMouseEvent();
+        });
+    }
+    function initWaifuMouseEvent() {
+        const waifu = document.getElementById("waifu");
+        let isDown = false;
+        let waifuLeft;
+        let mouseLeft;
+        let waifuTop;
+        let mouseTop;
+        
+        waifu.onmousedown = function (e) {
+            isDown = true;
+            
+            waifuLeft = waifu.offsetLeft;
+            mouseLeft = e.clientX;
+            
+            waifuTop = waifu.offsetTop;
+            mouseTop = e.clientY;
+        }
+        
+        window.onmousemove = function (e) {
+            if (!isDown) {
+                return;
+            }
+            
+            let currentLeft = waifuLeft + (e.clientX - mouseLeft);
+            if (currentLeft < 0) {
+                currentLeft = 0;
+            } else if (currentLeft > window.innerWidth - 300) {
+                currentLeft = window.innerWidth - 300;
+            }
+            waifu.style.left = currentLeft  + "px";
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        }
+        
+        window.onmouseup = function (e) {
+            isDown = false;
+        }
+    }
+</script>
+
+    </body>
+</html>
