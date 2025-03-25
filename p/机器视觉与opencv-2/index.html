@@ -4,17 +4,17 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="形态学变换 形态学变换：是一种基于形状的简单变化，它的处理对象通常是二值化图像。他的操作对象由两部分组成，一个是要进行形态学变换的原始的二值图像，另一个是核(在这里也叫做结构化元素)。\n">
 <title>机器视觉与OpenCV-2</title>
 
-<link rel='canonical' href='https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-2/'>
+<link rel='canonical' href='https://UPPO8.github.io/Myblog/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-2/'>
 
-<link rel="stylesheet" href="/Mybolg/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="机器视觉与OpenCV-2">
+<link rel="stylesheet" href="/Myblog/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="机器视觉与OpenCV-2">
 <meta property='og:description' content="形态学变换 形态学变换：是一种基于形状的简单变化，它的处理对象通常是二值化图像。他的操作对象由两部分组成，一个是要进行形态学变换的原始的二值图像，另一个是核(在这里也叫做结构化元素)。\n">
-<meta property='og:url' content='https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-2/'>
+<meta property='og:url' content='https://UPPO8.github.io/Myblog/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-2/'>
 <meta property='og:site_name' content='UPPO Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-10-28T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-10-28T00:00:00&#43;00:00'/><meta property='og:image' content='https://UPPO8.github.io/Mybolg/images/OpenCVCourse/write-plan.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-10-28T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-10-28T00:00:00&#43;00:00'/><meta property='og:image' content='https://UPPO8.github.io/Myblog/images/OpenCVCourse/write-plan.jpg' />
 <meta name="twitter:title" content="机器视觉与OpenCV-2">
 <meta name="twitter:description" content="形态学变换 形态学变换：是一种基于形状的简单变化，它的处理对象通常是二值化图像。他的操作对象由两部分组成，一个是要进行形态学变换的原始的二值图像，另一个是核(在这里也叫做结构化元素)。\n"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://UPPO8.github.io/Mybolg/images/OpenCVCourse/write-plan.jpg' />
-    <link rel="shortcut icon" href="/Mybolg/1828643.png" />
+    <meta name="twitter:image" content='https://UPPO8.github.io/Myblog/images/OpenCVCourse/write-plan.jpg' />
+    <link rel="shortcut icon" href="/Myblog/1828643.png" />
 
     </head>
     <body class="
@@ -53,13 +53,13 @@
         
             
             <figure class="site-avatar">
-                <a href="/Mybolg/">
+                <a href="/Myblog/">
                 
                     
                     
                     
                         
-                        <img src="/Mybolg/img/100_hu17204809037550521928.jpg" width="300"
+                        <img src="/Myblog/img/100_hu_116fe1ebc7f4bd61.jpg" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -72,7 +72,7 @@
         
         
         <div class="site-meta">
-            <h1 class="site-name"><a href="/Mybolg">UPPO Blog</a></h1>
+            <h1 class="site-name"><a href="/Myblog">UPPO Blog</a></h1>
             <h2 class="site-description">欢迎来到UPPO的博客</h2>
         </div>
     </header><ol class="menu-social">
@@ -116,7 +116,7 @@
         
         
         <li >
-            <a href='/Mybolg/' >
+            <a href='/Myblog/' >
                 
                 
                 
@@ -136,7 +136,7 @@
         
         
         <li >
-            <a href='/Mybolg/search/' >
+            <a href='/Myblog/search/' >
                 
                 
                 
@@ -155,7 +155,7 @@
         
         
         <li >
-            <a href='/Mybolg/archives/' >
+            <a href='/Myblog/archives/' >
                 
                 
                 
@@ -175,7 +175,7 @@
         
         
         <li >
-            <a href='/Mybolg/%E5%85%B3%E4%BA%8E/' >
+            <a href='/Myblog/%E5%85%B3%E4%BA%8E/' >
                 
                 
                 
@@ -194,7 +194,7 @@
         
         
         <li >
-            <a href='/Mybolg/links/' >
+            <a href='/Myblog/links/' >
                 
                 
                 
@@ -298,9 +298,9 @@
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-2/">
+            <a href="/Myblog/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-2/">
                 
-                    <img src="/Mybolg/images/OpenCVCourse/write-plan.jpg" loading="lazy" alt="Featured image of post 机器视觉与OpenCV-2" />
+                    <img src="/Myblog/images/OpenCVCourse/write-plan.jpg" loading="lazy" alt="Featured image of post 机器视觉与OpenCV-2" />
                 
             </a>
         </div>
@@ -310,11 +310,11 @@
     
     <header class="article-category">
         
-            <a href="/Mybolg/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="background-color: #2a9d8f; color: #fff;">
+            <a href="/Myblog/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="background-color: #2a9d8f; color: #fff;">
                 学习记录
             </a>
         
-            <a href="/Mybolg/categories/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/" style="background-color: #2a9d8f; color: #fff;">
+            <a href="/Myblog/categories/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/" style="background-color: #2a9d8f; color: #fff;">
                 机器视觉
             </a>
         
@@ -323,7 +323,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-2/">机器视觉与OpenCV-2</a>
+            <a href="/Myblog/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-2/">机器视觉与OpenCV-2</a>
         </h2>
     
         
@@ -366,7 +366,7 @@
 <p>形态学变换的基本操作有两种：腐蚀和膨胀。</p>
 <h3 id="腐蚀">腐蚀
 </h3><p>腐蚀操作是将物体的边缘加以腐蚀。具体的操作方法是拿一个宽m，高n的矩形作为模板，对图像中的每一个像素x做如下处理：像素x至于模板的中心，根据模版的大小，遍历所有被模板覆盖的其他像素，修改像素x的值为所有像素中最小的值。这样操作的结果是会将图像外围的突出点加以腐蚀。如下图的操作过程：</p>
-<p><img src="/Mybolg/images/OpenCVCourse/2/001.png"
+<p><img src="/Myblog/images/OpenCVCourse/2/001.png"
 	
 	
 	
@@ -440,7 +440,7 @@
 </div>
 </div><h3 id="膨胀">膨胀
 </h3><p>膨胀操作与腐蚀操作相反，是将图像的轮廓加以膨胀。操作方法与腐蚀操作类似，也是拿一个矩形模板，对图像的每个像素做遍历处理。不同之处在于修改像素的值不是所有像素中最小的值，而是最大的值。这样操作的结果会将图像外围的突出点连接并向外延伸。如下图的操作过程：</p>
-<p><img src="/Mybolg/images/OpenCVCourse/2/001.png"
+<p><img src="/Myblog/images/OpenCVCourse/2/001.png"
 	
 	
 	
@@ -458,7 +458,7 @@
 <code>cv2. MORPH_ELLIPSE</code>：椭圆形结构元素</p>
 <p><code>（3，3）</code>设定卷积核的大小.一般有3×3，5×5，7×7</p>
 <p>不同的卷积核，处理后的结果也不同。
-<img src="/Mybolg/images/OpenCVCourse/2/002.png"
+<img src="/Myblog/images/OpenCVCourse/2/002.png"
 	
 	
 	
@@ -555,7 +555,7 @@
 </div>
 </div><h2 id="hsv颜色空间">HSV颜色空间
 </h2><p>RGB颜色模型使用红、绿、蓝三原色的强度来表示颜色，是一种加色法模型，即颜色的混合是添加三原色的强度。而HSV颜色空间使用色调（Hue）、饱和度（Saturation）和亮度（Value）三个参数来表示颜色，色调H表示颜色的种类，如红色、绿色、蓝色等；饱和度表示颜色的纯度或强度，如红色越纯，饱和度就越高；亮度表示颜色的明暗程度，如黑色比白色亮度低。</p>
-<p><img src="/Mybolg/images/OpenCVCourse/2/003.png"
+<p><img src="/Myblog/images/OpenCVCourse/2/003.png"
 	
 	
 	
@@ -576,7 +576,7 @@
 </ol>
 <h3 id="图片颜色识别">图片颜色识别
 </h3><p>使用OpenCV中cvtColor函数，设置参数为CV_BGR2HSV时,所需要的H、S、V值范围分别是[0,180)，[0,255)，[0,255)，而非[0,360]，[0,1]，[0,1]；这时可以查看下面的表格来确定颜色的大致区间。</p>
-<p><img src="/Mybolg/images/OpenCVCourse/2/006.png"
+<p><img src="/Myblog/images/OpenCVCourse/2/006.png"
 	
 	
 	
@@ -650,7 +650,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>实现将绿色识别出来：</p>
-<p><img src="/Mybolg/images/OpenCVCourse/2/004.png"
+<p><img src="/Myblog/images/OpenCVCourse/2/004.png"
 	
 	
 	
@@ -727,7 +727,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>实现结果：</p>
-<p><img src="/Mybolg/images/OpenCVCourse/2/005.png"
+<p><img src="/Myblog/images/OpenCVCourse/2/005.png"
 	
 	
 	
@@ -799,7 +799,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>实现结果：</p>
-<p><img src="/Mybolg/images/OpenCVCourse/2/007.png"
+<p><img src="/Myblog/images/OpenCVCourse/2/007.png"
 	
 	
 	
@@ -932,7 +932,7 @@ cv2.INTER_LANCZOS4（Lanczos插值）</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>示例结果：</p>
-<p><img src="/Mybolg/images/OpenCVCourse/2/008.png"
+<p><img src="/Myblog/images/OpenCVCourse/2/008.png"
 	
 	
 	
@@ -1016,7 +1016,7 @@ flipcode：翻转方式
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>结果：</p>
-<p><img src="/Mybolg/images/OpenCVCourse/2/009.png"
+<p><img src="/Myblog/images/OpenCVCourse/2/009.png"
 	
 	
 	
@@ -1058,7 +1058,7 @@ flipcode：翻转方式
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>结果：</p>
-<p><img src="/Mybolg/images/OpenCVCourse/2/010.png"
+<p><img src="/Myblog/images/OpenCVCourse/2/010.png"
 	
 	
 	
@@ -1094,12 +1094,12 @@ flipcode：翻转方式
             
                 
 <article class="has-image">
-    <a href="/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-3/">
+    <a href="/Myblog/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-3/">
         
         
             <div class="article-image">
                 
-                    <img src="/Mybolg/images/OpenCVCourse/write-plan.jpg" loading="lazy" data-key="" data-hash="/Mybolg/images/OpenCVCourse/write-plan.jpg"/>
+                    <img src="/Myblog/images/OpenCVCourse/write-plan.jpg" loading="lazy" data-key="" data-hash="/Myblog/images/OpenCVCourse/write-plan.jpg"/>
                 
             </div>
         
@@ -1113,12 +1113,12 @@ flipcode：翻转方式
             
                 
 <article class="has-image">
-    <a href="/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-1/">
+    <a href="/Myblog/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-1/">
         
         
             <div class="article-image">
                 
-                    <img src="/Mybolg/images/OpenCVCourse/write-plan.jpg" loading="lazy" data-key="" data-hash="/Mybolg/images/OpenCVCourse/write-plan.jpg"/>
+                    <img src="/Myblog/images/OpenCVCourse/write-plan.jpg" loading="lazy" data-key="" data-hash="/Myblog/images/OpenCVCourse/write-plan.jpg"/>
                 
             </div>
         
@@ -1132,12 +1132,12 @@ flipcode：翻转方式
             
                 
 <article class="has-image">
-    <a href="/Mybolg/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-3/">
+    <a href="/Myblog/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-3/">
         
         
             <div class="article-image">
                 
-                    <img src="/Mybolg/images/MachineLearning/2024.jpg" loading="lazy" data-key="" data-hash="/Mybolg/images/MachineLearning/2024.jpg"/>
+                    <img src="/Myblog/images/MachineLearning/2024.jpg" loading="lazy" data-key="" data-hash="/Myblog/images/MachineLearning/2024.jpg"/>
                 
             </div>
         
@@ -1151,12 +1151,12 @@ flipcode：翻转方式
             
                 
 <article class="has-image">
-    <a href="/Mybolg/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-2/">
+    <a href="/Myblog/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-2/">
         
         
             <div class="article-image">
                 
-                    <img src="/Mybolg/images/MachineLearning/2024.jpg" loading="lazy" data-key="" data-hash="/Mybolg/images/MachineLearning/2024.jpg"/>
+                    <img src="/Myblog/images/MachineLearning/2024.jpg" loading="lazy" data-key="" data-hash="/Myblog/images/MachineLearning/2024.jpg"/>
                 
             </div>
         
@@ -1170,12 +1170,12 @@ flipcode：翻转方式
             
                 
 <article class="has-image">
-    <a href="/Mybolg/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-1/">
+    <a href="/Myblog/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-1/">
         
         
             <div class="article-image">
                 
-                    <img src="/Mybolg/images/MachineLearning/2024.jpg" loading="lazy" data-key="" data-hash="/Mybolg/images/MachineLearning/2024.jpg"/>
+                    <img src="/Myblog/images/MachineLearning/2024.jpg" loading="lazy" data-key="" data-hash="/Myblog/images/MachineLearning/2024.jpg"/>
                 
             </div>
         
@@ -1200,7 +1200,9 @@ flipcode：翻转方式
     <section class="copyright">
         &copy; 
         
-        2024 UPPO
+            2024 - 
+        
+        2025 UPPO
     </section>
     
     <section class="powerby">
@@ -1294,7 +1296,7 @@ flipcode：翻转方式
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/Mybolg/ts/main.js" defer></script>
+            </script><script type="text/javascript" src="/Myblog/ts/main.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
@@ -1309,8 +1311,8 @@ flipcode：翻转方式
 
 <script>
     
-    const cssPath = "https://UPPO8.github.io/Mybolg/waifu/waifu.css"
-    const tipsJsonPath = "https://UPPO8.github.io/Mybolg/waifu/waifu-tips.json"
+    const cssPath = "https://UPPO8.github.io/Myblog/waifu/waifu.css"
+    const tipsJsonPath = "https://UPPO8.github.io/Myblog/waifu/waifu-tips.json"
     
     const live2d_path = "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
 

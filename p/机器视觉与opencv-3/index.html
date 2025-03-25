@@ -4,17 +4,17 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="图像梯度处理 sober算子，， 图像梯度计算的是图像变化的速度。对于图像的边缘部分，其灰度值变化较大，梯度值也较大；相反，对于图像中比较平滑的部分，其灰度值变化较小，相应的梯度值也较小。一般情况下，图像梯度计算的是图像的边缘信息。\n">
 <title>机器视觉与OpenCV-3</title>
 
-<link rel='canonical' href='https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-3/'>
+<link rel='canonical' href='https://UPPO8.github.io/Myblog/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-3/'>
 
-<link rel="stylesheet" href="/Mybolg/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="机器视觉与OpenCV-3">
+<link rel="stylesheet" href="/Myblog/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="机器视觉与OpenCV-3">
 <meta property='og:description' content="图像梯度处理 sober算子，， 图像梯度计算的是图像变化的速度。对于图像的边缘部分，其灰度值变化较大，梯度值也较大；相反，对于图像中比较平滑的部分，其灰度值变化较小，相应的梯度值也较小。一般情况下，图像梯度计算的是图像的边缘信息。\n">
-<meta property='og:url' content='https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-3/'>
+<meta property='og:url' content='https://UPPO8.github.io/Myblog/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-3/'>
 <meta property='og:site_name' content='UPPO Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-10-31T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-10-31T00:00:00&#43;00:00'/><meta property='og:image' content='https://UPPO8.github.io/Mybolg/images/OpenCVCourse/write-plan.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-10-31T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-10-31T00:00:00&#43;00:00'/><meta property='og:image' content='https://UPPO8.github.io/Myblog/images/OpenCVCourse/write-plan.jpg' />
 <meta name="twitter:title" content="机器视觉与OpenCV-3">
 <meta name="twitter:description" content="图像梯度处理 sober算子，， 图像梯度计算的是图像变化的速度。对于图像的边缘部分，其灰度值变化较大，梯度值也较大；相反，对于图像中比较平滑的部分，其灰度值变化较小，相应的梯度值也较小。一般情况下，图像梯度计算的是图像的边缘信息。\n"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://UPPO8.github.io/Mybolg/images/OpenCVCourse/write-plan.jpg' />
-    <link rel="shortcut icon" href="/Mybolg/1828643.png" />
+    <meta name="twitter:image" content='https://UPPO8.github.io/Myblog/images/OpenCVCourse/write-plan.jpg' />
+    <link rel="shortcut icon" href="/Myblog/1828643.png" />
 
     </head>
     <body class="
@@ -53,13 +53,13 @@
         
             
             <figure class="site-avatar">
-                <a href="/Mybolg/">
+                <a href="/Myblog/">
                 
                     
                     
                     
                         
-                        <img src="/Mybolg/img/100_hu17204809037550521928.jpg" width="300"
+                        <img src="/Myblog/img/100_hu_116fe1ebc7f4bd61.jpg" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -72,7 +72,7 @@
         
         
         <div class="site-meta">
-            <h1 class="site-name"><a href="/Mybolg">UPPO Blog</a></h1>
+            <h1 class="site-name"><a href="/Myblog">UPPO Blog</a></h1>
             <h2 class="site-description">欢迎来到UPPO的博客</h2>
         </div>
     </header><ol class="menu-social">
@@ -116,7 +116,7 @@
         
         
         <li >
-            <a href='/Mybolg/' >
+            <a href='/Myblog/' >
                 
                 
                 
@@ -136,7 +136,7 @@
         
         
         <li >
-            <a href='/Mybolg/search/' >
+            <a href='/Myblog/search/' >
                 
                 
                 
@@ -155,7 +155,7 @@
         
         
         <li >
-            <a href='/Mybolg/archives/' >
+            <a href='/Myblog/archives/' >
                 
                 
                 
@@ -175,7 +175,7 @@
         
         
         <li >
-            <a href='/Mybolg/%E5%85%B3%E4%BA%8E/' >
+            <a href='/Myblog/%E5%85%B3%E4%BA%8E/' >
                 
                 
                 
@@ -194,7 +194,7 @@
         
         
         <li >
-            <a href='/Mybolg/links/' >
+            <a href='/Myblog/links/' >
                 
                 
                 
@@ -308,9 +308,9 @@
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-3/">
+            <a href="/Myblog/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-3/">
                 
-                    <img src="/Mybolg/images/OpenCVCourse/write-plan.jpg" loading="lazy" alt="Featured image of post 机器视觉与OpenCV-3" />
+                    <img src="/Myblog/images/OpenCVCourse/write-plan.jpg" loading="lazy" alt="Featured image of post 机器视觉与OpenCV-3" />
                 
             </a>
         </div>
@@ -320,11 +320,11 @@
     
     <header class="article-category">
         
-            <a href="/Mybolg/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="background-color: #2a9d8f; color: #fff;">
+            <a href="/Myblog/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="background-color: #2a9d8f; color: #fff;">
                 学习记录
             </a>
         
-            <a href="/Mybolg/categories/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/" style="background-color: #2a9d8f; color: #fff;">
+            <a href="/Myblog/categories/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89/" style="background-color: #2a9d8f; color: #fff;">
                 机器视觉
             </a>
         
@@ -333,7 +333,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-3/">机器视觉与OpenCV-3</a>
+            <a href="/Myblog/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-3/">机器视觉与OpenCV-3</a>
         </h2>
     
         
@@ -406,7 +406,7 @@ scale 代表计算导数值时所采用的缩放因子，默认情况下该值�
 <p><code>dst	=	cv.Laplacian(src, ddepth, dst, ksize, scale, delta, borderType)</code></p>
 <h3 id="例子">例子
 </h3><p>原图:</p>
-<p><img src="/Mybolg/images/OpenCVCourse/3/001.png"
+<p><img src="/Myblog/images/OpenCVCourse/3/001.png"
 	
 	
 	
@@ -467,7 +467,7 @@ scale 代表计算导数值时所采用的缩放因子，默认情况下该值�
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>使用sobel算子：</p>
-<p><img src="/Mybolg/images/OpenCVCourse/3/002.png"
+<p><img src="/Myblog/images/OpenCVCourse/3/002.png"
 	
 	
 	
@@ -478,7 +478,7 @@ scale 代表计算导数值时所采用的缩放因子，默认情况下该值�
 	
 ></p>
 <p>filter2D方法：</p>
-<p><img src="/Mybolg/images/OpenCVCourse/3/003.png"
+<p><img src="/Myblog/images/OpenCVCourse/3/003.png"
 	
 	
 	
@@ -489,7 +489,7 @@ scale 代表计算导数值时所采用的缩放因子，默认情况下该值�
 	
 ></p>
 <p>使用拉普拉斯变换：</p>
-<p><img src="/Mybolg/images/OpenCVCourse/3/004.png"
+<p><img src="/Myblog/images/OpenCVCourse/3/004.png"
 	
 	
 	
@@ -513,7 +513,7 @@ scale 代表计算导数值时所采用的缩放因子，默认情况下该值�
 <p>2）比较该像素点和其梯度正负方向的像素点的梯度强度，如果该像素点梯度强度最大则保留，否则抑制（删除，即置为0）。</p>
 <h3 id="双阈值筛选">双阈值筛选
 </h3><p>经过非极大抑制后图像中仍然有很多噪声点。Canny算法中应用了一种叫双阈值的技术。即设定一个阈值上界和阈值下界（opencv中通常由人为指定的），图像中的像素点如果大于阈值上界则认为必然是边界（称为强边界，strong edge），小于阈值下界则认为必然不是边界，两者之间的则认为是候选项（称为弱边界，weak edge），需进行进一步处理。</p>
-<p><img src="/Mybolg/images/OpenCVCourse/3/e5743f4108c4ac0b4af3b564ffb85e5e.png"
+<p><img src="/Myblog/images/OpenCVCourse/3/e5743f4108c4ac0b4af3b564ffb85e5e.png"
 	
 	
 	
@@ -534,7 +534,7 @@ scale 代表计算导数值时所采用的缩放因子，默认情况下该值�
 <li>L2gradient 表示一个计算图像梯度幅值的标识，默认值为false。</li>
 </ul>
 <p>原图：</p>
-<p><img src="/Mybolg/images/OpenCVCourse/3/005.png"
+<p><img src="/Myblog/images/OpenCVCourse/3/005.png"
 	
 	
 	
@@ -590,7 +590,7 @@ scale 代表计算导数值时所采用的缩放因子，默认情况下该值�
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>结果展示：</p>
-<p><img src="/Mybolg/images/OpenCVCourse/3/006.png"
+<p><img src="/Myblog/images/OpenCVCourse/3/006.png"
 	
 	
 	
@@ -650,7 +650,7 @@ P2并连线。此时整个点集被该直线分为两部分，直线上方叫上
 </ol>
 <h3 id="示例-1">示例
 </h3><p>原图：</p>
-<p><img src="/Mybolg/images/OpenCVCourse/3/007.png"
+<p><img src="/Myblog/images/OpenCVCourse/3/007.png"
 	
 	
 	
@@ -714,7 +714,7 @@ P2并连线。此时整个点集被该直线分为两部分，直线上方叫上
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>结果展示：</p>
-<p><img src="/Mybolg/images/OpenCVCourse/3/008.png"
+<p><img src="/Myblog/images/OpenCVCourse/3/008.png"
 	
 	
 	
@@ -809,7 +809,7 @@ thickness表明轮廓线的宽度，如果是-1（cv2.FILLED），则为填充�
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>结果展示：
-<img src="/Mybolg/images/OpenCVCourse/3/009.png"
+<img src="/Myblog/images/OpenCVCourse/3/009.png"
 	
 	
 	
@@ -843,12 +843,12 @@ thickness表明轮廓线的宽度，如果是-1（cv2.FILLED），则为填充�
             
                 
 <article class="has-image">
-    <a href="/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-2/">
+    <a href="/Myblog/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-2/">
         
         
             <div class="article-image">
                 
-                    <img src="/Mybolg/images/OpenCVCourse/write-plan.jpg" loading="lazy" data-key="" data-hash="/Mybolg/images/OpenCVCourse/write-plan.jpg"/>
+                    <img src="/Myblog/images/OpenCVCourse/write-plan.jpg" loading="lazy" data-key="" data-hash="/Myblog/images/OpenCVCourse/write-plan.jpg"/>
                 
             </div>
         
@@ -862,12 +862,12 @@ thickness表明轮廓线的宽度，如果是-1（cv2.FILLED），则为填充�
             
                 
 <article class="has-image">
-    <a href="/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-1/">
+    <a href="/Myblog/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-1/">
         
         
             <div class="article-image">
                 
-                    <img src="/Mybolg/images/OpenCVCourse/write-plan.jpg" loading="lazy" data-key="" data-hash="/Mybolg/images/OpenCVCourse/write-plan.jpg"/>
+                    <img src="/Myblog/images/OpenCVCourse/write-plan.jpg" loading="lazy" data-key="" data-hash="/Myblog/images/OpenCVCourse/write-plan.jpg"/>
                 
             </div>
         
@@ -881,12 +881,12 @@ thickness表明轮廓线的宽度，如果是-1（cv2.FILLED），则为填充�
             
                 
 <article class="has-image">
-    <a href="/Mybolg/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-3/">
+    <a href="/Myblog/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-3/">
         
         
             <div class="article-image">
                 
-                    <img src="/Mybolg/images/MachineLearning/2024.jpg" loading="lazy" data-key="" data-hash="/Mybolg/images/MachineLearning/2024.jpg"/>
+                    <img src="/Myblog/images/MachineLearning/2024.jpg" loading="lazy" data-key="" data-hash="/Myblog/images/MachineLearning/2024.jpg"/>
                 
             </div>
         
@@ -900,12 +900,12 @@ thickness表明轮廓线的宽度，如果是-1（cv2.FILLED），则为填充�
             
                 
 <article class="has-image">
-    <a href="/Mybolg/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-2/">
+    <a href="/Myblog/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-2/">
         
         
             <div class="article-image">
                 
-                    <img src="/Mybolg/images/MachineLearning/2024.jpg" loading="lazy" data-key="" data-hash="/Mybolg/images/MachineLearning/2024.jpg"/>
+                    <img src="/Myblog/images/MachineLearning/2024.jpg" loading="lazy" data-key="" data-hash="/Myblog/images/MachineLearning/2024.jpg"/>
                 
             </div>
         
@@ -919,12 +919,12 @@ thickness表明轮廓线的宽度，如果是-1（cv2.FILLED），则为填充�
             
                 
 <article class="has-image">
-    <a href="/Mybolg/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-1/">
+    <a href="/Myblog/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-1/">
         
         
             <div class="article-image">
                 
-                    <img src="/Mybolg/images/MachineLearning/2024.jpg" loading="lazy" data-key="" data-hash="/Mybolg/images/MachineLearning/2024.jpg"/>
+                    <img src="/Myblog/images/MachineLearning/2024.jpg" loading="lazy" data-key="" data-hash="/Myblog/images/MachineLearning/2024.jpg"/>
                 
             </div>
         
@@ -949,7 +949,9 @@ thickness表明轮廓线的宽度，如果是-1（cv2.FILLED），则为填充�
     <section class="copyright">
         &copy; 
         
-        2024 UPPO
+            2024 - 
+        
+        2025 UPPO
     </section>
     
     <section class="powerby">
@@ -1043,7 +1045,7 @@ thickness表明轮廓线的宽度，如果是-1（cv2.FILLED），则为填充�
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/Mybolg/ts/main.js" defer></script>
+            </script><script type="text/javascript" src="/Myblog/ts/main.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
@@ -1058,8 +1060,8 @@ thickness表明轮廓线的宽度，如果是-1（cv2.FILLED），则为填充�
 
 <script>
     
-    const cssPath = "https://UPPO8.github.io/Mybolg/waifu/waifu.css"
-    const tipsJsonPath = "https://UPPO8.github.io/Mybolg/waifu/waifu-tips.json"
+    const cssPath = "https://UPPO8.github.io/Myblog/waifu/waifu.css"
+    const tipsJsonPath = "https://UPPO8.github.io/Myblog/waifu/waifu-tips.json"
     
     const live2d_path = "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
 

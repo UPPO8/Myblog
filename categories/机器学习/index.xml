@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>机器学习 on UPPO Blog</title>
-        <link>https://UPPO8.github.io/Mybolg/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+        <link>https://UPPO8.github.io/Myblog/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
         <description>Recent content in 机器学习 on UPPO Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>UPPO</copyright>
-        <lastBuildDate>Mon, 18 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://UPPO8.github.io/Mybolg/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 18 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://UPPO8.github.io/Myblog/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>机器学习-3</title>
-        <link>https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-3/</link>
+        <link>https://UPPO8.github.io/Myblog/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-3/</link>
         <pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-3/</guid>
-        <description>&lt;img src="https://UPPO8.github.io/Mybolg/images/MachineLearning/2024.jpg" alt="Featured image of post 机器学习-3" /&gt;&lt;h2 id=&#34;基于tensorflow框架的线性回归&#34;&gt;基于TensorFlow框架的线性回归
+        <guid>https://UPPO8.github.io/Myblog/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-3/</guid>
+        <description>&lt;img src="https://UPPO8.github.io/Myblog/images/MachineLearning/2024.jpg" alt="Featured image of post 机器学习-3" /&gt;&lt;h2 id=&#34;基于tensorflow框架的线性回归&#34;&gt;基于TensorFlow框架的线性回归
 &lt;/h2&gt;&lt;p&gt;TensorFlow中文官网：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://tensorflow.google.cn/?hl=zh-cn&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -418,11 +418,11 @@
         </item>
         <item>
         <title>机器学习-2</title>
-        <link>https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-2/</link>
+        <link>https://UPPO8.github.io/Myblog/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-2/</link>
         <pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-2/</guid>
-        <description>&lt;img src="https://UPPO8.github.io/Mybolg/images/MachineLearning/2024.jpg" alt="Featured image of post 机器学习-2" /&gt;&lt;h2 id=&#34;pytorch是什么&#34;&gt;Pytorch是什么
+        <guid>https://UPPO8.github.io/Myblog/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-2/</guid>
+        <description>&lt;img src="https://UPPO8.github.io/Myblog/images/MachineLearning/2024.jpg" alt="Featured image of post 机器学习-2" /&gt;&lt;h2 id=&#34;pytorch是什么&#34;&gt;Pytorch是什么
 &lt;/h2&gt;&lt;p&gt;PyTorch 是一个开源的深度学习框架，由Meta公司（原名：Facebook）的人工智能研究团队开发和维护。它提供了一个灵活、动态的计算图计算模型，使得在深度学习领域进行实验和开发变得更加简单和直观。&lt;/p&gt;
 &lt;p&gt;官网链接：&lt;/p&gt;
 &lt;ul&gt;
@@ -925,11 +925,11 @@ PyTorch 充分利用了 GPU 的并行计算能力，能够在 GPU 上高效地�
         </item>
         <item>
         <title>机器学习-1</title>
-        <link>https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-1/</link>
+        <link>https://UPPO8.github.io/Myblog/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-1/</link>
         <pubDate>Mon, 11 Nov 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-1/</guid>
-        <description>&lt;img src="https://UPPO8.github.io/Mybolg/images/MachineLearning/2024.jpg" alt="Featured image of post 机器学习-1" /&gt;&lt;h2 id=&#34;介绍&#34;&gt;介绍
+        <guid>https://UPPO8.github.io/Myblog/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-1/</guid>
+        <description>&lt;img src="https://UPPO8.github.io/Myblog/images/MachineLearning/2024.jpg" alt="Featured image of post 机器学习-1" /&gt;&lt;h2 id=&#34;介绍&#34;&gt;介绍
 &lt;/h2&gt;&lt;p&gt;机器学习 (ML) 是人工智能 (AI) 的一个分支，旨在构建能够根据所使用的数据进行学习或改进性能的系统。&lt;/p&gt;
 &lt;p&gt;人工智能是一个宽泛的术语，指的是模仿人类智能的系统或机器。机器学习和人工智能这两个术语经常被相提并论，有时甚至互换使用，但它们的含义并不相同。其中一个重大区别是，所有的机器学习都是 AI，但不是所有的 AI 都是机器学习。&lt;/p&gt;
 &lt;p&gt;具体介绍可以在网络上搜索，&lt;/p&gt;
@@ -1035,7 +1035,7 @@ PyTorch 充分利用了 GPU 的并行计算能力，能够在 GPU 上高效地�
 其原理是基于实例的学习（instance-based learning），属于懒惰学习（lazy learning），即KNN没有显式的学习过程，也就是说没有训练阶段，它是通过测量不同数据点之间的距离进行分类或回归分析。&lt;/p&gt;
 &lt;p&gt;KNN算法的特点是简单易懂，易于实现；无需训练阶段，直接进行分类或回归；适用于多分类问题；对数据集的大小和维度不敏感。&lt;/p&gt;
 &lt;p&gt;比如在下面这个问题中，在某二维平面内有三种不同颜色的点：红色、蓝色、绿色，它们的颜色和它们的位置（即X、Y轴的坐标）有关系，给它们三类点画出它们各自的“房间”，采用KNN解决。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/MachineLearning/1/001.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/MachineLearning/1/001.png&#34;
 	
 	
 	
@@ -1054,7 +1054,7 @@ PyTorch 充分利用了 GPU 的并行计算能力，能够在 GPU 上高效地�
 &lt;p&gt;KNN最简单的思想是：找到与预测数据最相近的K个数据，然后对预测数据进行投票，票数最高的标签作为预测数据的标签。当k=1时，K近邻算法就变成了近邻算法。&lt;/p&gt;
 &lt;p&gt;不同的K值的决策边界:&lt;/p&gt;
 &lt;p&gt;k值为3：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/MachineLearning/1/002.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/MachineLearning/1/002.png&#34;
 	
 	
 	

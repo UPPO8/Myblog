@@ -4,17 +4,17 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="引入 需要统计动物园中熊猫的姓名（name）、年龄（age）、性别（sex），在不考虑同名的情况下，要求：使用Python的数据类型进行统计。\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 #列表+元组 [ (&#34;huahua&#34;,5, &#34;female&#34;), (&#34;menglan&#34;, 10, &#34;male&#34;), (&#34;heye&#34;,5, &#34;female&#34;) ] #列表+ 字典 { {&#34;name&#34;: &#34;huahua&#34;, &#34;ages&#34;: 5, &#34;sex&#34;: &#34;female&#34;}, {&#34;name&#34;: &#34;menglan&#34;,&#34;ages&#34;: 10,&#34;sex&#34;: &#34;male&#34;}, {&#34;name&#34;: &#34;heye&#34;.&#34;ages&#34;:5,&#34;sex&#34;: &#34;female&#34;} } #字典+字典 { &#34;huahua&#34;:{&#34;age&#34;:5,&#34;sex&#34;: &#34;female&#34;}, &#34;menglan&#34;:{&#34;age&#34;: 10,&#34;sex&#34;: &#34;male&#34;}, &#34;heye&#34;:{&#34;age&#34;:5,&#34;sex&#34;: &#34;female&#34;} } 数据结构 在计算机科学中，数据结构是存储和组织数据的特定方式，以便有效地访问和修改数据。\n">
 <title>Python-数据结构</title>
 
-<link rel='canonical' href='https://UPPO8.github.io/Mybolg/p/python-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/'>
+<link rel='canonical' href='https://UPPO8.github.io/Myblog/p/python-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/'>
 
-<link rel="stylesheet" href="/Mybolg/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Python-数据结构">
+<link rel="stylesheet" href="/Myblog/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Python-数据结构">
 <meta property='og:description' content="引入 需要统计动物园中熊猫的姓名（name）、年龄（age）、性别（sex），在不考虑同名的情况下，要求：使用Python的数据类型进行统计。\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 #列表+元组 [ (&#34;huahua&#34;,5, &#34;female&#34;), (&#34;menglan&#34;, 10, &#34;male&#34;), (&#34;heye&#34;,5, &#34;female&#34;) ] #列表+ 字典 { {&#34;name&#34;: &#34;huahua&#34;, &#34;ages&#34;: 5, &#34;sex&#34;: &#34;female&#34;}, {&#34;name&#34;: &#34;menglan&#34;,&#34;ages&#34;: 10,&#34;sex&#34;: &#34;male&#34;}, {&#34;name&#34;: &#34;heye&#34;.&#34;ages&#34;:5,&#34;sex&#34;: &#34;female&#34;} } #字典+字典 { &#34;huahua&#34;:{&#34;age&#34;:5,&#34;sex&#34;: &#34;female&#34;}, &#34;menglan&#34;:{&#34;age&#34;: 10,&#34;sex&#34;: &#34;male&#34;}, &#34;heye&#34;:{&#34;age&#34;:5,&#34;sex&#34;: &#34;female&#34;} } 数据结构 在计算机科学中，数据结构是存储和组织数据的特定方式，以便有效地访问和修改数据。\n">
-<meta property='og:url' content='https://UPPO8.github.io/Mybolg/p/python-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/'>
+<meta property='og:url' content='https://UPPO8.github.io/Myblog/p/python-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/'>
 <meta property='og:site_name' content='UPPO Blog'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-10-21T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-10-21T00:00:00&#43;00:00'/><meta property='og:image' content='https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-10-21T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-10-21T00:00:00&#43;00:00'/><meta property='og:image' content='https://UPPO8.github.io/Myblog/images/PythonCourse/R-C.png' />
 <meta name="twitter:title" content="Python-数据结构">
 <meta name="twitter:description" content="引入 需要统计动物园中熊猫的姓名（name）、年龄（age）、性别（sex），在不考虑同名的情况下，要求：使用Python的数据类型进行统计。\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 #列表+元组 [ (&#34;huahua&#34;,5, &#34;female&#34;), (&#34;menglan&#34;, 10, &#34;male&#34;), (&#34;heye&#34;,5, &#34;female&#34;) ] #列表+ 字典 { {&#34;name&#34;: &#34;huahua&#34;, &#34;ages&#34;: 5, &#34;sex&#34;: &#34;female&#34;}, {&#34;name&#34;: &#34;menglan&#34;,&#34;ages&#34;: 10,&#34;sex&#34;: &#34;male&#34;}, {&#34;name&#34;: &#34;heye&#34;.&#34;ages&#34;:5,&#34;sex&#34;: &#34;female&#34;} } #字典+字典 { &#34;huahua&#34;:{&#34;age&#34;:5,&#34;sex&#34;: &#34;female&#34;}, &#34;menglan&#34;:{&#34;age&#34;: 10,&#34;sex&#34;: &#34;male&#34;}, &#34;heye&#34;:{&#34;age&#34;:5,&#34;sex&#34;: &#34;female&#34;} } 数据结构 在计算机科学中，数据结构是存储和组织数据的特定方式，以便有效地访问和修改数据。\n"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png' />
-    <link rel="shortcut icon" href="/Mybolg/1828643.png" />
+    <meta name="twitter:image" content='https://UPPO8.github.io/Myblog/images/PythonCourse/R-C.png' />
+    <link rel="shortcut icon" href="/Myblog/1828643.png" />
 
     </head>
     <body class="
@@ -53,13 +53,13 @@
         
             
             <figure class="site-avatar">
-                <a href="/Mybolg/">
+                <a href="/Myblog/">
                 
                     
                     
                     
                         
-                        <img src="/Mybolg/img/100_hu17204809037550521928.jpg" width="300"
+                        <img src="/Myblog/img/100_hu_116fe1ebc7f4bd61.jpg" width="300"
                             height="300" class="site-logo" loading="lazy" alt="Avatar">
                     
                 
@@ -72,7 +72,7 @@
         
         
         <div class="site-meta">
-            <h1 class="site-name"><a href="/Mybolg">UPPO Blog</a></h1>
+            <h1 class="site-name"><a href="/Myblog">UPPO Blog</a></h1>
             <h2 class="site-description">欢迎来到UPPO的博客</h2>
         </div>
     </header><ol class="menu-social">
@@ -116,7 +116,7 @@
         
         
         <li >
-            <a href='/Mybolg/' >
+            <a href='/Myblog/' >
                 
                 
                 
@@ -136,7 +136,7 @@
         
         
         <li >
-            <a href='/Mybolg/search/' >
+            <a href='/Myblog/search/' >
                 
                 
                 
@@ -155,7 +155,7 @@
         
         
         <li >
-            <a href='/Mybolg/archives/' >
+            <a href='/Myblog/archives/' >
                 
                 
                 
@@ -175,7 +175,7 @@
         
         
         <li >
-            <a href='/Mybolg/%E5%85%B3%E4%BA%8E/' >
+            <a href='/Myblog/%E5%85%B3%E4%BA%8E/' >
                 
                 
                 
@@ -194,7 +194,7 @@
         
         
         <li >
-            <a href='/Mybolg/links/' >
+            <a href='/Myblog/links/' >
                 
                 
                 
@@ -293,9 +293,9 @@
     <article class="has-image main-article">
     <header class="article-header">
         <div class="article-image">
-            <a href="/Mybolg/p/python-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+            <a href="/Myblog/p/python-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                 
-                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" alt="Featured image of post Python-数据结构" />
+                    <img src="/Myblog/images/PythonCourse/R-C.png" loading="lazy" alt="Featured image of post Python-数据结构" />
                 
             </a>
         </div>
@@ -305,11 +305,11 @@
     
     <header class="article-category">
         
-            <a href="/Mybolg/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="background-color: #2a9d8f; color: #fff;">
+            <a href="/Myblog/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" style="background-color: #2a9d8f; color: #fff;">
                 学习记录
             </a>
         
-            <a href="/Mybolg/categories/python/" style="background-color: #2a9d8f; color: #fff;">
+            <a href="/Myblog/categories/python/" style="background-color: #2a9d8f; color: #fff;">
                 Python
             </a>
         
@@ -318,7 +318,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/Mybolg/p/python-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">Python-数据结构</a>
+            <a href="/Myblog/p/python-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">Python-数据结构</a>
         </h2>
     
         
@@ -421,7 +421,7 @@
 <li>None:链表中最后一个节点的指针域为None.</li>
 </ol>
 <p>单链表结构：
-<img src="/Mybolg/images/PythonCourse/dan.png"
+<img src="/Myblog/images/PythonCourse/dan.png"
 	
 	
 	
@@ -676,7 +676,7 @@
 <li>一个节点具有向前连接的引用，也有一个向后连接的引用</li>
 <li>双向列表可以有效的解决单向链表中提到的问题。</li>
 </ol>
-<p><img src="/Mybolg/images/PythonCourse/shuang.png"
+<p><img src="/Myblog/images/PythonCourse/shuang.png"
 	
 	
 	
@@ -1099,7 +1099,7 @@
 </div><h2 id="队列queue">队列（Queue）
 </h2><p>队列也是一种数据结构，在队列中的插入和删除都遵循先进先出的原则。元素可以在任何时刻从队尾插入，但是只有在队列最前面的元素才能被取出或则删除。通常将队列中允许插入的一端称为队尾，将允许删除的一端称为队头，不允许在中间部位进行操作。</p>
 <p>队列的结构：
-<img src="/Mybolg/images/PythonCourse/5675.png"
+<img src="/Myblog/images/PythonCourse/5675.png"
 	
 	
 	
@@ -1250,7 +1250,7 @@
 </div><h3 id="双端队列">双端队列
 </h3><p>双端队列支持队列的头部和尾部进去插入和删除操作，是一种具有队列和栈的性质的数据结果。</p>
 <p>双端队列结构：
-<img src="/Mybolg/images/PythonCourse/5676.png"
+<img src="/Myblog/images/PythonCourse/5676.png"
 	
 	
 	
@@ -1415,12 +1415,12 @@
             
                 
 <article class="has-image">
-    <a href="/Mybolg/p/python-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+    <a href="/Myblog/p/python-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
         
         
             <div class="article-image">
                 
-                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                    <img src="/Myblog/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Myblog/images/PythonCourse/R-C.png"/>
                 
             </div>
         
@@ -1434,12 +1434,12 @@
             
                 
 <article class="has-image">
-    <a href="/Mybolg/p/python-%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+    <a href="/Myblog/p/python-%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
         
         
             <div class="article-image">
                 
-                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                    <img src="/Myblog/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Myblog/images/PythonCourse/R-C.png"/>
                 
             </div>
         
@@ -1453,12 +1453,12 @@
             
                 
 <article class="has-image">
-    <a href="/Mybolg/p/python-%E5%A4%9A%E8%BF%9B%E7%A8%8B/">
+    <a href="/Myblog/p/python-%E5%A4%9A%E8%BF%9B%E7%A8%8B/">
         
         
             <div class="article-image">
                 
-                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                    <img src="/Myblog/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Myblog/images/PythonCourse/R-C.png"/>
                 
             </div>
         
@@ -1472,12 +1472,12 @@
             
                 
 <article class="has-image">
-    <a href="/Mybolg/p/python%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">
+    <a href="/Myblog/p/python%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/">
         
         
             <div class="article-image">
                 
-                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                    <img src="/Myblog/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Myblog/images/PythonCourse/R-C.png"/>
                 
             </div>
         
@@ -1491,12 +1491,12 @@
             
                 
 <article class="has-image">
-    <a href="/Mybolg/p/python%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+    <a href="/Myblog/p/python%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
         
         
             <div class="article-image">
                 
-                    <img src="/Mybolg/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Mybolg/images/PythonCourse/R-C.png"/>
+                    <img src="/Myblog/images/PythonCourse/R-C.png" loading="lazy" data-key="" data-hash="/Myblog/images/PythonCourse/R-C.png"/>
                 
             </div>
         
@@ -1521,7 +1521,9 @@
     <section class="copyright">
         &copy; 
         
-        2024 UPPO
+            2024 - 
+        
+        2025 UPPO
     </section>
     
     <section class="powerby">
@@ -1615,7 +1617,7 @@
                 src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
                 
                 >
-            </script><script type="text/javascript" src="/Mybolg/ts/main.js" defer></script>
+            </script><script type="text/javascript" src="/Myblog/ts/main.js" defer></script>
 <script>
     (function () {
         const customFont = document.createElement('link');
@@ -1630,8 +1632,8 @@
 
 <script>
     
-    const cssPath = "https://UPPO8.github.io/Mybolg/waifu/waifu.css"
-    const tipsJsonPath = "https://UPPO8.github.io/Mybolg/waifu/waifu-tips.json"
+    const cssPath = "https://UPPO8.github.io/Myblog/waifu/waifu.css"
+    const tipsJsonPath = "https://UPPO8.github.io/Myblog/waifu/waifu-tips.json"
     
     const live2d_path = "https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/";
 

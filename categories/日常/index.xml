@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>日常 on UPPO Blog</title>
-        <link>https://UPPO8.github.io/Mybolg/categories/%E6%97%A5%E5%B8%B8/</link>
+        <link>https://UPPO8.github.io/Myblog/categories/%E6%97%A5%E5%B8%B8/</link>
         <description>Recent content in 日常 on UPPO Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>UPPO</copyright>
-        <lastBuildDate>Sun, 22 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://UPPO8.github.io/Mybolg/categories/%E6%97%A5%E5%B8%B8/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 22 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://UPPO8.github.io/Myblog/categories/%E6%97%A5%E5%B8%B8/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>构建Transformer</title>
-        <link>https://UPPO8.github.io/Mybolg/p/%E6%9E%84%E5%BB%BAtransformer/</link>
+        <link>https://UPPO8.github.io/Myblog/p/%E6%9E%84%E5%BB%BAtransformer/</link>
         <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/%E6%9E%84%E5%BB%BAtransformer/</guid>
+        <guid>https://UPPO8.github.io/Myblog/p/%E6%9E%84%E5%BB%BAtransformer/</guid>
         <description>&lt;p&gt;Transformer学习记录，py3.8&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -686,10 +686,10 @@
         </item>
         <item>
         <title>使用Python爬取百度图片</title>
-        <link>https://UPPO8.github.io/Mybolg/p/%E4%BD%BF%E7%94%A8python%E7%88%AC%E5%8F%96%E7%99%BE%E5%BA%A6%E5%9B%BE%E7%89%87/</link>
+        <link>https://UPPO8.github.io/Myblog/p/%E4%BD%BF%E7%94%A8python%E7%88%AC%E5%8F%96%E7%99%BE%E5%BA%A6%E5%9B%BE%E7%89%87/</link>
         <pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/%E4%BD%BF%E7%94%A8python%E7%88%AC%E5%8F%96%E7%99%BE%E5%BA%A6%E5%9B%BE%E7%89%87/</guid>
+        <guid>https://UPPO8.github.io/Myblog/p/%E4%BD%BF%E7%94%A8python%E7%88%AC%E5%8F%96%E7%99%BE%E5%BA%A6%E5%9B%BE%E7%89%87/</guid>
         <description>&lt;p&gt;使用Python爬取百度图片&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -789,10 +789,10 @@
         </item>
         <item>
         <title>网页嵌入式音乐播放器</title>
-        <link>https://UPPO8.github.io/Mybolg/p/%E7%BD%91%E9%A1%B5%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/</link>
+        <link>https://UPPO8.github.io/Myblog/p/%E7%BD%91%E9%A1%B5%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/</link>
         <pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/%E7%BD%91%E9%A1%B5%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/</guid>
+        <guid>https://UPPO8.github.io/Myblog/p/%E7%BD%91%E9%A1%B5%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/</guid>
         <description>&lt;h2 id=&#34;添加网易云音乐&#34;&gt;添加网易云音乐:
 &lt;/h2&gt;&lt;p&gt;在网易云音乐页面,点击一首歌曲,
 例如:&lt;a class=&#34;link&#34; href=&#34;https://music.163.com/#/song?id=416385506&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;

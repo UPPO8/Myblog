@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Pages on UPPO Blog</title>
-        <link>https://UPPO8.github.io/Mybolg/page/</link>
+        <link>https://UPPO8.github.io/Myblog/page/</link>
         <description>Recent content in Pages on UPPO Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>UPPO</copyright>
-        <lastBuildDate>Fri, 09 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://UPPO8.github.io/Mybolg/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 09 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://UPPO8.github.io/Myblog/page/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>关于</title>
-        <link>https://UPPO8.github.io/Mybolg/%E5%85%B3%E4%BA%8E/</link>
+        <link>https://UPPO8.github.io/Myblog/%E5%85%B3%E4%BA%8E/</link>
         <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/%E5%85%B3%E4%BA%8E/</guid>
+        <guid>https://UPPO8.github.io/Myblog/%E5%85%B3%E4%BA%8E/</guid>
         <description>&lt;p&gt;这是我的Github：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/UPPO8/Mybolg&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -34,27 +34,27 @@
         </item>
         <item>
         <title>归档</title>
-        <link>https://UPPO8.github.io/Mybolg/archives/</link>
+        <link>https://UPPO8.github.io/Myblog/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/archives/</guid>
+        <guid>https://UPPO8.github.io/Myblog/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>Links</title>
-        <link>https://UPPO8.github.io/Mybolg/links/</link>
+        <link>https://UPPO8.github.io/Myblog/links/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/links/</guid>
+        <guid>https://UPPO8.github.io/Myblog/links/</guid>
         <description>&lt;p&gt;友情链接&lt;/p&gt;
 </description>
         </item>
         <item>
         <title>搜索</title>
-        <link>https://UPPO8.github.io/Mybolg/search/</link>
+        <link>https://UPPO8.github.io/Myblog/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/search/</guid>
+        <guid>https://UPPO8.github.io/Myblog/search/</guid>
         <description></description>
         </item>
         

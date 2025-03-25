@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>UPPO Blog</title>
-        <link>https://UPPO8.github.io/Mybolg/</link>
+        <link>https://UPPO8.github.io/Myblog/</link>
         <description>Recent content on UPPO Blog</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>UPPO</copyright>
-        <lastBuildDate>Sun, 22 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://UPPO8.github.io/Mybolg/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 22 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://UPPO8.github.io/Myblog/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>构建Transformer</title>
-        <link>https://UPPO8.github.io/Mybolg/p/%E6%9E%84%E5%BB%BAtransformer/</link>
+        <link>https://UPPO8.github.io/Myblog/p/%E6%9E%84%E5%BB%BAtransformer/</link>
         <pubDate>Sun, 22 Dec 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/%E6%9E%84%E5%BB%BAtransformer/</guid>
+        <guid>https://UPPO8.github.io/Myblog/p/%E6%9E%84%E5%BB%BAtransformer/</guid>
         <description>&lt;p&gt;Transformer学习记录，py3.8&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -686,11 +686,11 @@
         </item>
         <item>
         <title>机器学习-3</title>
-        <link>https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-3/</link>
+        <link>https://UPPO8.github.io/Myblog/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-3/</link>
         <pubDate>Mon, 18 Nov 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-3/</guid>
-        <description>&lt;img src="https://UPPO8.github.io/Mybolg/images/MachineLearning/2024.jpg" alt="Featured image of post 机器学习-3" /&gt;&lt;h2 id=&#34;基于tensorflow框架的线性回归&#34;&gt;基于TensorFlow框架的线性回归
+        <guid>https://UPPO8.github.io/Myblog/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-3/</guid>
+        <description>&lt;img src="https://UPPO8.github.io/Myblog/images/MachineLearning/2024.jpg" alt="Featured image of post 机器学习-3" /&gt;&lt;h2 id=&#34;基于tensorflow框架的线性回归&#34;&gt;基于TensorFlow框架的线性回归
 &lt;/h2&gt;&lt;p&gt;TensorFlow中文官网：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://tensorflow.google.cn/?hl=zh-cn&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -1095,11 +1095,11 @@
         </item>
         <item>
         <title>机器学习-2</title>
-        <link>https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-2/</link>
+        <link>https://UPPO8.github.io/Myblog/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-2/</link>
         <pubDate>Fri, 15 Nov 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-2/</guid>
-        <description>&lt;img src="https://UPPO8.github.io/Mybolg/images/MachineLearning/2024.jpg" alt="Featured image of post 机器学习-2" /&gt;&lt;h2 id=&#34;pytorch是什么&#34;&gt;Pytorch是什么
+        <guid>https://UPPO8.github.io/Myblog/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-2/</guid>
+        <description>&lt;img src="https://UPPO8.github.io/Myblog/images/MachineLearning/2024.jpg" alt="Featured image of post 机器学习-2" /&gt;&lt;h2 id=&#34;pytorch是什么&#34;&gt;Pytorch是什么
 &lt;/h2&gt;&lt;p&gt;PyTorch 是一个开源的深度学习框架，由Meta公司（原名：Facebook）的人工智能研究团队开发和维护。它提供了一个灵活、动态的计算图计算模型，使得在深度学习领域进行实验和开发变得更加简单和直观。&lt;/p&gt;
 &lt;p&gt;官网链接：&lt;/p&gt;
 &lt;ul&gt;
@@ -1602,11 +1602,11 @@ PyTorch 充分利用了 GPU 的并行计算能力，能够在 GPU 上高效地�
         </item>
         <item>
         <title>机器学习-1</title>
-        <link>https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-1/</link>
+        <link>https://UPPO8.github.io/Myblog/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-1/</link>
         <pubDate>Mon, 11 Nov 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-1/</guid>
-        <description>&lt;img src="https://UPPO8.github.io/Mybolg/images/MachineLearning/2024.jpg" alt="Featured image of post 机器学习-1" /&gt;&lt;h2 id=&#34;介绍&#34;&gt;介绍
+        <guid>https://UPPO8.github.io/Myblog/p/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-1/</guid>
+        <description>&lt;img src="https://UPPO8.github.io/Myblog/images/MachineLearning/2024.jpg" alt="Featured image of post 机器学习-1" /&gt;&lt;h2 id=&#34;介绍&#34;&gt;介绍
 &lt;/h2&gt;&lt;p&gt;机器学习 (ML) 是人工智能 (AI) 的一个分支，旨在构建能够根据所使用的数据进行学习或改进性能的系统。&lt;/p&gt;
 &lt;p&gt;人工智能是一个宽泛的术语，指的是模仿人类智能的系统或机器。机器学习和人工智能这两个术语经常被相提并论，有时甚至互换使用，但它们的含义并不相同。其中一个重大区别是，所有的机器学习都是 AI，但不是所有的 AI 都是机器学习。&lt;/p&gt;
 &lt;p&gt;具体介绍可以在网络上搜索，&lt;/p&gt;
@@ -1712,7 +1712,7 @@ PyTorch 充分利用了 GPU 的并行计算能力，能够在 GPU 上高效地�
 其原理是基于实例的学习（instance-based learning），属于懒惰学习（lazy learning），即KNN没有显式的学习过程，也就是说没有训练阶段，它是通过测量不同数据点之间的距离进行分类或回归分析。&lt;/p&gt;
 &lt;p&gt;KNN算法的特点是简单易懂，易于实现；无需训练阶段，直接进行分类或回归；适用于多分类问题；对数据集的大小和维度不敏感。&lt;/p&gt;
 &lt;p&gt;比如在下面这个问题中，在某二维平面内有三种不同颜色的点：红色、蓝色、绿色，它们的颜色和它们的位置（即X、Y轴的坐标）有关系，给它们三类点画出它们各自的“房间”，采用KNN解决。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/MachineLearning/1/001.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/MachineLearning/1/001.png&#34;
 	
 	
 	
@@ -1731,7 +1731,7 @@ PyTorch 充分利用了 GPU 的并行计算能力，能够在 GPU 上高效地�
 &lt;p&gt;KNN最简单的思想是：找到与预测数据最相近的K个数据，然后对预测数据进行投票，票数最高的标签作为预测数据的标签。当k=1时，K近邻算法就变成了近邻算法。&lt;/p&gt;
 &lt;p&gt;不同的K值的决策边界:&lt;/p&gt;
 &lt;p&gt;k值为3：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/MachineLearning/1/002.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/MachineLearning/1/002.png&#34;
 	
 	
 	
@@ -1874,11 +1874,11 @@ PyTorch 充分利用了 GPU 的并行计算能力，能够在 GPU 上高效地�
         </item>
         <item>
         <title>机器视觉与OpenCV-3</title>
-        <link>https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-3/</link>
+        <link>https://UPPO8.github.io/Myblog/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-3/</link>
         <pubDate>Thu, 31 Oct 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-3/</guid>
-        <description>&lt;img src="https://UPPO8.github.io/Mybolg/images/OpenCVCourse/write-plan.jpg" alt="Featured image of post 机器视觉与OpenCV-3" /&gt;&lt;h2 id=&#34;图像梯度处理&#34;&gt;图像梯度处理
+        <guid>https://UPPO8.github.io/Myblog/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-3/</guid>
+        <description>&lt;img src="https://UPPO8.github.io/Myblog/images/OpenCVCourse/write-plan.jpg" alt="Featured image of post 机器视觉与OpenCV-3" /&gt;&lt;h2 id=&#34;图像梯度处理&#34;&gt;图像梯度处理
 &lt;/h2&gt;&lt;h3 id=&#34;sober算子&#34;&gt;sober算子，，
 &lt;/h3&gt;&lt;p&gt;图像梯度计算的是图像变化的速度。对于图像的边缘部分，其灰度值变化较大，梯度值也较大；相反，对于图像中比较平滑的部分，其灰度值变化较小，相应的梯度值也较小。一般情况下，图像梯度计算的是图像的边缘信息。&lt;/p&gt;
 &lt;p&gt;Sobel 算子是一种离散的微分算子，该算子结合了高斯平滑和微分求导运算。该算子利用局部差分寻找边缘，计算所得的是一个梯度的近似值。下图为Sobel算子示例：&lt;/p&gt;
@@ -1913,7 +1913,7 @@ scale 代表计算导数值时所采用的缩放因子，默认情况下该值�
 &lt;p&gt;&lt;code&gt;dst	=	cv.Laplacian(src, ddepth, dst, ksize, scale, delta, borderType)&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id=&#34;例子&#34;&gt;例子
 &lt;/h3&gt;&lt;p&gt;原图:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/3/001.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/3/001.png&#34;
 	
 	
 	
@@ -1974,7 +1974,7 @@ scale 代表计算导数值时所采用的缩放因子，默认情况下该值�
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;使用sobel算子：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/3/002.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/3/002.png&#34;
 	
 	
 	
@@ -1985,7 +1985,7 @@ scale 代表计算导数值时所采用的缩放因子，默认情况下该值�
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;filter2D方法：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/3/003.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/3/003.png&#34;
 	
 	
 	
@@ -1996,7 +1996,7 @@ scale 代表计算导数值时所采用的缩放因子，默认情况下该值�
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;使用拉普拉斯变换：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/3/004.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/3/004.png&#34;
 	
 	
 	
@@ -2020,7 +2020,7 @@ scale 代表计算导数值时所采用的缩放因子，默认情况下该值�
 &lt;p&gt;2）比较该像素点和其梯度正负方向的像素点的梯度强度，如果该像素点梯度强度最大则保留，否则抑制（删除，即置为0）。&lt;/p&gt;
 &lt;h3 id=&#34;双阈值筛选&#34;&gt;双阈值筛选
 &lt;/h3&gt;&lt;p&gt;经过非极大抑制后图像中仍然有很多噪声点。Canny算法中应用了一种叫双阈值的技术。即设定一个阈值上界和阈值下界（opencv中通常由人为指定的），图像中的像素点如果大于阈值上界则认为必然是边界（称为强边界，strong edge），小于阈值下界则认为必然不是边界，两者之间的则认为是候选项（称为弱边界，weak edge），需进行进一步处理。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/3/e5743f4108c4ac0b4af3b564ffb85e5e.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/3/e5743f4108c4ac0b4af3b564ffb85e5e.png&#34;
 	
 	
 	
@@ -2041,7 +2041,7 @@ scale 代表计算导数值时所采用的缩放因子，默认情况下该值�
 &lt;li&gt;L2gradient 表示一个计算图像梯度幅值的标识，默认值为false。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;原图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/3/005.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/3/005.png&#34;
 	
 	
 	
@@ -2097,7 +2097,7 @@ scale 代表计算导数值时所采用的缩放因子，默认情况下该值�
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;结果展示：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/3/006.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/3/006.png&#34;
 	
 	
 	
@@ -2157,7 +2157,7 @@ P2并连线。此时整个点集被该直线分为两部分，直线上方叫上
 &lt;/ol&gt;
 &lt;h3 id=&#34;示例-1&#34;&gt;示例
 &lt;/h3&gt;&lt;p&gt;原图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/3/007.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/3/007.png&#34;
 	
 	
 	
@@ -2221,7 +2221,7 @@ P2并连线。此时整个点集被该直线分为两部分，直线上方叫上
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;结果展示：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/3/008.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/3/008.png&#34;
 	
 	
 	
@@ -2316,7 +2316,7 @@ thickness表明轮廓线的宽度，如果是-1（cv2.FILLED），则为填充�
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;结果展示：
-&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/3/009.png&#34;
+&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/3/009.png&#34;
 	
 	
 	
@@ -2330,16 +2330,16 @@ thickness表明轮廓线的宽度，如果是-1（cv2.FILLED），则为填充�
         </item>
         <item>
         <title>机器视觉与OpenCV-2</title>
-        <link>https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-2/</link>
+        <link>https://UPPO8.github.io/Myblog/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-2/</link>
         <pubDate>Mon, 28 Oct 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-2/</guid>
-        <description>&lt;img src="https://UPPO8.github.io/Mybolg/images/OpenCVCourse/write-plan.jpg" alt="Featured image of post 机器视觉与OpenCV-2" /&gt;&lt;h2 id=&#34;形态学变换&#34;&gt;形态学变换
+        <guid>https://UPPO8.github.io/Myblog/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-2/</guid>
+        <description>&lt;img src="https://UPPO8.github.io/Myblog/images/OpenCVCourse/write-plan.jpg" alt="Featured image of post 机器视觉与OpenCV-2" /&gt;&lt;h2 id=&#34;形态学变换&#34;&gt;形态学变换
 &lt;/h2&gt;&lt;p&gt;形态学变换：是一种基于形状的简单变化，它的处理对象通常是二值化图像。他的操作对象由两部分组成，一个是要进行形态学变换的原始的二值图像，另一个是核(在这里也叫做结构化元素)。&lt;/p&gt;
 &lt;p&gt;形态学变换的基本操作有两种：腐蚀和膨胀。&lt;/p&gt;
 &lt;h3 id=&#34;腐蚀&#34;&gt;腐蚀
 &lt;/h3&gt;&lt;p&gt;腐蚀操作是将物体的边缘加以腐蚀。具体的操作方法是拿一个宽m，高n的矩形作为模板，对图像中的每一个像素x做如下处理：像素x至于模板的中心，根据模版的大小，遍历所有被模板覆盖的其他像素，修改像素x的值为所有像素中最小的值。这样操作的结果是会将图像外围的突出点加以腐蚀。如下图的操作过程：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/2/001.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/2/001.png&#34;
 	
 	
 	
@@ -2413,7 +2413,7 @@ thickness表明轮廓线的宽度，如果是-1（cv2.FILLED），则为填充�
 &lt;/div&gt;
 &lt;/div&gt;&lt;h3 id=&#34;膨胀&#34;&gt;膨胀
 &lt;/h3&gt;&lt;p&gt;膨胀操作与腐蚀操作相反，是将图像的轮廓加以膨胀。操作方法与腐蚀操作类似，也是拿一个矩形模板，对图像的每个像素做遍历处理。不同之处在于修改像素的值不是所有像素中最小的值，而是最大的值。这样操作的结果会将图像外围的突出点连接并向外延伸。如下图的操作过程：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/2/001.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/2/001.png&#34;
 	
 	
 	
@@ -2431,7 +2431,7 @@ thickness表明轮廓线的宽度，如果是-1（cv2.FILLED），则为填充�
 &lt;code&gt;cv2. MORPH_ELLIPSE&lt;/code&gt;：椭圆形结构元素&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;（3，3）&lt;/code&gt;设定卷积核的大小.一般有3×3，5×5，7×7&lt;/p&gt;
 &lt;p&gt;不同的卷积核，处理后的结果也不同。
-&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/2/002.png&#34;
+&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/2/002.png&#34;
 	
 	
 	
@@ -2528,7 +2528,7 @@ thickness表明轮廓线的宽度，如果是-1（cv2.FILLED），则为填充�
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id=&#34;hsv颜色空间&#34;&gt;HSV颜色空间
 &lt;/h2&gt;&lt;p&gt;RGB颜色模型使用红、绿、蓝三原色的强度来表示颜色，是一种加色法模型，即颜色的混合是添加三原色的强度。而HSV颜色空间使用色调（Hue）、饱和度（Saturation）和亮度（Value）三个参数来表示颜色，色调H表示颜色的种类，如红色、绿色、蓝色等；饱和度表示颜色的纯度或强度，如红色越纯，饱和度就越高；亮度表示颜色的明暗程度，如黑色比白色亮度低。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/2/003.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/2/003.png&#34;
 	
 	
 	
@@ -2549,7 +2549,7 @@ thickness表明轮廓线的宽度，如果是-1（cv2.FILLED），则为填充�
 &lt;/ol&gt;
 &lt;h3 id=&#34;图片颜色识别&#34;&gt;图片颜色识别
 &lt;/h3&gt;&lt;p&gt;使用OpenCV中cvtColor函数，设置参数为CV_BGR2HSV时,所需要的H、S、V值范围分别是[0,180)，[0,255)，[0,255)，而非[0,360]，[0,1]，[0,1]；这时可以查看下面的表格来确定颜色的大致区间。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/2/006.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/2/006.png&#34;
 	
 	
 	
@@ -2623,7 +2623,7 @@ thickness表明轮廓线的宽度，如果是-1（cv2.FILLED），则为填充�
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;实现将绿色识别出来：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/2/004.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/2/004.png&#34;
 	
 	
 	
@@ -2700,7 +2700,7 @@ thickness表明轮廓线的宽度，如果是-1（cv2.FILLED），则为填充�
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;实现结果：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/2/005.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/2/005.png&#34;
 	
 	
 	
@@ -2772,7 +2772,7 @@ thickness表明轮廓线的宽度，如果是-1（cv2.FILLED），则为填充�
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;实现结果：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/2/007.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/2/007.png&#34;
 	
 	
 	
@@ -2905,7 +2905,7 @@ cv2.INTER_LANCZOS4（Lanczos插值）&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;示例结果：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/2/008.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/2/008.png&#34;
 	
 	
 	
@@ -2989,7 +2989,7 @@ flipcode：翻转方式
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;结果：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/2/009.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/2/009.png&#34;
 	
 	
 	
@@ -3031,7 +3031,7 @@ flipcode：翻转方式
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;结果：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/2/010.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/2/010.png&#34;
 	
 	
 	
@@ -3047,16 +3047,16 @@ flipcode：翻转方式
         </item>
         <item>
         <title>机器视觉与OpenCV-1</title>
-        <link>https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-1/</link>
+        <link>https://UPPO8.github.io/Myblog/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-1/</link>
         <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-1/</guid>
-        <description>&lt;img src="https://UPPO8.github.io/Mybolg/images/OpenCVCourse/write-plan.jpg" alt="Featured image of post 机器视觉与OpenCV-1" /&gt;&lt;h2 id=&#34;rgb图像&#34;&gt;RGB图像
+        <guid>https://UPPO8.github.io/Myblog/p/%E6%9C%BA%E5%99%A8%E8%A7%86%E8%A7%89%E4%B8%8Eopencv-1/</guid>
+        <description>&lt;img src="https://UPPO8.github.io/Myblog/images/OpenCVCourse/write-plan.jpg" alt="Featured image of post 机器视觉与OpenCV-1" /&gt;&lt;h2 id=&#34;rgb图像&#34;&gt;RGB图像
 &lt;/h2&gt;&lt;p&gt;像素是图像的基本单元，每个像素存储着图像的颜色、亮度和其他特征，一张图片是由和多个像素组成。&lt;/p&gt;
 &lt;p&gt;在计算机中，RGB三种颜色被称为RGB三通道，且每个通道的取值范围是0-255，根据这三个通道存储的像素值来对应不同的颜色。[0,0,0]为黑色，[255，255，255]为白色。&lt;/p&gt;
 &lt;p&gt;在计算机中，图像是以数组的形式存在的。一个RGB图像放到内存中就是一个三维数组，第一维为图像的宽度，第二维为图像的高度，第三维则是图像中每个像素点的RGB三个像素值。注意在openCV中像素的存储顺序是BGR。&lt;/p&gt;
 &lt;p&gt;比如将一个RGB图像使用openCV维度展开。
-&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/1/001.png&#34;
+&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/1/001.png&#34;
 	
 	
 	
@@ -3066,7 +3066,7 @@ flipcode：翻转方式
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/1/002.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/1/002.png&#34;
 	
 	
 	
@@ -3357,7 +3357,7 @@ flipcode：翻转方式
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;n&#34;&gt;plt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;show&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/1/003.png&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/1/003.png&#34;
 	
 	
 	
@@ -3367,7 +3367,7 @@ flipcode：翻转方式
 	
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/1/004.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/1/004.png&#34;
 	
 	
 	
@@ -3379,7 +3379,7 @@ flipcode：翻转方式
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;二值化&#34;&gt;二值化
 &lt;/h2&gt;&lt;p&gt;二值化图：就是将图像中的像素改成只有两种值，其操作的图像必须是灰度图。
-&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/1/005.png&#34;
+&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/1/005.png&#34;
 	
 	
 	
@@ -3457,7 +3457,7 @@ flipcode：翻转方式
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;运行结果：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/1/007.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/1/007.png&#34;
 	
 	
 	
@@ -3528,7 +3528,7 @@ flipcode：翻转方式
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;运行结果：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/1/008.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/1/008.png&#34;
 	
 	
 	
@@ -3614,7 +3614,7 @@ flipcode：翻转方式
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;运行结果：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/OpenCVCourse/1/009.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/OpenCVCourse/1/009.png&#34;
 	
 	
 	
@@ -3626,11 +3626,11 @@ flipcode：翻转方式
         </item>
         <item>
         <title>Python-排序算法</title>
-        <link>https://UPPO8.github.io/Mybolg/p/python-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</link>
+        <link>https://UPPO8.github.io/Myblog/p/python-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</link>
         <pubDate>Tue, 22 Oct 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/python-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</guid>
-        <description>&lt;img src="https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png" alt="Featured image of post Python-排序算法" /&gt;&lt;h2 id=&#34;递归介绍及原理&#34;&gt;递归介绍及原理
+        <guid>https://UPPO8.github.io/Myblog/p/python-%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</guid>
+        <description>&lt;img src="https://UPPO8.github.io/Myblog/images/PythonCourse/R-C.png" alt="Featured image of post Python-排序算法" /&gt;&lt;h2 id=&#34;递归介绍及原理&#34;&gt;递归介绍及原理
 &lt;/h2&gt;&lt;h3 id=&#34;递归&#34;&gt;递归
 &lt;/h3&gt;&lt;p&gt;递归(Recursion)，是一种解决问题的方法，其精髓在于将问题分解为规模更小的相同问题。持续分解，直到问题规模小到可以用非常简单直接的方式来解决。递归的问题分解方式非常独特，其算法方面的明显特征就是:在算法流程中调用自身。&lt;/p&gt;
 &lt;p&gt;递归三定律:&lt;/p&gt;
@@ -4067,11 +4067,11 @@ flipcode：翻转方式
         </item>
         <item>
         <title>Python-数据结构</title>
-        <link>https://UPPO8.github.io/Mybolg/p/python-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+        <link>https://UPPO8.github.io/Myblog/p/python-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
         <pubDate>Mon, 21 Oct 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/python-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
-        <description>&lt;img src="https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png" alt="Featured image of post Python-数据结构" /&gt;&lt;h2 id=&#34;引入&#34;&gt;引入
+        <guid>https://UPPO8.github.io/Myblog/p/python-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
+        <description>&lt;img src="https://UPPO8.github.io/Myblog/images/PythonCourse/R-C.png" alt="Featured image of post Python-数据结构" /&gt;&lt;h2 id=&#34;引入&#34;&gt;引入
 &lt;/h2&gt;&lt;p&gt;需要统计动物园中熊猫的姓名（name）、年龄（age）、性别（sex），在不考虑同名的情况下，要求：使用Python的数据类型进行统计。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -4136,7 +4136,7 @@ flipcode：翻转方式
 &lt;li&gt;None:链表中最后一个节点的指针域为None.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;单链表结构：
-&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/PythonCourse/dan.png&#34;
+&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/PythonCourse/dan.png&#34;
 	
 	
 	
@@ -4391,7 +4391,7 @@ flipcode：翻转方式
 &lt;li&gt;一个节点具有向前连接的引用，也有一个向后连接的引用&lt;/li&gt;
 &lt;li&gt;双向列表可以有效的解决单向链表中提到的问题。&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/PythonCourse/shuang.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/PythonCourse/shuang.png&#34;
 	
 	
 	
@@ -4814,7 +4814,7 @@ flipcode：翻转方式
 &lt;/div&gt;&lt;h2 id=&#34;队列queue&#34;&gt;队列（Queue）
 &lt;/h2&gt;&lt;p&gt;队列也是一种数据结构，在队列中的插入和删除都遵循先进先出的原则。元素可以在任何时刻从队尾插入，但是只有在队列最前面的元素才能被取出或则删除。通常将队列中允许插入的一端称为队尾，将允许删除的一端称为队头，不允许在中间部位进行操作。&lt;/p&gt;
 &lt;p&gt;队列的结构：
-&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/PythonCourse/5675.png&#34;
+&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/PythonCourse/5675.png&#34;
 	
 	
 	
@@ -4965,7 +4965,7 @@ flipcode：翻转方式
 &lt;/div&gt;&lt;h3 id=&#34;双端队列&#34;&gt;双端队列
 &lt;/h3&gt;&lt;p&gt;双端队列支持队列的头部和尾部进去插入和删除操作，是一种具有队列和栈的性质的数据结果。&lt;/p&gt;
 &lt;p&gt;双端队列结构：
-&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/PythonCourse/5676.png&#34;
+&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/PythonCourse/5676.png&#34;
 	
 	
 	
@@ -5110,11 +5110,11 @@ flipcode：翻转方式
         </item>
         <item>
         <title>Python-多线程</title>
-        <link>https://UPPO8.github.io/Mybolg/p/python-%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
+        <link>https://UPPO8.github.io/Myblog/p/python-%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
         <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/python-%E5%A4%9A%E7%BA%BF%E7%A8%8B/</guid>
-        <description>&lt;img src="https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png" alt="Featured image of post Python-多线程" /&gt;&lt;h2 id=&#34;多线程的基本概念&#34;&gt;多线程的基本概念
+        <guid>https://UPPO8.github.io/Myblog/p/python-%E5%A4%9A%E7%BA%BF%E7%A8%8B/</guid>
+        <description>&lt;img src="https://UPPO8.github.io/Myblog/images/PythonCourse/R-C.png" alt="Featured image of post Python-多线程" /&gt;&lt;h2 id=&#34;多线程的基本概念&#34;&gt;多线程的基本概念
 &lt;/h2&gt;&lt;h3 id=&#34;线程的概念&#34;&gt;线程的概念
 &lt;/h3&gt;&lt;p&gt;线程是操作系统能够进行运算调度的最小单位，它被包含在进程之中，是进程内的实际执行单元。进程是资源分配的最小单位，而线程是调度的最小单位。与进程的创建不同，线程在创建时除了会申请线程本身所必须的资源之外，其他的资源比如内存空间、文件描述符等资源会使用进程中已经存在的资源，并且一个进程中的多个线程会共享本进程中的内存空间、文件描述符等大部分资源。需要注意的是，线程不具备进程级别的隔离性，一旦所属进程崩溃，虽然不会影响到其他进程，但该进程内的所有线程都将终止。&lt;/p&gt;
 &lt;h3 id=&#34;多线程与多进程的区别&#34;&gt;多线程与多进程的区别
@@ -5539,11 +5539,11 @@ b1ock=Fa1se)。如果队列已满，立即引发完全异常&lt;/li&gt;
         </item>
         <item>
         <title>Python-多进程</title>
-        <link>https://UPPO8.github.io/Mybolg/p/python-%E5%A4%9A%E8%BF%9B%E7%A8%8B/</link>
+        <link>https://UPPO8.github.io/Myblog/p/python-%E5%A4%9A%E8%BF%9B%E7%A8%8B/</link>
         <pubDate>Tue, 15 Oct 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/python-%E5%A4%9A%E8%BF%9B%E7%A8%8B/</guid>
-        <description>&lt;img src="https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png" alt="Featured image of post Python-多进程" /&gt;&lt;h2 id=&#34;串行执行并发执行并行执行&#34;&gt;串行执行、并发执行、并行执行
+        <guid>https://UPPO8.github.io/Myblog/p/python-%E5%A4%9A%E8%BF%9B%E7%A8%8B/</guid>
+        <description>&lt;img src="https://UPPO8.github.io/Myblog/images/PythonCourse/R-C.png" alt="Featured image of post Python-多进程" /&gt;&lt;h2 id=&#34;串行执行并发执行并行执行&#34;&gt;串行执行、并发执行、并行执行
 &lt;/h2&gt;&lt;p&gt;串行执行、并发执行和并行执行是计算机程序执行方式的三个不同阶段，它们的发展历史与计算机硬件和软件的进步紧密相关。&lt;/p&gt;
 &lt;h3 id=&#34;串行执行&#34;&gt;串行执行
 &lt;/h3&gt;&lt;p&gt;串行执行属于最早期的程序执行方式，是指任务按顺序一个接一个地执行在串行执行中，一个任务必须等待前一个任务完成后才能开始执行。这种执行方式简单、易于控制，但效率较低，特别是在处理大量任务时，因为CPU的云算能力没有得到充分利用。在早期计算机系统中非常普遍，因为当时的硬件资源有限，且CPU的能力远不如现在，无法同时执行多个任务，并且大部分计算机都只有一个CPU。因此程序设计通常采用串行执行，在这一时期计算机主要用于科学计算和军事目的，任务通常是简单的、顺序的，不需要复杂的并发或并行处理。&lt;/p&gt;
@@ -6401,11 +6401,11 @@ b1ock=Fa1se)。如果队列已满，立即引发完全异常&lt;/li&gt;
         </item>
         <item>
         <title>Python文件操作</title>
-        <link>https://UPPO8.github.io/Mybolg/p/python%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/</link>
+        <link>https://UPPO8.github.io/Myblog/p/python%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/</link>
         <pubDate>Mon, 14 Oct 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/python%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/</guid>
-        <description>&lt;img src="https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png" alt="Featured image of post Python文件操作" /&gt;&lt;h2 id=&#34;文件操作&#34;&gt;文件操作
+        <guid>https://UPPO8.github.io/Myblog/p/python%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/</guid>
+        <description>&lt;img src="https://UPPO8.github.io/Myblog/images/PythonCourse/R-C.png" alt="Featured image of post Python文件操作" /&gt;&lt;h2 id=&#34;文件操作&#34;&gt;文件操作
 &lt;/h2&gt;&lt;h3 id=&#34;文件操作的重要性&#34;&gt;文件操作的重要性
 &lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;数据持久化&lt;/strong&gt;:文件是存储数据的一种非常基本且重要的方式。通过文件，我们可以将程序运行时产生的数据永久保存下来，以便将来使用。&lt;/li&gt;
@@ -6835,11 +6835,11 @@ os.path.join(path,*paths)
         </item>
         <item>
         <title>Python的正则表达式</title>
-        <link>https://UPPO8.github.io/Mybolg/p/python%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
+        <link>https://UPPO8.github.io/Myblog/p/python%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
         <pubDate>Sun, 13 Oct 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/python%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
-        <description>&lt;img src="https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png" alt="Featured image of post Python的正则表达式" /&gt;&lt;h2 id=&#34;正则表达式&#34;&gt;正则表达式
+        <guid>https://UPPO8.github.io/Myblog/p/python%E7%9A%84%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
+        <description>&lt;img src="https://UPPO8.github.io/Myblog/images/PythonCourse/R-C.png" alt="Featured image of post Python的正则表达式" /&gt;&lt;h2 id=&#34;正则表达式&#34;&gt;正则表达式
 &lt;/h2&gt;&lt;p&gt;正则表达式，又称规则表达式，(Regular Expression，在代码中常简写为regex、regexp或RE)，是一种文体模式，包括普通字符(例如，a到z之间的字母)和特殊字符(称为&amp;quot;元字符&amp;quot;)。正则表达式使用单个字符串来描述。匹配一系列符合某个句法规则的字符串，通常被用来检索、替换那些符合某个模式(规则)的文本。通俗的说，正则表达式就是一种语法规则，用来匹配文本中的文本。&lt;/p&gt;
 &lt;h3 id=&#34;rematch&#34;&gt;re.match
 &lt;/h3&gt;&lt;p&gt;该函数尝试从字符串的起始位置匹配，如果起始位置没有匹配成功的话，就返回None，否则会返回一个匹配对象，匹配对象的方法可参考下面的表格。&lt;/p&gt;
@@ -7167,11 +7167,11 @@ os.path.join(path,*paths)
         </item>
         <item>
         <title>Python模块与异常处理机制</title>
-        <link>https://UPPO8.github.io/Mybolg/p/python%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/</link>
+        <link>https://UPPO8.github.io/Myblog/p/python%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/</link>
         <pubDate>Fri, 11 Oct 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/python%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/</guid>
-        <description>&lt;img src="https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png" alt="Featured image of post Python模块与异常处理机制" /&gt;&lt;h2 id=&#34;模块与包&#34;&gt;模块与包
+        <guid>https://UPPO8.github.io/Myblog/p/python%E6%A8%A1%E5%9D%97%E4%B8%8E%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%E6%9C%BA%E5%88%B6/</guid>
+        <description>&lt;img src="https://UPPO8.github.io/Myblog/images/PythonCourse/R-C.png" alt="Featured image of post Python模块与异常处理机制" /&gt;&lt;h2 id=&#34;模块与包&#34;&gt;模块与包
 &lt;/h2&gt;&lt;h3 id=&#34;模块的概念&#34;&gt;模块的概念
 &lt;/h3&gt;&lt;p&gt;模块就是一个包含了Python代码的.py为后缀的Python文件，可以被其他Python程序导入和使用，也可以自己独立执行，里面存放着一组相关的函数或者类，比如产看关键字列表时导入的keyword模块。&lt;/p&gt;
 &lt;p&gt;模块的导入有以下几种形式：&lt;/p&gt;
@@ -7444,11 +7444,11 @@ os.path.join(path,*paths)
         </item>
         <item>
         <title>Python的类</title>
-        <link>https://UPPO8.github.io/Mybolg/p/python%E7%9A%84%E7%B1%BB/</link>
+        <link>https://UPPO8.github.io/Myblog/p/python%E7%9A%84%E7%B1%BB/</link>
         <pubDate>Thu, 10 Oct 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/python%E7%9A%84%E7%B1%BB/</guid>
-        <description>&lt;img src="https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png" alt="Featured image of post Python的类" /&gt;&lt;h2 id=&#34;面向过程和面向对象&#34;&gt;面向过程和面向对象
+        <guid>https://UPPO8.github.io/Myblog/p/python%E7%9A%84%E7%B1%BB/</guid>
+        <description>&lt;img src="https://UPPO8.github.io/Myblog/images/PythonCourse/R-C.png" alt="Featured image of post Python的类" /&gt;&lt;h2 id=&#34;面向过程和面向对象&#34;&gt;面向过程和面向对象
 &lt;/h2&gt;&lt;p&gt;面向过程【POP】是一种以过程为中心的编程思想，将程序看作一系列的命令，函数或过程的集合，主要是解决问的步骤和过程。程序被划分为一系列的函数，每个函数扶着完成一个特定的任务。数据在整个程序都是自由流动的，任何函数都可以访问和修改数据。&lt;/p&gt;
 &lt;p&gt;面向对象编程【OOP】是将程序看作一系列对象的集合，每个对象都是独立
 的个体，包含数据和操作这些数据的方法。这些对象之间通过发送消息来相互共同解决某种问题。&lt;/p&gt;
@@ -7838,11 +7838,11 @@ os.path.join(path,*paths)
         </item>
         <item>
         <title>Python-函数</title>
-        <link>https://UPPO8.github.io/Mybolg/p/python-%E5%87%BD%E6%95%B0/</link>
+        <link>https://UPPO8.github.io/Myblog/p/python-%E5%87%BD%E6%95%B0/</link>
         <pubDate>Wed, 09 Oct 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/python-%E5%87%BD%E6%95%B0/</guid>
-        <description>&lt;img src="https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png" alt="Featured image of post Python-函数" /&gt;&lt;h2 id=&#34;函数的概念&#34;&gt;函数的概念
+        <guid>https://UPPO8.github.io/Myblog/p/python-%E5%87%BD%E6%95%B0/</guid>
+        <description>&lt;img src="https://UPPO8.github.io/Myblog/images/PythonCourse/R-C.png" alt="Featured image of post Python-函数" /&gt;&lt;h2 id=&#34;函数的概念&#34;&gt;函数的概念
 &lt;/h2&gt;&lt;p&gt;函数：具有独立功能的代码块，使用函数名封装，通过函数名进行调用。其出现的目的就是为了代码的重复使用。&lt;/p&gt;
 &lt;p&gt;Python中的函数分为两类：&lt;br&gt;
 内置函数：在Python内部封装好的函数，比如前面用到的print()、input()等。&lt;br&gt;
@@ -8123,11 +8123,11 @@ return可以出现在函数的任意位置用于结束函数，但是一般放�
         </item>
         <item>
         <title>Python的第三方库1</title>
-        <link>https://UPPO8.github.io/Mybolg/p/python%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%931/</link>
+        <link>https://UPPO8.github.io/Myblog/p/python%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%931/</link>
         <pubDate>Mon, 07 Oct 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/python%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%931/</guid>
-        <description>&lt;img src="https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png" alt="Featured image of post Python的第三方库1" /&gt;&lt;h2 id=&#34;numpy库httpsnumpyorgcn&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://numpy.org.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+        <guid>https://UPPO8.github.io/Myblog/p/python%E7%9A%84%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%931/</guid>
+        <description>&lt;img src="https://UPPO8.github.io/Myblog/images/PythonCourse/R-C.png" alt="Featured image of post Python的第三方库1" /&gt;&lt;h2 id=&#34;numpy库&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://numpy.org.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Numpy库&lt;/a&gt;
 &lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://numpy.org.cn/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Numpy&lt;/a&gt;是Python中的一个扩展程序库，用于大量的维度数组与矩阵运算，同时针对数组运算提供了大量函数库。&lt;/p&gt;
@@ -8222,7 +8222,7 @@ return可以出现在函数的任意位置用于结束函数，但是一般放�
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;T&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;pandas数据分析库httpspypandascndocs&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://pypandas.cn/docs/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;/div&gt;&lt;h2 id=&#34;pandas数据分析库&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://pypandas.cn/docs/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Pandas数据分析库&lt;/a&gt;
 &lt;/h2&gt;&lt;p&gt;Series对象是Pandas中的一堆数据结构，能存储不同类型的数据。可以传入数字、列表、字典等类型，将该打印该对象同时会打印索引。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -8253,7 +8253,7 @@ return可以出现在函数的任意位置用于结束函数，但是一般放�
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;matplotlib绘图库httpsmatplotlibnet&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://matplotlib.net&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;/div&gt;&lt;h2 id=&#34;matplotlib绘图库&#34;&gt;&lt;a class=&#34;link&#34; href=&#34;https://matplotlib.net&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Matplotlib绘图库&lt;/a&gt;
 &lt;/h2&gt;&lt;p&gt;绘制一个正弦函数示例图：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -8293,7 +8293,7 @@ return可以出现在函数的任意位置用于结束函数，但是一般放�
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;得到正弦函数:
-&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/PythonCourse/myplot.png&#34;
+&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/PythonCourse/myplot.png&#34;
 	
 	
 	
@@ -8307,11 +8307,11 @@ return可以出现在函数的任意位置用于结束函数，但是一般放�
         </item>
         <item>
         <title>Python基础语法4</title>
-        <link>https://UPPO8.github.io/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%954/</link>
+        <link>https://UPPO8.github.io/Myblog/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%954/</link>
         <pubDate>Wed, 02 Oct 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%954/</guid>
-        <description>&lt;img src="https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png" alt="Featured image of post Python基础语法4" /&gt;&lt;h2 id=&#34;数据类型-列表&#34;&gt;数据类型-列表
+        <guid>https://UPPO8.github.io/Myblog/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%954/</guid>
+        <description>&lt;img src="https://UPPO8.github.io/Myblog/images/PythonCourse/R-C.png" alt="Featured image of post Python基础语法4" /&gt;&lt;h2 id=&#34;数据类型-列表&#34;&gt;数据类型-列表
 &lt;/h2&gt;&lt;p&gt;列表：是一种有序的元素集合，用于存储一组有序的数据，可以包含任意数量的元素，并且每个元素可以是不同的数据类型。与字符串不同的是，列表里的元素是可以修改的。&lt;/p&gt;
 &lt;p&gt;其表示方法为:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;    列表名称 = [元素1,元素2,....,元素n]
@@ -8710,11 +8710,11 @@ https://i.y.qq.com/n2/m/outchain/player/index.html?songid=102204539&amp;songtype
         </item>
         <item>
         <title>Python基础语法2</title>
-        <link>https://UPPO8.github.io/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952/</link>
+        <link>https://UPPO8.github.io/Myblog/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952/</link>
         <pubDate>Tue, 01 Oct 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952/</guid>
-        <description>&lt;img src="https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png" alt="Featured image of post Python基础语法2" /&gt;&lt;h2 id=&#34;强制数据类型转换&#34;&gt;强制数据类型转换
+        <guid>https://UPPO8.github.io/Myblog/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952/</guid>
+        <description>&lt;img src="https://UPPO8.github.io/Myblog/images/PythonCourse/R-C.png" alt="Featured image of post Python基础语法2" /&gt;&lt;h2 id=&#34;强制数据类型转换&#34;&gt;强制数据类型转换
 &lt;/h2&gt;&lt;p&gt;type()函数可以用来查看一个变量的数据类型.目前常见的数据类型用下面几种:&lt;/p&gt;
 &lt;table&gt;
   &lt;thead&gt;
@@ -8968,11 +8968,11 @@ https://i.y.qq.com/n2/m/outchain/player/index.html?songid=509883527&amp;songtype
         </item>
         <item>
         <title>Python基础语法3</title>
-        <link>https://UPPO8.github.io/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%953/</link>
+        <link>https://UPPO8.github.io/Myblog/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%953/</link>
         <pubDate>Tue, 01 Oct 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%953/</guid>
-        <description>&lt;img src="https://UPPO8.github.io/Mybolg/images/PythonCourse/R-C.png" alt="Featured image of post Python基础语法3" /&gt;&lt;h2 id=&#34;数据类型-数字&#34;&gt;数据类型-数字
+        <guid>https://UPPO8.github.io/Myblog/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%953/</guid>
+        <description>&lt;img src="https://UPPO8.github.io/Myblog/images/PythonCourse/R-C.png" alt="Featured image of post Python基础语法3" /&gt;&lt;h2 id=&#34;数据类型-数字&#34;&gt;数据类型-数字
 &lt;/h2&gt;&lt;p&gt;在Python中,数字类型包括以下几种:&lt;/p&gt;
 &lt;p&gt;1.整型int( ):包括正整数,负整数和0,在程序中的表达与数学上一致&lt;/p&gt;
 &lt;p&gt;2.浮点型float( ):小数.&lt;/p&gt;
@@ -9216,14 +9216,14 @@ https://i.y.qq.com/n2/m/outchain/player/index.html?songid=521726934&amp;songtype
         </item>
         <item>
         <title>Python基础语法1</title>
-        <link>https://UPPO8.github.io/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%951/</link>
+        <link>https://UPPO8.github.io/Myblog/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%951/</link>
         <pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%951/</guid>
-        <description>&lt;img src="https://UPPO8.github.io/Mybolg/images/PythonCourse/write-plan.jpg" alt="Featured image of post Python基础语法1" /&gt;&lt;h2 id=&#34;引言&#34;&gt;引言
+        <guid>https://UPPO8.github.io/Myblog/p/python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%951/</guid>
+        <description>&lt;img src="https://UPPO8.github.io/Myblog/images/PythonCourse/write-plan.jpg" alt="Featured image of post Python基础语法1" /&gt;&lt;h2 id=&#34;引言&#34;&gt;引言
 &lt;/h2&gt;&lt;p&gt;Python作者：Guido von Rossum(吉多·范·罗苏姆)&lt;br&gt;
 诞生时期：1991年，第一个Python解释器诞生.它是用C语言实现的，并能够调用C语言的库文件.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Mybolg/Mybolg/images/PythonCourse/Guido-van-Rossum.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://UPPO8.github.io/Myblog/images/PythonCourse/Guido-van-Rossum.png&#34;
 	
 	
 	
@@ -9595,10 +9595,10 @@ https://i.y.qq.com/n2/m/outchain/player/index.html?songid=509886941&amp;songtype
         </item>
         <item>
         <title>使用Python爬取百度图片</title>
-        <link>https://UPPO8.github.io/Mybolg/p/%E4%BD%BF%E7%94%A8python%E7%88%AC%E5%8F%96%E7%99%BE%E5%BA%A6%E5%9B%BE%E7%89%87/</link>
+        <link>https://UPPO8.github.io/Myblog/p/%E4%BD%BF%E7%94%A8python%E7%88%AC%E5%8F%96%E7%99%BE%E5%BA%A6%E5%9B%BE%E7%89%87/</link>
         <pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/%E4%BD%BF%E7%94%A8python%E7%88%AC%E5%8F%96%E7%99%BE%E5%BA%A6%E5%9B%BE%E7%89%87/</guid>
+        <guid>https://UPPO8.github.io/Myblog/p/%E4%BD%BF%E7%94%A8python%E7%88%AC%E5%8F%96%E7%99%BE%E5%BA%A6%E5%9B%BE%E7%89%87/</guid>
         <description>&lt;p&gt;使用Python爬取百度图片&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -9698,10 +9698,10 @@ https://i.y.qq.com/n2/m/outchain/player/index.html?songid=509886941&amp;songtype
         </item>
         <item>
         <title>网页嵌入式音乐播放器</title>
-        <link>https://UPPO8.github.io/Mybolg/p/%E7%BD%91%E9%A1%B5%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/</link>
+        <link>https://UPPO8.github.io/Myblog/p/%E7%BD%91%E9%A1%B5%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/</link>
         <pubDate>Mon, 30 Sep 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/%E7%BD%91%E9%A1%B5%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/</guid>
+        <guid>https://UPPO8.github.io/Myblog/p/%E7%BD%91%E9%A1%B5%E5%B5%8C%E5%85%A5%E5%BC%8F%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/</guid>
         <description>&lt;h2 id=&#34;添加网易云音乐&#34;&gt;添加网易云音乐:
 &lt;/h2&gt;&lt;p&gt;在网易云音乐页面,点击一首歌曲,
 例如:&lt;a class=&#34;link&#34; href=&#34;https://music.163.com/#/song?id=416385506&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -9718,10 +9718,10 @@ https://i.y.qq.com/n2/m/outchain/player/index.html?songid=517907086&amp;songtype
         </item>
         <item>
         <title>关于</title>
-        <link>https://UPPO8.github.io/Mybolg/%E5%85%B3%E4%BA%8E/</link>
+        <link>https://UPPO8.github.io/Myblog/%E5%85%B3%E4%BA%8E/</link>
         <pubDate>Tue, 24 Sep 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/%E5%85%B3%E4%BA%8E/</guid>
+        <guid>https://UPPO8.github.io/Myblog/%E5%85%B3%E4%BA%8E/</guid>
         <description>&lt;p&gt;这是我的Github：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/UPPO8/Mybolg&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -9743,35 +9743,35 @@ https://i.y.qq.com/n2/m/outchain/player/index.html?songid=517907086&amp;songtype
         </item>
         <item>
         <title>归档</title>
-        <link>https://UPPO8.github.io/Mybolg/archives/</link>
+        <link>https://UPPO8.github.io/Myblog/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/archives/</guid>
+        <guid>https://UPPO8.github.io/Myblog/archives/</guid>
         <description></description>
         </item>
         <item>
         <title></title>
-        <link>https://UPPO8.github.io/Mybolg/p/</link>
+        <link>https://UPPO8.github.io/Myblog/p/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/p/</guid>
+        <guid>https://UPPO8.github.io/Myblog/p/</guid>
         <description></description>
         </item>
         <item>
         <title>Links</title>
-        <link>https://UPPO8.github.io/Mybolg/links/</link>
+        <link>https://UPPO8.github.io/Myblog/links/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/links/</guid>
+        <guid>https://UPPO8.github.io/Myblog/links/</guid>
         <description>&lt;p&gt;友情链接&lt;/p&gt;
 </description>
         </item>
         <item>
         <title>搜索</title>
-        <link>https://UPPO8.github.io/Mybolg/search/</link>
+        <link>https://UPPO8.github.io/Myblog/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>https://UPPO8.github.io/Mybolg/search/</guid>
+        <guid>https://UPPO8.github.io/Myblog/search/</guid>
         <description></description>
         </item>
         
